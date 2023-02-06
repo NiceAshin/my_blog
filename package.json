@@ -1,0 +1,23 @@
+{
+  "name": "AshinBlog",
+  "version": "1.0.0",
+  "author": "reco_luan",
+  "keywords": [
+    "documentation",
+    "generator",
+    "vue"
+  ],
+  "homepage": "https://gitee.com/ashin_zhang",
+  "bugs": {
+    "url": "https://gitee.com/ashin_zhang/my_blog/issues"
+  },
+  "scripts": {
+    "dev": "vuepress dev . --open --host \"localhost\"",
+    "build": "vuepress build ."
+  },
+  "devDependencies": {
+    "vuepress": "1.8.2",
+    "vuepress-theme-reco": "1.6.10"
+  },
+  "description": "莫等闲，白了少年头，空悲切."
+}
