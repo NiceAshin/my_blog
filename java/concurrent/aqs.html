@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AQS队列同步器 | AshinBlog</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="莫等闲，白了少年头，空悲切.">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.a5a0d673.css" as="style"><link rel="preload" href="/assets/js/app.86174523.js" as="script"><link rel="preload" href="/assets/js/3.cacabd98.js" as="script"><link rel="preload" href="/assets/js/1.2cb17530.js" as="script"><link rel="preload" href="/assets/js/71.bc81d240.js" as="script"><link rel="prefetch" href="/assets/js/10.91f36e9b.js"><link rel="prefetch" href="/assets/js/100.2b946459.js"><link rel="prefetch" href="/assets/js/101.1d3f0af8.js"><link rel="prefetch" href="/assets/js/102.ddf045ef.js"><link rel="prefetch" href="/assets/js/103.45e073dc.js"><link rel="prefetch" href="/assets/js/104.587c0aea.js"><link rel="prefetch" href="/assets/js/105.b4031cc1.js"><link rel="prefetch" href="/assets/js/106.d7bd448d.js"><link rel="prefetch" href="/assets/js/107.9564489a.js"><link rel="prefetch" href="/assets/js/108.b327fac3.js"><link rel="prefetch" href="/assets/js/109.dacc8d54.js"><link rel="prefetch" href="/assets/js/11.0b25ab2c.js"><link rel="prefetch" href="/assets/js/110.ab926727.js"><link rel="prefetch" href="/assets/js/111.6a8e2bf3.js"><link rel="prefetch" href="/assets/js/112.c9e251a0.js"><link rel="prefetch" href="/assets/js/113.cbd47b03.js"><link rel="prefetch" href="/assets/js/114.8f554723.js"><link rel="prefetch" href="/assets/js/115.9c1a4655.js"><link rel="prefetch" href="/assets/js/12.e605de23.js"><link rel="prefetch" href="/assets/js/13.23cedc1b.js"><link rel="prefetch" href="/assets/js/14.2a85eb49.js"><link rel="prefetch" href="/assets/js/15.199b58d5.js"><link rel="prefetch" href="/assets/js/16.2fca350f.js"><link rel="prefetch" href="/assets/js/17.9c4b38df.js"><link rel="prefetch" href="/assets/js/18.10ee8971.js"><link rel="prefetch" href="/assets/js/19.b4c06b9a.js"><link rel="prefetch" href="/assets/js/20.593d6a2c.js"><link rel="prefetch" href="/assets/js/21.88b03659.js"><link rel="prefetch" href="/assets/js/22.023b27b3.js"><link rel="prefetch" href="/assets/js/23.3876a076.js"><link rel="prefetch" href="/assets/js/24.113d8797.js"><link rel="prefetch" href="/assets/js/25.b1189727.js"><link rel="prefetch" href="/assets/js/26.3c83d0bd.js"><link rel="prefetch" href="/assets/js/27.066691cd.js"><link rel="prefetch" href="/assets/js/28.f99c94c5.js"><link rel="prefetch" href="/assets/js/29.11ebbda1.js"><link rel="prefetch" href="/assets/js/30.1109505e.js"><link rel="prefetch" href="/assets/js/31.15a83c33.js"><link rel="prefetch" href="/assets/js/32.ace89abe.js"><link rel="prefetch" href="/assets/js/33.8b3e6ad7.js"><link rel="prefetch" href="/assets/js/34.3ee18d3c.js"><link rel="prefetch" href="/assets/js/35.274c7d77.js"><link rel="prefetch" href="/assets/js/36.a672a956.js"><link rel="prefetch" href="/assets/js/37.eb79dc0e.js"><link rel="prefetch" href="/assets/js/38.baecb4b8.js"><link rel="prefetch" href="/assets/js/39.85a6c812.js"><link rel="prefetch" href="/assets/js/4.b9a535ca.js"><link rel="prefetch" href="/assets/js/40.076fd2e8.js"><link rel="prefetch" href="/assets/js/41.da21dd69.js"><link rel="prefetch" href="/assets/js/42.f403eddf.js"><link rel="prefetch" href="/assets/js/43.8049f61b.js"><link rel="prefetch" href="/assets/js/44.74aaf82f.js"><link rel="prefetch" href="/assets/js/45.0008ec30.js"><link rel="prefetch" href="/assets/js/46.70acfe24.js"><link rel="prefetch" href="/assets/js/47.7d41b337.js"><link rel="prefetch" href="/assets/js/48.e86b3da0.js"><link rel="prefetch" href="/assets/js/49.4503850d.js"><link rel="prefetch" href="/assets/js/5.c87d44cc.js"><link rel="prefetch" href="/assets/js/50.043cb5d3.js"><link rel="prefetch" href="/assets/js/51.aa2cfcd5.js"><link rel="prefetch" href="/assets/js/52.ad716fb9.js"><link rel="prefetch" href="/assets/js/53.ec9f0eec.js"><link rel="prefetch" href="/assets/js/54.059312d3.js"><link rel="prefetch" href="/assets/js/55.1f7c6a9c.js"><link rel="prefetch" href="/assets/js/56.be4b0077.js"><link rel="prefetch" href="/assets/js/57.2ffa6523.js"><link rel="prefetch" href="/assets/js/58.a711c21b.js"><link rel="prefetch" href="/assets/js/59.afed55ff.js"><link rel="prefetch" href="/assets/js/6.d2bf6dfd.js"><link rel="prefetch" href="/assets/js/60.95714a92.js"><link rel="prefetch" href="/assets/js/61.0e74f3a6.js"><link rel="prefetch" href="/assets/js/62.3c68e6b9.js"><link rel="prefetch" href="/assets/js/63.4213a9fd.js"><link rel="prefetch" href="/assets/js/64.600ebc49.js"><link rel="prefetch" href="/assets/js/65.1a841ba0.js"><link rel="prefetch" href="/assets/js/66.74133c22.js"><link rel="prefetch" href="/assets/js/67.2942399e.js"><link rel="prefetch" href="/assets/js/68.4abc6693.js"><link rel="prefetch" href="/assets/js/69.4c6f0638.js"><link rel="prefetch" href="/assets/js/7.0dec3dbd.js"><link rel="prefetch" href="/assets/js/70.ba7006ea.js"><link rel="prefetch" href="/assets/js/72.0d862ae5.js"><link rel="prefetch" href="/assets/js/73.29325abb.js"><link rel="prefetch" href="/assets/js/74.020ca374.js"><link rel="prefetch" href="/assets/js/75.7738b271.js"><link rel="prefetch" href="/assets/js/76.d61fc090.js"><link rel="prefetch" href="/assets/js/77.8e2875a0.js"><link rel="prefetch" href="/assets/js/78.972b9a90.js"><link rel="prefetch" href="/assets/js/79.92673e66.js"><link rel="prefetch" href="/assets/js/8.c6933fa8.js"><link rel="prefetch" href="/assets/js/80.d3ac2a88.js"><link rel="prefetch" href="/assets/js/81.a3ebc90b.js"><link rel="prefetch" href="/assets/js/82.bd583071.js"><link rel="prefetch" href="/assets/js/83.23d3bb00.js"><link rel="prefetch" href="/assets/js/84.645baa7c.js"><link rel="prefetch" href="/assets/js/85.4f559d45.js"><link rel="prefetch" href="/assets/js/86.709b12cd.js"><link rel="prefetch" href="/assets/js/87.786fdf47.js"><link rel="prefetch" href="/assets/js/88.e035a26f.js"><link rel="prefetch" href="/assets/js/89.4e668b7f.js"><link rel="prefetch" href="/assets/js/9.0157b753.js"><link rel="prefetch" href="/assets/js/90.a4b2dfb7.js"><link rel="prefetch" href="/assets/js/91.3699908b.js"><link rel="prefetch" href="/assets/js/92.908df2bb.js"><link rel="prefetch" href="/assets/js/93.21f5d3db.js"><link rel="prefetch" href="/assets/js/94.a06084e8.js"><link rel="prefetch" href="/assets/js/95.691f5b0d.js"><link rel="prefetch" href="/assets/js/96.8b0c837d.js"><link rel="prefetch" href="/assets/js/97.ce7262c3.js"><link rel="prefetch" href="/assets/js/98.4d045113.js"><link rel="prefetch" href="/assets/js/99.82add203.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a5a0d673.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>AshinBlog</h3> <p class="description" data-v-59e6cb88>莫等闲，白了少年头，空悲切.</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>AshinZhang</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2023
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="AshinBlog" class="logo"> <span class="site-name">AshinBlog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ddd/" class="nav-link"><i class="undefined"></i>
+  DDD
+</a></div><div class="nav-item"><a href="/microservice/" class="nav-link"><i class="undefined"></i>
+  微服务
+</a></div><div class="nav-item"><a href="/java/" class="nav-link router-link-active"><i class="undefined"></i>
+  Java
+</a></div><div class="nav-item"><a href="/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/docker/" class="nav-link"><i class="undefined"></i>
+  Docker
+</a></div><div class="nav-item"><a href="/ground/" class="nav-link"><i class="undefined"></i>
+  中间件
+</a></div><div class="nav-item"><a href="/cloud-native/" class="nav-link"><i class="undefined"></i>
+  云原生
+</a></div><div class="nav-item"><a href="/devops/" class="nav-link"><i class="undefined"></i>
+  Devops
+</a></div><div class="nav-item"><a href="/linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></div><div class="nav-item"><a href="/more/" class="nav-link"><i class="undefined"></i>
+  更多
+</a></div> <a href="https://gitee.com/ashin_zhang" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-source"></i>
+    Source
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    AshinZhang
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>99</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>4</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/ddd/" class="nav-link"><i class="undefined"></i>
+  DDD
+</a></div><div class="nav-item"><a href="/microservice/" class="nav-link"><i class="undefined"></i>
+  微服务
+</a></div><div class="nav-item"><a href="/java/" class="nav-link router-link-active"><i class="undefined"></i>
+  Java
+</a></div><div class="nav-item"><a href="/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/docker/" class="nav-link"><i class="undefined"></i>
+  Docker
+</a></div><div class="nav-item"><a href="/ground/" class="nav-link"><i class="undefined"></i>
+  中间件
+</a></div><div class="nav-item"><a href="/cloud-native/" class="nav-link"><i class="undefined"></i>
+  云原生
+</a></div><div class="nav-item"><a href="/devops/" class="nav-link"><i class="undefined"></i>
+  Devops
+</a></div><div class="nav-item"><a href="/linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></div><div class="nav-item"><a href="/more/" class="nav-link"><i class="undefined"></i>
+  更多
+</a></div> <a href="https://gitee.com/ashin_zhang" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-source"></i>
+    Source
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88></h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>AshinZhang</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2023
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">AQS队列同步器</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>AshinZhang</span></i> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="aqs队列同步器"><a href="#aqs队列同步器" class="header-anchor">#</a> AQS队列同步器</h1> <p>队列同步器类: AbstractQueuedSynchronizer.</p> <p>AQS通过内置的FIFO队列完成资源获取线程的排队工作.</p> <p>AQS自身没有实现任何同步接口, 仅仅是定义了若干同步状态获取和释放的方法供自定义组件使用, 同步器既可以支持独占式的获取同步状态, 也可以支持共享式的获取同步状态.</p> <p>AQS面向锁, 锁面向使用者.</p> <h2 id="aqs的内置方法"><a href="#aqs的内置方法" class="header-anchor">#</a> AQS的内置方法</h2> <p>AQS是基于模板方法模式设计的. 其中可重写方法包括:</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>    <span class="token comment">/**
+     * 独占式获取同步状态, 实现该方法需要查询当前状态并判断
+     * 同步状态是否符合预期, 然后再进行CAS设置同步状态
+     */</span>
+    <span class="token keyword">protected</span> <span class="token keyword">boolean</span> <span class="token function">tryAcquire</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">/**
+     * 独占式释放同步状态, 等待获取同步状态的线程将有机会获取同步状态
+     */</span>
+    <span class="token keyword">protected</span> <span class="token keyword">boolean</span> <span class="token function">tryRelease</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    
+    <span class="token comment">/**
+     * 共享式获取同步状态, 返回 &gt;= 0的值, 表示获取成功, 反之, 获取失败
+     */</span>
+    <span class="token keyword">protected</span> <span class="token keyword">int</span> <span class="token function">tryAcquireShared</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    
+    <span class="token comment">/**
+     * 共享式释放同步状态
+     */</span>
+    <span class="token keyword">protected</span> <span class="token keyword">boolean</span> <span class="token function">tryReleaseShared</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    
+    <span class="token comment">/**
+     * 当前同步器是否在独占模式下被线程占用, 一般该方法标示是否被当前线程占用
+     */</span>
+    <span class="token keyword">protected</span> <span class="token keyword">boolean</span> <span class="token function">isHeldExclusively</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><p>AQS提供的模版方法包括:</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>    <span class="token comment">/**
+     * 独占式获取同步状态, 如果当前线程获取同步状态成功, 则由该方法返回.
+     * 否则, 调用此方法的线程将会进入同步队列等待, 该方法将对调用重写的tryAcquire(int arg)
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">acquire</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">/**
+     * 响应中断的acquire(int arg), 当前线程被中断时, 抛出InterruptException 
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">acquireInterruptibly</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span>   
+
+    <span class="token comment">/**
+     * 在acquireInterruptibly(int arg)的基础上增加了超时限制, 
+     * 如果规定时间内没有获取到同步状态, 将会返回false, 否则返回true
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">tryAcquireNanos</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">,</span> <span class="token keyword">long</span> nanos<span class="token punctuation">)</span><span class="token punctuation">;</span>     
+    
+    <span class="token comment">/**
+     * 共享式获取同步状态, 与独占式的主要区别是同一时刻可以有多个线程获取到同步状态
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">acquireShared</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+        
+    <span class="token comment">/**
+     * 可中断的共享式获取同步状态
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">acquireSharedInterruptibly</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * acquireSharedInterruptibly(int arg)的基础上增加了超时限制
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">tryAcquireSharedNanos</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">,</span> <span class="token keyword">long</span> nanos<span class="token punctuation">)</span><span class="token punctuation">;</span>    
+    
+    <span class="token comment">/**
+     * 独占式释放同步状态, 该方法在释放同步状态之后, 将同步队列第一个节点唤醒
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">release</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    
+    <span class="token comment">/**
+     * 共享式释放同步状态
+     */</span>
+    <span class="token keyword">boolean</span> <span class="token function">releaseShared</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span>     
+    
+    <span class="token comment">/**
+     * 获取等待在同步队列上的线程集合
+     */</span>
+    <span class="token class-name">Collection</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Thread</span><span class="token punctuation">&gt;</span></span> <span class="token function">getQueuedThreads</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><h2 id="同步队列"><a href="#同步队列" class="header-anchor">#</a> 同步队列</h2> <p>AQS内部维护了一个FIFO的双向队列. 当线程获取同步状态失败时, 同步器会将当前线程以及等待状态等信息封装为一个Node并将其加入到同步队列中, 同时会阻塞当前线程,
+当同步状态释放时, 会把首节点的线程唤醒, 使其再次尝试获取同步状态.</p> <h3 id="node类"><a href="#node类" class="header-anchor">#</a> Node类</h3> <hr> <p>Node类用于保存获取同步状态失败的线程引用, 等待状态, 前后节点信息. Node类的属性描述如下:</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>    <span class="token comment">/**
+     * 等待状态
+     * 1. INITIAL.     值为0
+     * 2. CANCELLED.   值为1, 当这个节点的线程等待超时或者被中断时进入这个状态,
+     *                       节点进入该状态后不会再变化
+     * 3. SIGNAL.      值为-1,后继节点处于等待状态, 而当前节点的线程如果释放了同步状态或取消,
+     *                       将会通知后继节点, 使后继节点得以运行.　
+     * 4. condition.   值为-2,节点在等待队列中, 节点线程等待在Condition上,
+     *                       当其他线程对Condition调用了signal()后,该节点将会从等待队列转移到同步队列中.
+     * 5. propagate.   值为-3,表示下一次共享式同步状态获取将会无条件的传播下去.
+     */</span>
+    <span class="token keyword">volatile</span> <span class="token keyword">int</span> waitStatus<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 当前节点的前驱节点
+     */</span>
+    <span class="token keyword">volatile</span> <span class="token class-name">Node</span> prev<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 当前节点的后继节点
+     */</span>
+    <span class="token keyword">volatile</span> <span class="token class-name">Node</span> next<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 等待队列中的后继节点. 
+     * 如果当前节点是共享的,那么这个字段是一个SHARED常量, 也就是说节点类型(独占和共享)和等待队列中的后继节点公用同一个字段
+     */</span>
+    <span class="token keyword">volatile</span> <span class="token class-name">Node</span> nextWaiter<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 获取同步状态的线程
+     */</span>
+    <span class="token class-name">Thread</span> thread<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><h3 id="首尾节点更新"><a href="#首尾节点更新" class="header-anchor">#</a> 首尾节点更新</h3> <hr> <p>AQS持有同步队列的首节点和尾节点的引用, 如果有线程获取同步状态失败时, 同步器会采用线程安全的方法<strong>compareAndSetTail(Node expect,Node update)</strong>
+更新尾节点. 只有设置成功后, 新的尾节点才会与原来的为尾节点建立关联.</p> <p>同步队列遵循FIFO, 首节点是获取同步状态成功的节点, 首节点的线程释放同步状态后将会唤醒后继节点, 后继节点获取同步状态成功后将自己设置为
+首节点.</p> <p>设置首节点的工作是由成功获取同步状态的线程来完成的, 由于只有一个线程能够获取到同步状态, 所以不需要CAS来保证, 只需要将首节点设置为原首节点的后继节点,
+然后断开原首节点的next引用即可.</p> <h2 id="独占式同步状态获取与释放"><a href="#独占式同步状态获取与释放" class="header-anchor">#</a> 独占式同步状态获取与释放</h2> <div class="language-java line-numbers-mode"><pre class="language-java"><code>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">acquire</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>
+            <span class="token comment">//  tryAcquire(arg) 线程安全的独占式获取同步状态, 如果成功直接返回</span>
+            <span class="token operator">!</span><span class="token function">tryAcquire</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> 
+            <span class="token comment">//  addWaiter(Node.EXCLUSIVE)  构建一个新的同步节点并加入到同步队列的尾部</span>
+            <span class="token comment">//  acquireQueued(Node node, arg) 使新的同步节点以死循环的方式尝试获取同步状态</span>
+            <span class="token comment">//                                  若是获取不到则阻塞节点中的线程, 阻塞的唤醒依靠前驱节点的唤醒或被中断</span>
+            <span class="token function">acquireQueued</span><span class="token punctuation">(</span><span class="token function">addWaiter</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">.</span><span class="token constant">EXCLUSIVE</span><span class="token punctuation">)</span><span class="token punctuation">,</span> arg<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            
+            <span class="token function">selfInterrupt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h3 id="_1-新增同步节点"><a href="#_1-新增同步节点" class="header-anchor">#</a> 1. 新增同步节点</h3> <hr> <div class="language-java line-numbers-mode"><pre class="language-java"><code>
+    <span class="token keyword">private</span> <span class="token class-name">Node</span> <span class="token function">addWaiter</span><span class="token punctuation">(</span><span class="token class-name">Node</span> mode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">//  构造一个新的同步节点</span>
+            <span class="token class-name">Node</span> node <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">//  取到原尾节点赋值到一个临时变量</span>
+            <span class="token comment">// 注意, 在这里由于tail由volatile修饰, 所以这一步在并发访问时会是串行化的</span>
+            <span class="token class-name">Node</span> pred <span class="token operator">=</span> tail<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>pred <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">//  将新的同步节点的前驱节点设置为原尾节点</span>
+                node<span class="token punctuation">.</span>prev <span class="token operator">=</span> pred<span class="token punctuation">;</span>
+                <span class="token comment">//      线程安全的将AQS持有的尾节点引用替换为新的同步节点地址</span>
+                <span class="token comment">//        private final boolean compareAndSetTail(Node expect, Node update) {     </span>
+                <span class="token comment">//              return unsafe.compareAndSwapObject(this, tailOffset, expect, update);</span>
+                <span class="token comment">//        }</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">compareAndSetTail</span><span class="token punctuation">(</span>pred<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">// 5. 将原尾节点的后驱节点设置为新的同步节点(新尾节点)</span>
+                    pred<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment">// 通过死循环保证新的尾节点被正确添加   </span>
+            <span class="token function">enq</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            
+            <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">/**
+     * 通过死循环与CAS将并发添加尾节点的请求串行化
+     * node:   
+     */</span>   
+    <span class="token keyword">private</span> <span class="token class-name">Node</span> <span class="token function">enq</span><span class="token punctuation">(</span><span class="token keyword">final</span> <span class="token class-name">Node</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 由于tail和head是volatile修饰的, 又同时辅以CAS更新</span>
+                <span class="token comment">// 所以多线程竞争所以不会出现可见性问题, 可以顺利的串行化</span>
+                <span class="token class-name">Node</span> t <span class="token operator">=</span> tail<span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>t <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+                    <span class="token comment">// 初始化头尾</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">compareAndSetHead</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                        tail <span class="token operator">=</span> head<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    node<span class="token punctuation">.</span>prev <span class="token operator">=</span> t<span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">compareAndSetTail</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        t<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> t<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br></div></div><h3 id="_2-自旋获取同步状态"><a href="#_2-自旋获取同步状态" class="header-anchor">#</a> 2. 自旋获取同步状态</h3> <hr> <div class="language-java line-numbers-mode"><pre class="language-java"><code>
+    <span class="token comment">/**
+     * 新的同步节点进入同步队列后开始自旋获取同步状态
+     * node: 新节点
+     */</span>
+    <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">acquireQueued</span><span class="token punctuation">(</span><span class="token keyword">final</span> <span class="token class-name">Node</span> node<span class="token punctuation">,</span> <span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">boolean</span> failed <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">boolean</span> interrupted <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">//  当前节点的前驱节点</span>
+                <span class="token keyword">final</span> <span class="token class-name">Node</span> p <span class="token operator">=</span> node<span class="token punctuation">.</span><span class="token function">predecessor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">//  如果前驱节点是首节点 同时 当前节点也获取到了同步状态</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> head <span class="token operator">&amp;&amp;</span> <span class="token function">tryAcquire</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">//  将当前节点设置为首节点</span>
+                    <span class="token function">setHead</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token comment">//  原首节点已经释放同步状态, 需要取消与当前节点的关联</span>
+                    p<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// help GC</span>
+                    failed <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> interrupted<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token comment">//  shouldParkAfterFailedAcquire(p, node) 见名思义, 在获取同步状态失败之后应该进入等待了</span>
+                <span class="token comment">//  parkAndCheckInterrupt() 当前节点进入等待, 等待唤醒再入自旋</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">shouldParkAfterFailedAcquire</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> node<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+                    <span class="token function">parkAndCheckInterrupt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    interrupted <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>failed<span class="token punctuation">)</span>
+                <span class="token comment">// 7.同步状态没有获取到, 将当前节点置为取消状态</span>
+                <span class="token function">cancelAcquire</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">/**
+     * 后继节点在被唤醒进入自旋获取同步状态失败时会检查前驱节点(当前节点)的waitStatus是否是SIGNAL, 如果是,
+     *  再次进入等待, 等待下次唤醒再入自旋, 如果不是
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">shouldParkAfterFailedAcquire</span><span class="token punctuation">(</span><span class="token class-name">Node</span> pred<span class="token punctuation">,</span> <span class="token class-name">Node</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> ws <span class="token operator">=</span> pred<span class="token punctuation">.</span>waitStatus<span class="token punctuation">;</span>
+            <span class="token comment">// 当前节点在被唤醒进入自旋获取同步状态失败时会检查前驱节点的waitStatus是否是SIGNAL, </span>
+            <span class="token comment">// 如果是,再次进入等待, 等待下次唤醒再入自旋</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>ws <span class="token operator">==</span> <span class="token class-name">Node</span><span class="token punctuation">.</span><span class="token constant">SIGNAL</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token comment">// 如果不是, 跳过同步队列中当前节点之前的所有失效节点去关联同步队列中的最后一个有效节点</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>ws <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">do</span> <span class="token punctuation">{</span>
+                    node<span class="token punctuation">.</span>prev <span class="token operator">=</span> pred <span class="token operator">=</span> pred<span class="token punctuation">.</span>prev<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>pred<span class="token punctuation">.</span>waitStatus <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                pred<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+              
+                <span class="token comment">// 如果前驱节点没有取消, 那么CAS把前驱的waitStatus修改为SIGNAL ,然后return false, 当前节点继续自旋</span>
+                <span class="token function">compareAndSetWaitStatus</span><span class="token punctuation">(</span>pred<span class="token punctuation">,</span> ws<span class="token punctuation">,</span> <span class="token class-name">Node</span><span class="token punctuation">.</span><span class="token constant">SIGNAL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br></div></div><p>在acquireQueued中, 只有当前驱节点是首节点时才可以尝试获取同步状态的原因有两点: 第一, 维护FIFO原则; 第二, 首节点释放同步状态后, 会唤醒后继节点,
+后继节点被唤醒后需要检查自己的前驱节点是否是首节点.</p> <h4 id="acquire调用流程图"><a href="#acquire调用流程图" class="header-anchor">#</a> acquire调用流程图</h4> <p><img src="http://image.ytg2097.com/acquire.png" alt="acquire"></p> <p>图中前驱节点为首节点且能够获取到同步状态的判断条件和线程进入等待状态是获取同步状态的自旋过程</p> <h4 id="acquire的finally部分"><a href="#acquire的finally部分" class="header-anchor">#</a> acquire的finally部分</h4> <p>没有获取到同步状态</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">cancelAcquire</span><span class="token punctuation">(</span><span class="token class-name">Node</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Ignore if node doesn't exist</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 取消当前节点持有的线程关联</span>
+        node<span class="token punctuation">.</span>thread <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 跳过已经进入取消状态的节点, 获取当前节点之前的有效节点(同步队列中最后的有效节点)</span>
+        <span class="token class-name">Node</span> pred <span class="token operator">=</span> node<span class="token punctuation">.</span>prev<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>pred<span class="token punctuation">.</span>waitStatus <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            node<span class="token punctuation">.</span>prev <span class="token operator">=</span> pred <span class="token operator">=</span> pred<span class="token punctuation">.</span>prev<span class="token punctuation">;</span>
+
+        <span class="token comment">// 获取同步队列中最后的有效节点的后继节点</span>
+        <span class="token class-name">Node</span> predNext <span class="token operator">=</span> pred<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+
+        <span class="token comment">// 将当前节点的置为取消状态</span>
+        node<span class="token punctuation">.</span>waitStatus <span class="token operator">=</span> <span class="token class-name">Node</span><span class="token punctuation">.</span><span class="token constant">CANCELLED</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 如果当前节点是尾节点, 并且CAS将尾节点更新为同步队列中最后的有效节点成功</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">==</span> tail <span class="token operator">&amp;&amp;</span> <span class="token function">compareAndSetTail</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> pred<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 更新同步队列中最后的有效节点的后继节点为空(重新调整同步队列的长度)</span>
+            <span class="token function">compareAndSetNext</span><span class="token punctuation">(</span>pred<span class="token punctuation">,</span> predNext<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+           
+            <span class="token keyword">int</span> ws<span class="token punctuation">;</span>
+            <span class="token comment">// 如果同步队列的最后一个有效节点不是首节点 &amp;&amp; </span>
+            <span class="token comment">// (同步队列的最后一个有效节点的等待状态是SIGNAL || 同步节点的最后一个节点的waitStatus更新为SIGNAL成功) &amp;&amp;</span>
+            <span class="token comment">// 同步队列的最后一个有效节点关联的线程不为空</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>pred <span class="token operator">!=</span> head <span class="token operator">&amp;&amp;</span>
+                <span class="token punctuation">(</span><span class="token punctuation">(</span>ws <span class="token operator">=</span> pred<span class="token punctuation">.</span>waitStatus<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token class-name">Node</span><span class="token punctuation">.</span><span class="token constant">SIGNAL</span> <span class="token operator">||</span>
+                 <span class="token punctuation">(</span>ws <span class="token operator">&lt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token function">compareAndSetWaitStatus</span><span class="token punctuation">(</span>pred<span class="token punctuation">,</span> ws<span class="token punctuation">,</span> <span class="token class-name">Node</span><span class="token punctuation">.</span><span class="token constant">SIGNAL</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+                pred<span class="token punctuation">.</span>thread <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 如果当前节点的后继节点存在且有效, 将其链接到同步节点的最后一个有效节点</span>
+                <span class="token class-name">Node</span> next <span class="token operator">=</span> node<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>next <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> next<span class="token punctuation">.</span>waitStatus <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+                    <span class="token function">compareAndSetNext</span><span class="token punctuation">(</span>pred<span class="token punctuation">,</span> predNext<span class="token punctuation">,</span> next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 唤醒当前节点的下一个有效节点</span>
+                <span class="token function">unparkSuccessor</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            node<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">;</span> <span class="token comment">// help GC</span>
+        <span class="token punctuation">}</span>
+        
+        
+    <span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br></div></div><h3 id="_3-释放同步状态"><a href="#_3-释放同步状态" class="header-anchor">#</a> 3. 释放同步状态</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code>
+        <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">release</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">tryRelease</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Node</span> h <span class="token operator">=</span> head<span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>h <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> h<span class="token punctuation">.</span>waitStatus <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+                    <span class="token comment">// 唤醒首节点的下一个有效节点</span>
+                    <span class="token function">unparkSuccessor</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h2 id="共享式获取与释放同步状态"><a href="#共享式获取与释放同步状态" class="header-anchor">#</a> 共享式获取与释放同步状态</h2> <p>共享式获取同步状态与独占式的最大区别在于同一时刻能否有多个线程同时获取到同步状态.
+比如读写文件, 如果一个程序在对文件进行读操作, 那么写操作将被阻塞, 而读操作可以在多个线程中同时进行. 写操作要求独占式访问, 读操作可以共享访问.</p> <h3 id="_1-获取共享状态"><a href="#_1-获取共享状态" class="header-anchor">#</a> 1. 获取共享状态</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code>    
+      <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">acquireShared</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 先尝试一次共享式获取同步状态, 如果成功直接返回</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">tryAcquireShared</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+                <span class="token comment">// 失败后不断自旋获取同步状态</span>
+                <span class="token function">doAcquireShared</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      
+      <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">doAcquireShared</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token comment">// 向同步队列中尾部新增一个节点, 与独占式的区别是这个节点的nextWater是一个SHARED常量</span>
+              <span class="token keyword">final</span> <span class="token class-name">Node</span> node <span class="token operator">=</span> <span class="token function">addWaiter</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">.</span><span class="token constant">SHARED</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token keyword">boolean</span> failed <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+              <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                  <span class="token keyword">boolean</span> interrupted <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                  <span class="token comment">// 同样是自旋获取同步状态</span>
+                  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                      <span class="token keyword">final</span> <span class="token class-name">Node</span> p <span class="token operator">=</span> node<span class="token punctuation">.</span><span class="token function">predecessor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                      <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                          <span class="token comment">// 如果当前节点的前驱节点是首节点并且当前节点获取到了同步状态</span>
+                          <span class="token keyword">int</span> r <span class="token operator">=</span> <span class="token function">tryAcquireShared</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                          <span class="token keyword">if</span> <span class="token punctuation">(</span>r <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                              <span class="token comment">// 将当前节点设置为首节点并且唤醒后续节点</span>
+                              <span class="token function">setHeadAndPropagate</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                              p<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// help GC</span>
+                              <span class="token keyword">if</span> <span class="token punctuation">(</span>interrupted<span class="token punctuation">)</span>
+                                  <span class="token function">selfInterrupt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                              failed <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                              <span class="token keyword">return</span><span class="token punctuation">;</span>
+                          <span class="token punctuation">}</span>
+                      <span class="token punctuation">}</span>
+                     
+                      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">shouldParkAfterFailedAcquire</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> node<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+                          <span class="token function">parkAndCheckInterrupt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                          interrupted <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                  <span class="token punctuation">}</span>
+              <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+                  <span class="token keyword">if</span> <span class="token punctuation">(</span>failed<span class="token punctuation">)</span>
+                      <span class="token function">cancelAcquire</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">setHeadAndPropagate</span><span class="token punctuation">(</span><span class="token class-name">Node</span> node<span class="token punctuation">,</span> <span class="token keyword">int</span> propagate<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 获取到原来的首节点</span>
+        <span class="token class-name">Node</span> h <span class="token operator">=</span> head<span class="token punctuation">;</span> 
+        <span class="token comment">// 更新首节点的当前节点</span>
+        <span class="token function">setHead</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment">// 判断条件，唤醒后续节点</span>
+         <span class="token comment">// propagate &gt; 0 有后续资源</span>
+         <span class="token comment">// h == null 旧的头节点 因为前面 addWaiter， 肯定不会为空，应该是防止 h.waitStatus &lt; 0 空指针的写法</span>
+         <span class="token comment">// (h = head) == null 当前的 头节点，再判断状态</span>
+         <span class="token comment">// waitStatus &lt; 0 后续节点就需要被唤醒</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>propagate <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">||</span> h <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> h<span class="token punctuation">.</span>waitStatus <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span>
+            <span class="token punctuation">(</span>h <span class="token operator">=</span> head<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> h<span class="token punctuation">.</span>waitStatus <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Node</span> s <span class="token operator">=</span> node<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            <span class="token comment">// 当前节点为共享, 唤醒后续节点</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>s <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> s<span class="token punctuation">.</span><span class="token function">isShared</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token function">doReleaseShared</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">// 唤醒后续节点  </span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">doReleaseShared</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 获取首节点</span>
+                <span class="token class-name">Node</span> h <span class="token operator">=</span> head<span class="token punctuation">;</span>
+                <span class="token comment">// 判断同步队列中不止一个元素</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>h <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> h <span class="token operator">!=</span> tail<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">int</span> ws <span class="token operator">=</span> h<span class="token punctuation">.</span>waitStatus<span class="token punctuation">;</span>
+                    <span class="token comment">// 判断首节点的状态是否为SIGNAL, 即是否可以唤醒后续节点</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>ws <span class="token operator">==</span> <span class="token class-name">Node</span><span class="token punctuation">.</span><span class="token constant">SIGNAL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token comment">// 将首节点的状态更新为0, 如果更新失败, 继续自旋</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">compareAndSetWaitStatus</span><span class="token punctuation">(</span>h<span class="token punctuation">,</span> <span class="token class-name">Node</span><span class="token punctuation">.</span><span class="token constant">SIGNAL</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                            <span class="token keyword">continue</span><span class="token punctuation">;</span>           
+                        <span class="token comment">// 更新成功后唤醒首节点的后续节点  </span>
+                        <span class="token function">unparkSuccessor</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token comment">// 如果首节点的等待状态为0 且CAS更新状态为PROPAGATE失败, 继续自旋</span>
+                    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ws <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span>
+                             <span class="token operator">!</span><span class="token function">compareAndSetWaitStatus</span><span class="token punctuation">(</span>h<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token class-name">Node</span><span class="token punctuation">.</span><span class="token constant">PROPAGATE</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                        <span class="token keyword">continue</span><span class="token punctuation">;</span>               
+                <span class="token punctuation">}</span>
+                <span class="token comment">// 当首节点改变时, 继续自旋</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>h <span class="token operator">==</span> head<span class="token punctuation">)</span>                 
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>  
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br></div></div><p><img src="http://image.ytg2097.com/acquireShared.png" alt="acquireShared"></p> <p>int tryAcquireShared(int arg)这个方法返回三种结果</p> <ul><li>小于0. 表示没有获取到同步状态</li> <li>等于0. 表示获取到了同步状态, 但后续节点不可以再获取同步状态</li> <li>大于0. 表示获取到了同步状态, 后续节点再共享模式下也可以获取到同步状态.</li></ul> <h3 id="_2-释放同步状态"><a href="#_2-释放同步状态" class="header-anchor">#</a> 2. 释放同步状态</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code>
+    <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">releaseShared</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">tryReleaseShared</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 释放共享资源</span>
+            <span class="token function">doReleaseShared</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>    
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/java/concurrent/aqs.html" aria-current="page" class="prev router-link-exact-active router-link-active">
+          AQS队列同步器
+        </a></span> <span class="next"><a href="/java/concurrent/lock.html">
+          Lock接口
+        </a></span></p></div> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/java/concurrent/aqs.html#aqs的内置方法" class="sidebar-link reco-side-aqs的内置方法" data-v-b57cc07c>AQS的内置方法</a></li><li class="level-2" data-v-b57cc07c><a href="/java/concurrent/aqs.html#同步队列" class="sidebar-link reco-side-同步队列" data-v-b57cc07c>同步队列</a></li><li class="level-3" data-v-b57cc07c><a href="/java/concurrent/aqs.html#node类" class="sidebar-link reco-side-node类" data-v-b57cc07c>Node类</a></li><li class="level-3" data-v-b57cc07c><a href="/java/concurrent/aqs.html#首尾节点更新" class="sidebar-link reco-side-首尾节点更新" data-v-b57cc07c>首尾节点更新</a></li><li class="level-2" data-v-b57cc07c><a href="/java/concurrent/aqs.html#独占式同步状态获取与释放" class="sidebar-link reco-side-独占式同步状态获取与释放" data-v-b57cc07c>独占式同步状态获取与释放</a></li><li class="level-3" data-v-b57cc07c><a href="/java/concurrent/aqs.html#_1-新增同步节点" class="sidebar-link reco-side-_1-新增同步节点" data-v-b57cc07c>1. 新增同步节点</a></li><li class="level-3" data-v-b57cc07c><a href="/java/concurrent/aqs.html#_2-自旋获取同步状态" class="sidebar-link reco-side-_2-自旋获取同步状态" data-v-b57cc07c>2. 自旋获取同步状态</a></li><li class="level-3" data-v-b57cc07c><a href="/java/concurrent/aqs.html#_3-释放同步状态" class="sidebar-link reco-side-_3-释放同步状态" data-v-b57cc07c>3. 释放同步状态</a></li><li class="level-2" data-v-b57cc07c><a href="/java/concurrent/aqs.html#共享式获取与释放同步状态" class="sidebar-link reco-side-共享式获取与释放同步状态" data-v-b57cc07c>共享式获取与释放同步状态</a></li><li class="level-3" data-v-b57cc07c><a href="/java/concurrent/aqs.html#_1-获取共享状态" class="sidebar-link reco-side-_1-获取共享状态" data-v-b57cc07c>1. 获取共享状态</a></li><li class="level-3" data-v-b57cc07c><a href="/java/concurrent/aqs.html#_2-释放同步状态" class="sidebar-link reco-side-_2-释放同步状态" data-v-b57cc07c>2. 释放同步状态</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.86174523.js" defer></script><script src="/assets/js/3.cacabd98.js" defer></script><script src="/assets/js/1.2cb17530.js" defer></script><script src="/assets/js/71.bc81d240.js" defer></script>
+  </body>
+</html>
