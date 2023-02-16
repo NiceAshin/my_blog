@@ -7,9 +7,9 @@
     "generator",
     "vue"
   ],
-  "homepage": "https://gitee.com/ashin_zhang",
+  "homepage": "https://github.com/NiceAshin",
   "bugs": {
-    "url": "https://gitee.com/ashin_zhang/my_blog/issues"
+    "url": "https://github.com/NiceAshin/my_blog/issues"
   },
   "scripts": {
     "dev": "vuepress dev . --open --host \"localhost\"",
