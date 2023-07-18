@@ -2,6 +2,9 @@
 prev: ./README
 next: ./frpc
 sidebar: auto
+date: 2022/02/16 17:16:47
+tags:
+- linux
 ---
 
 # Linux常用命令速查

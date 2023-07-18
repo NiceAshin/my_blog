@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: AshinBlog
-tagline: 莫等闲，白了少年头，空悲切
+tagline: 左手烟右手笔,可乐配枸杞!
 # heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',

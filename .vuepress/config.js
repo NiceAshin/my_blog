@@ -1,6 +1,6 @@
 module.exports = {
     "title": "AshinBlog",
-    "description": "莫等闲，白了少年头，空悲切.",
+    "description": "左手烟右手笔,可乐配枸杞!",
     "dest": "public",
     "base": "/",
     "head": [
