@@ -14,7 +14,7 @@ sidebar: auto
 
 Replication是mysql自带功能. 通过binlog回放实现对主数据库的异步复制.
 
-![mysql-replication](http://image.ytg2097.com/img/24020646_1322489141gf66.jpg)
+![mysql-replication](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/24020646_1322489141gf66.jpg)
 
 master在执行一条sql时, 会把这条sql保存到binlog中. slave中会单独有一条IO线程打开一个到master的连接, 然后读取master的binlog.  当master中的binlog有新数据(sql记录)时, slave的IO线程就会把这个新数据读取到slave的中继日志relaylog里边.  同时slave里还有一条sql线程监听着relaylog, relaylog有变化时, sql线程就会读取这个变化回放一遍.
 
@@ -38,7 +38,7 @@ NDB Cluster是一种无共享系统中(shared nothing system)实现内存数据�
 >
 > 与shared nothing相对的是shared disk, 每个节点有自己的CPU, 内存, 但是共享存储.
 
-![mysql-cluster](http://image.ytg2097.com/img/cluster-components-1.png)
+![mysql-cluster](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/cluster-components-1.png)
 
 NDB Cluster中有三种节点: 管理节点, 数据节点和sql节点. 管理节点负责管理数据节点和sql节点和集群的配置文件和日志文件, 以及监控和控制其他节点. 数据节点使用基于内存的存储引擎NDB引擎来存放数据, 数据保存到一个数据节点后会自动复制到其他数据节点. sql节点用于访问数据节点. 节点中运行的是mysqld
 
