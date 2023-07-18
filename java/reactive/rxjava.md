@@ -59,8 +59,8 @@ public interface RxObserver<T>{
 - Subscriber. Subscriber抽象类实现了Observer接口并消费数据.
 - Subscription. 控制Observable和Subscriber之间的运行时关系.  
 > 在RxJava2中由于已经存在org.reactivestreams.Subscription(遵循Reactive Streams标准), 为避免名字冲突, 改名为 io.reactivex.disposables.Disposable 
- 
-![subscription](http://image.ytg2097.com/subscription.png)
+
+![subscription](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/subscription.png)
 
 RxJava定义了有关发送数据的规则, 是Observable能够发送任意数量的元素, 然后通过声明成功或引发错误来指示之行结束. 因此Observable会多次调用与它关联的每个Subscriber的onNext(), 然后再调用onComplete()或onError(). 
 
@@ -359,7 +359,7 @@ public class TemperatureSensor{
          return observer;
      }
  }
- ```
+```
 3. 将自定义SseEmitter暴露出去
 
 ```java 
@@ -384,7 +384,7 @@ public class TemperatureController {
 ```
 4. 配置`server.port=8099`, 然后启动访问可以看到
 
-![sse](http://image.ytg2097.com/sse.png)
+![sse](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/sse.png)
 
 ## RxJava的多种响应类型
 

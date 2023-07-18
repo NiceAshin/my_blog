@@ -1,4 +1,6 @@
 ---
+prev: ./cmd
+next: ./README
 sidebar: auto
 ---
 

@@ -35,7 +35,7 @@ sidebar: auto
         
     3. 解析
 
-        ![符号引用](http://image.ytg2097.com/code-ref.png)
+        ![符号引用](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/code-ref.png)
         
         解析是将常量池中的符号引用转换为直接引用的过程. 
         符号引用是一组符号来描述所引用的目标. 符号引用的字面量形式明确定义在java虚拟机规范的class文件格式中. 
@@ -47,18 +47,18 @@ sidebar: auto
     
     ::: tip clinit
      clinit方法不需要定义, 他是javac编译器自动收集类中的所有静态变量的赋值动作和静态代码块中的语句合并而来的, clinit中的指令按照语句在源文件中出现的顺序执行
-     
+    
      如果没有静态变量和静态代码块, clinit方法也不会出现
-     
+    
      子类的clinit执行之前会先执行父类的clinit
-     
+    
      多线程执行clinit会被同步加锁
     :::    
     
 ## 类加载器
 
 类加载器分为引导类加载器BootstrapClassLoader, 扩展类加载器 ExtClassLoader, 系统类加载器AppClassLoader,  用户自定义类加载器, 
- 
+
 除BootstrapClassLoader, 其他加载器都是java编写.
 
 我们编写的类默认是使用系统类加载器来进行加载的.

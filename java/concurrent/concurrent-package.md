@@ -23,7 +23,7 @@ java的CAS会使用现代处理器上提供的高效机器级别的原子指令,
 
 java中的AQS. 原子变量类, 非阻塞数据结构都是使用这种模式实现的. 而current包的高层类有依赖于这些基础类.
 
-![curpackageimpl](http://image.ytg2097.com/curpackageimpl.png)
+![curpackageimpl](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/curpackageimpl.png)
 
 ## ThreadLocal
 
@@ -132,7 +132,7 @@ ThreadLocal 是一种基于斐波那契（Fibonacci）散列法存放数组开�
 ---
 **ThreadLocal的内存模型**
 
-![threadLocal](http://image.ytg2097.com/threadlocal.png)
+![threadLocal](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/threadlocal.png)
 
 >ThreadLocalMap的以[弱引用](../jvm/gc.md###弱引用)方式引用者ThreadLocal, 因此如果ThreadLocal没有被ThreadLocalMap以外的对象引用时, 那么下次GC就会回收掉ThreadLocal, 此时ThreadLocalMap中一组键值对的Key就变成了null, 
 >对应的value也没有办法被外部访问带, 而只要Thread又强引用了ThreadLocalMap, 若Thread实例没有被GC, ThreadLocalMap就不会被回收, key为null的value就会一直占用者内存. 此时就发生了内存泄露 
@@ -170,7 +170,7 @@ ThreadLocal 是一种基于斐波那契（Fibonacci）散列法存放数组开�
 
 在JDK1.5之后, java将工作单元与执行机制分离开. 工作单元包括runnable和callable, 执行机制有Executor框架提供. 
 
-![executor](http://image.ytg2097.com/executor.png)
+![executor](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/executor.png)
 
 java多线程程序把任务分解为多个任务, 然后使用Executor把这些任务映射为固定数量的线程.
 
@@ -231,7 +231,7 @@ DelayQueue内部使用PriorityQueue存放数据, 使用ReentrantLock实现线程
         }
     } 
 ```
-![scheduledThreadPoolExecutor](http://image.ytg2097.com/scheduledThreadPoolExecutor.png)
+![scheduledThreadPoolExecutor](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/scheduledThreadPoolExecutor.png)
 
 DelayQueue中的PriorityQueue会对队列中的ScheduledFutureTask进行排序, 排序时, time小的排在前面, 任务优先执行, 如果time相等, 会将入队时间较早的task放在前面. 
 
@@ -303,7 +303,7 @@ public interface Queue<E> extends Collection<E> {
 }
 ```
 
-![queue-class](http://image.ytg2097.com/queue-class.png)
+![queue-class](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/queue-class.png)
 
 **常用的队列实现**
 
@@ -329,7 +329,7 @@ BlockingQueue继承了Queue接口, 增加了可阻塞的获取和插入等操作
 **PriorityBlockingQueue**是优先级排列队列, 初始化时需要指定Comparator, 若没有指定, 操作的元素需要实现Comparable接口. 
 
 **SynchronizedQueue**它不会为队列中的元素维护存储空间, 与其他队列不同的是它维护了一组线程, 因为没有存储功能, 所以put和take会一直阻塞, 直到有一个线程准备好参与到交付过程中. 
- 
+
 
 ### Deque
 
@@ -352,7 +352,7 @@ CopyOnWriteArrayList在遍历操作为主要操作(读多写少)的情况下用�
 如果写入对象占用的内存比较大, 比如说200M左右, 那么再写100M进去, 内存就会占用300M, 这是很可能造成频繁的YoungGC和FullGC.
 
 同时由于读写分别在不同的容器上, 在写的过程中读不会阻塞, 但未切换到新容器引用之前, 是读不到刚写入的数据的. 
- 
+
 ## ConcurrentHashMap
 
 
@@ -360,10 +360,10 @@ CopyOnWriteArrayList在遍历操作为主要操作(读多写少)的情况下用�
 
 HashTable效率底下的原因是因为内部只有一把synchronized, 所有线程要去竞争. 而ConcurrentHashMap内部中有多把锁, 每一把锁用于锁容器其中一部分数据, 当多线程访问不同数据段的数据时, 线程间就不会存在锁竞争, 从而有效提高并发访问效率. 
 
-![concurrenthashmap](http://image.ytg2097.com/concurrenthashmap.png)
+![concurrenthashmap](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/concurrenthashmap.png)
 
 CurrentHashMap有Segment数组结构和HashEntry数组结构组成. Segment继承了ReentrantLock. HashEntry用于存储键值对.Segment结构类似于HashMap, 是数组和链表结构. 一个Segment守护一个HashEntry数组里的元素. 
-  
+
 ![concurrenthashmap-structure](http://image.ytg2097.com/concurrenthashmap-structure.png) 
 
 对一个HashEntry数组的数据进行修改时, 必须先获得与他对应的Segment锁.
@@ -453,7 +453,7 @@ FutureTask实现了Future语义, 也可以用作闭锁, 传递给线程的构造
     public class ProductInfo{
 //        ...
     }
-``` 
+```
 
 Future.get行为取决于任务状态, 若任务已完成, get会立即返回结果, 否则将阻塞直到任务进入完成状态, 然后返回结果或抛出异常. 
 ## 信号量

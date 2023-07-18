@@ -9,7 +9,7 @@ next: ./adapter
 
 我们在开发中会经常接触到建造者模式, 如StringBuilder, StringBuffer. 或lombok提供的@Builder注解. 
 
-![builder](http://image.ytg2097.com/builder.png)
+![builder](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/builder.png)
 
 建造者模式中有三个角色:
 
@@ -338,4 +338,4 @@ public final class HttpClient {
         Result result = PtzRestClient.ptzStart(build);
     }
 ```
- 
+

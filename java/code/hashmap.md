@@ -5,7 +5,7 @@ sidebar: auto
 
 # HashMap
 
-![hashmap](http://image.ytg2097.com/hashmap.png)
+![hashmap](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/hashmap.png)
 
 HashMap底层基于数组和链表(单向)实现, jdk1.8之后当链表中元素达到8个之后会转化为红黑树.  当红黑树的节点数量到达6之后退化为单向链表
 
@@ -48,8 +48,9 @@ HashMap底层基于数组和链表(单向)实现, jdk1.8之后当链表中元素
         return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
     }
 ```
-![hash](http://image.ytg2097.com/hash.png)
+![hash](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/hash.png)
 在hash方法中, HashMap先将key的hashCode向右位移了16位, 也就是也就是hashcode长度的一半(hashcode是int类型,32位), 然后再与原来的hashcode做亦或运算, 混合hashcode的高16位与低16位. 
+
 ## 初始化容量
 
 ```java
@@ -244,16 +245,15 @@ HashMap底层基于数组和链表(单向)实现, jdk1.8之后当链表中元素
 ```
 
 以上代码总共完成了两件事情, 计算新的HashMap的容量然后将原Entry[]中元素迁移到新的Entry[]中. 代码迁移部分红黑树节点元素的迁移代码在TreeNode中. 稍后分析.
-  
---- 
+
+---
 首先我们已知的两点: **hashmap的扩容是2倍扩展; 元素在Node[]中的索引计算是(cap -1) & hash. 所以元素扩容后要么位置不变, 要么新位置应该是old + oldIndex**.
-![countindex](http://image.ytg2097.com/counthash.png)
+![countindex](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/counthash.png)
 可以看出, 扩容后的index计算, 关键点在于`((cap << 1) - 1) & hash`后重新得到的index新增的一个bit是1还是0, 如果是0 , 那么扩容后位置不变, 如果是1 ,那么位置应该变更为 oldCap +  oldIndex
- 
- 
+
 在jdk1.8的优化之后HashMap的元素迁移不再需要重新计算hash. 它只是重新 & 一下 oldCap, 然后与0 比较, 实际效果与jdk1.8之前的重新计算一致, 同时还提高了效率. 
 链表迁移的整体流程如下: 
-![hashmap-link](http://image.ytg2097.com/hashmap-link.png)
+![hashmap-link](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/hashmap-link.png)
 
 1. 新创建两个链表. link_1, link_2.
 > link_1中存放的是hash&oldCap == 0的元素, link_2中存放的是hash&oldCap != 0的元素. 
@@ -263,7 +263,7 @@ HashMap底层基于数组和链表(单向)实现, jdk1.8之后当链表中元素
 
 3. 将link_1的head元素放到新Node[]中, 索引为原索引.
 4. 将link_2的head元素放到新Node[]中, 索引为oldCap +  oldIndex
- 
+
 
 ## 树
 
@@ -273,12 +273,12 @@ HashMap底层基于数组和链表(单向)实现, jdk1.8之后当链表中元素
 
 当二叉树的插入数据时, 他会将要插入的节点与当前的树节点作比较, 如果小在左侧, 如果大在右侧, 如果插入的数据大小一直是递增的情况, 那么会出现二叉树退化为链表的情况.
 
-![brnarytreetolink](http://image.ytg2097.com/binarytreetolink.png)
+![brnarytreetolink](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/binarytreetolink.png)
 
 二三树可以解决二叉查找树数的平衡问题. 它在添加一个节点时, 会先尝试将这个要添加的节点数据暂存在离他最近的一个节点中, 也就是二三树的一个节点中可以存在两个数据, 只有当一个节点出现第三个数据时, 会将中间数据向上拉起为新节点,
 左右数据下沉作为新节点的left和right节点
 
-![23tree](http://image.ytg2097.com/23tree.png)
+![23tree](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/23tree.png)
 
 可以看到二三树的叶子节点都在同一层. 如果一个节点有一个数据, 那么它有两个节点, 如果有两个数据, 那么它有三个节点
 
@@ -290,7 +290,7 @@ HashMap底层基于数组和链表(单向)实现, jdk1.8之后当链表中元素
 
 wiki百科中的红黑树
 
-![rbt](http://image.ytg2097.com/rbt.png) 
+![rbt](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/rbt.png) 
 
 红黑树的特点或者说约束:
 

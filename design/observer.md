@@ -7,7 +7,7 @@ next: ./agent
 
 观察者模式中有三个主要的概念: 被观察者, 观察者, 被观察者关心的事件. 
 
-![observer](http://image.ytg2097.com/observer.png)
+![observer](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/observer.png)
 
 被观察者可以接受一个观察者的订阅, 也可以取消一个观察者的订阅. 当某个事件发生时, 被观察者可以主动的去通知对这个事件感兴趣的观察者
 
@@ -85,7 +85,7 @@ public class MessageContext {
         this.deviceId = deviceId;
     }
 }
-``` 
+```
 
 ### 4. 定义触发器
 
@@ -178,7 +178,7 @@ public class AlarmTrigger extends Subject<NotifyType,Alarm> implements Listener<
 上面的代码中AlarmTrigger不仅实现了Listener接口, 还继承了Subject类, 它同时具备观察者与被观察者两种身份. 这是因为在实际的业务场景中. 当告警触发, 我们除了要将告警信息保存到数据库中之外, 通常还会以邮件, 短信等方式
 实时的通知设备负责人. 这里我们将这一系列的由告警触发的操作进一步剥离, 又提取出了`EmailNotifyListener`,`MsgNotifyListener`,`InnerNotifyListener`. 实现了告警信息保存与通知操作的分离. 优化了代码结构.
 
---- 
+---
 
 ### 5. 定义动作执行器, 由规则引擎调用. 
 
@@ -220,7 +220,6 @@ public class ActionExecutor extends Subject<ActionExecutor.Event, MessageContext
         actionExecutor.notifyAll(ActionExecutor.Event.ALARM,messageContext);
     } 
 ```
-
 
 
 

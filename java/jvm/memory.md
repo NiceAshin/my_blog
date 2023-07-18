@@ -6,7 +6,7 @@ sidebar: auto
 
 # JVM的运行时内存区域
 
-![jvm-memory](http://image.ytg2097.com/jvm-memory.png)
+![jvm-memory](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/jvm-memory.png)
 
 ## 程序计数器
 
@@ -29,7 +29,7 @@ sidebar: auto
 
 非静态方法的局部变量表的index为0的位置会放置this引用.
 
-![lvt](http://image.ytg2097.com/lvt.png)
+![lvt](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/lvt.png)
 
 在以可达性算法实现的垃圾回收器中, 局部变量表中的变量也是垃圾回收的根节点之一. 被直接或间接引用的对象都不会被回收. 
 
@@ -57,15 +57,15 @@ sidebar: auto
 当一个方法调用另一个方法时, 就是通过常量池中指向方法的符号引用来表示的. 
 动态链接的作用就是为了将这些符号引用转换为调用方法的直接引用.
 :::
- 
+
 除动态链接以外, 还有**静态链接**. 
 
     当一个字节码文件被加载到JVM内部时, 如果被调用的方法在编译器可知且运行期间保持不变时, 
     这种情况下将调用方法的符号引用转换为直接引用的过程称之为静态链接. 
-
+    
     如果被调用的方法在编译器无法确定下来, 也就是说, 只能够在程序运行期间将调用方法的符号
     应用转换为直接引用, 由于这种引用转换过程具备动态性, 因此称之为动态链接. 
-    
+
 动态链接与静态链接的方法绑定机制也不同, 绑定是一个字段, 方法或类在符号引用被替换为直接引用的过程. 
 动态链接的方法绑定为晚期绑定, 而静态链接的方法绑定为早期绑定.
      
@@ -73,11 +73,11 @@ sidebar: auto
 晚期绑定指被调用方法编译器无法确定, 只能在程序运行期间根据实际类型绑定相关方法. 这类方法也被称为**虚方法**.
 与之相对的早期绑定的方法即**非虚方法**.
 
---- 
+---
 
 ### 4. 虚拟机中提供的方法调用指令
 
-![invoke](http://image.ytg2097.com/invokevirtual.png)
+![invoke](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/invokevirtual.png)
 
 - **普通调用指令**:
 
@@ -90,6 +90,7 @@ sidebar: auto
 
     1. invokedynamic: 动态解析出需要调用的方法, 然后执行
     
+
 普通调用指令固化在虚拟机内部, 不可人为干预, 动态调用指令则可以由程序员使用, 如使用ASM   
 
 ### 5. 方法返回地址 
@@ -103,8 +104,8 @@ sidebar: auto
 ## 堆
 
 jvm的堆内存是线程共享的, 用于存放对象实例, 是垃圾收集器管理的主要收集区域, 由于垃圾收集器采用分代算法, 所以堆又分为新生代与老年代.
- 
-![heap](http://image.ytg2097.com/heap.png)
+
+![heap](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/heap.png)
 
 新生代的Eden与From和To(两个Survivor)之间的大小比例默认为8:1:1, 新生代与老年代的大小比例默认为1:2.
 
@@ -119,7 +120,7 @@ jvm的堆内存是线程共享的, 用于存放对象实例, 是垃圾收集器�
 >
 >
 > 其实这个问题, JVM已经提前解决了, 详见下面的**空间分配担保**
-  
+
 若对象长期存活(对象的GC年龄达到15)会晋升入老年代, **大对象**分配时则会直接进入老年代(大对象应该尽量避免).
 
 ::: tip 大对象
@@ -233,7 +234,7 @@ TLAB技术并不是只解决多线程并发分配内存的问题, 还可以搭�
 
 ---
 
-![对象分配过程](http://image.ytg2097.com/obj-allc-flow.png)
+![对象分配过程](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/obj-allc-flow.png)
 
 ### 对象创建过程
 

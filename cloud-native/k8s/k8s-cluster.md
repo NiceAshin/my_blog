@@ -283,4 +283,4 @@ ca.crt:     1066 bytes
 namespace:  11 bytes
 ```
 
-![k8s-dashboard](https://s2.loli.net/2022/04/24/OV8CN1bXQvps9KH.png)
+![k8s-dashboard](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/OV8CN1bXQvps9KH.png)

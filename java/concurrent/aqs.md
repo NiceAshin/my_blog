@@ -300,7 +300,7 @@ AQS持有同步队列的首节点和尾节点的引用, 如果有线程获取同
 #### acquire调用流程图
 
 
-![acquire](http://image.ytg2097.com/acquire.png)
+![acquire](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/acquire.png)
 
 图中前驱节点为首节点且能够获取到同步状态的判断条件和线程进入等待状态是获取同步状态的自旋过程
 
@@ -470,7 +470,7 @@ AQS持有同步队列的首节点和尾节点的引用, 如果有线程获取同
             }
     }  
 ```
-![acquireShared](http://image.ytg2097.com/acquireShared.png)
+![acquireShared](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/acquireShared.png)
 
 int tryAcquireShared(int arg)这个方法返回三种结果
 - 小于0. 表示没有获取到同步状态
@@ -489,5 +489,4 @@ int tryAcquireShared(int arg)这个方法返回三种结果
         return false;
     }    
 ```
-
 

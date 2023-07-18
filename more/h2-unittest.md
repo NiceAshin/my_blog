@@ -92,7 +92,7 @@ spring:
 
 在集成h2之后启动项目, 浏览器访问localhost:8080/h2-console可以访问h2数据库的控制台
 
-![image-20210812120223290](http://image.ytg2097.com/img/image-20210812120223290.png)
+![image-20210812120223290](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/image-20210812120223290.png)
 
 集成h2之后, 单元测试就不需要再写回滚代码了
 

@@ -135,7 +135,7 @@ public abstract class ByteBuffer extends Buffer implements Comparable<ByteBuffer
     public abstract ByteBuffer slice() {...}     
 }
 
-```    
+```
 
 0 <= mark <= position <= limit <= capacity
 
@@ -156,8 +156,9 @@ DirectByteBuffer继承了MappedByteBuffer, 它持有直接内存的地址引用,
 :::
 ## 零拷贝
 
-![copy](http://image.ytg2097.com/copy.jpg)
+![copy](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/copy.jpg)
 传统拷贝的读写会有四次上下文切换以及两次数据拷贝. 
+
 - **读. 一次拷贝**
 > 1. 用户态切换到内核态
 > 2. 内核态切换回用户态
@@ -165,12 +166,11 @@ DirectByteBuffer继承了MappedByteBuffer, 它持有直接内存的地址引用,
 > 1. 用户态切换到内核态
 > 2. 内核态切换回用户态
 
-![zerocoy](http://image.ytg2097.com/zerocopy.jpg)
+![zerocoy](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/zerocopy.jpg)
 
 用户态发出sendfile指令给内核态 -> 内核态完成数据处理 -> sendfile返回 
 
 零拷贝中用户态通过内存文件映射操作内存
-
 
 
 

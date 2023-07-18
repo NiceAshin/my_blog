@@ -28,10 +28,6 @@ module.exports = [
         link: '/cloud-native/'
     },
     {
-        text: 'Devops',
-        link: '/devops/'
-    },
-    {
         text: 'Linux',
         link: '/linux/'
     },

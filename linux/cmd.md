@@ -1,4 +1,6 @@
 ---
+prev: ./README
+next: ./frpc
 sidebar: auto
 ---
 

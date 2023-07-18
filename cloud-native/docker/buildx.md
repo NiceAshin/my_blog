@@ -30,7 +30,7 @@ sidebar: false
 
 大部分发行镜像一个标签下都会存在多个不同架构的镜像版本， 比如openjdk，就同时存在amd与arm两个版本镜像。
 
-![image-20211222163506210](https://image.ytg2097.com/image-20211222163506210.png)
+<img src="https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/image-20211222163506210.jpeg"/>
 
 在执行`docker pull`或`docker run`时， docker会自动根据当前系统架构去拉取相同架构的镜像。
 
@@ -123,7 +123,7 @@ WARN[0000] No output specified for docker-container driver. Build result will on
 docker buildx build --platform linux/arm64,linux/amd64 -t ytg2097/buildx-test:0.1  -o type=registry .
 ```
 
-![image-20211222172124018](https://image.ytg2097.com/image-20211222172124018.png)
+<img src="https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/image-20211222172124018.png"/>
 
 ---
 
@@ -139,6 +139,6 @@ docker run --rm ytg2097/buildx-demo:0.1@sha256=e7c8f88eff9280ec107cf6b223c9982a8
 
 也可以在本地通过`docker buildx imagetools inspect ytg2097/buildx-demo:0.1 ` 查看
 
-![](https://image.ytg2097.com/image-20211222173200369.png)
+![](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/image-20211222173200369.png)
 
-![image-20220714145919637](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20220714145919637.png)
+![image-20220714145919637](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/image-20220714145919637.png)

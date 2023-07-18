@@ -15,7 +15,7 @@ Istio作为Service Mesh的实现, 架构同样分为两个部分: 数据平面�
 
 ## 架构 
 
-![image-20210624094633456](https://s2.loli.net/2022/04/24/MqT5PVpftrOQB76.png)
+![image-20210624094633456](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/MqT5PVpftrOQB76.png)
 
 从Istio的架构图中可以看到Istio主要有Envoy, Pilot, Mixer, Citadel四个组件. 其中Envoy作为Sidercar注入到Pod中作为代理拦截进出服务的流量并对流量加以控制, 上图中proxy部分就是Envoy.  Pilot在控制平面中提供服务发现和流量管理(A/B测试, 金丝雀部署等), 异常控制(超时, 熔断, 重试)的功能; Mixer是独立于平台的组件, 负责在整个Service Mesh中执行访问控制和使用策略; Citadel内置身份和凭证管理, 提供服务和用户的身份验证.
 
