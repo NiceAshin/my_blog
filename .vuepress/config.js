@@ -2,7 +2,7 @@ module.exports = {
     "title": "AshinBlog",
     "description": "左手烟右手笔,可乐配枸杞!",
     "dest": ".vuepress/dist",
-    "base": "/",
+    "base": "/my_blog/",
     "head": [
         ["link", {
             "rel": "icon",
