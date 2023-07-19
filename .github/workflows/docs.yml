@@ -20,7 +20,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: NiceAshin/my_blog
+        uses: NiceAshin/my_blog@main
         with:
           target_branch: gh-pages
           build_dir: public
