@@ -20,10 +20,10 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: NiceAshin/my_blog@v2
+        uses: NiceAshin/my_blog
         with:
           target_branch: gh-pages
-          build_dir: docs/.vuepress/dist
+          build_dir: public
         env:
           GITHUB_TOKEN: ${{ secrets.MYBLOGSECRET }}
 
