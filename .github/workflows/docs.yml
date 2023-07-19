@@ -15,9 +15,9 @@ jobs:
 
       - name: Build
         run:
+          ls -l &&
           npm install &&
-          npm run build &&
-          ls -l
+          npm run build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
