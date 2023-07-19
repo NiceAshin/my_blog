@@ -15,14 +15,14 @@ jobs:
 
       - name: Build
         run:
-          npm install
-          npm run build
-          ls
+          npm install &&
+          npm run build &&
+          ls -l
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           BRANCH: gh-pages
-          FOLDER: .vuepress/dist
+          FOLDER: ../.vuepress/dist
           ACCESS_TOKEN: ${{ secrets.MYBLOGSECRET }}
 
