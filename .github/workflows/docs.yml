@@ -13,6 +13,7 @@ jobs:
         with:
           persist-credentials: false
           node-version: 16
+          cache: npm
 
       - name: Build
         run:
