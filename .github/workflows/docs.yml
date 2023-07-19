@@ -22,6 +22,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           BRANCH: gh-pages
-          FOLDER: ../public
+          FOLDER: .vuepress/dist
           ACCESS_TOKEN: ${{ secrets.MYBLOGSECRET }}
 
