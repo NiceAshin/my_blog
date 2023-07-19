@@ -10,16 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
         with:
-          persist-credentials: false
           node-version: 16
           cache: npm
+      - run: npm install
 
       - name: Build
-        run:
-          ls -al  &&
-          npm install &&
-          npm run build
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
