@@ -15,7 +15,7 @@ jobs:
 
       - name: Build
         run:
-          ls -l &&
+          ls -al  &&
           npm install &&
           npm run build
 
