@@ -2,7 +2,8 @@ module.exports = {
     "title": "AshinBlog",
     "description": "左手烟右手笔,可乐配枸杞!",
     "dest": ".vuepress/dist",
-    "base": "/my_blog/",
+    // "base": "/my_blog/",
+    "base": "/",
     "head": [
         ["link", {
             "rel": "icon",
@@ -20,7 +21,7 @@ module.exports = {
     "theme": "reco",
     "themeConfig": {
         repo: 'https://gitee.com/ashin_zhang',
-        // editLinks: true,
+        editLinks: true,
         record: "鲁ICP备2020048949号",
         recordLink: "https://beian.miit.gov.cn/",
         docsDir: 'packages/docs/docs',
