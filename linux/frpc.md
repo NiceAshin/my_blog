@@ -1,10 +1,9 @@
 ---
 prev: ./cmd
-next: ./README
 sidebar: auto
 date: 2022/02/16 17:16:47
 tags:
- - linux
+- linux
 ---
 
 # frpc-内网穿透搭建和使用教程

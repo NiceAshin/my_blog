@@ -42,7 +42,8 @@ module.exports = {
         "lastUpdated": "Last Updated",
         "author": "AshinZhang",
         "authorAvatar": "/avatar.png",
-        "startYear": "2020"
+        "startYear": "2020",
+        noFoundPageByTencent: false
     },
     "markdown": {
         "lineNumbers": true
