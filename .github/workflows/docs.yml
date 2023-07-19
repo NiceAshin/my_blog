@@ -11,14 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          node-version: 16
-          cache: npm
+          persist-credentials: false
 
       - name: Build
         run: npm install && npm run build
 
       - name: Deploy to GitHub Pages
-        uses: NiceAshin/my_blog@main
+        uses: NiceAshin/my_blog@main/v3
         with:
           target_branch: gh-pages
           build_dir: public
