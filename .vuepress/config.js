@@ -1,6 +1,6 @@
 module.exports = {
     "title": "AshinBlog",
-    "description": "左手烟右手笔,可乐配枸杞!",
+    "description": "左手烟(已戒)右手笔,可乐配枸杞!",
     "dest": ".vuepress/dist",
     // "base": "/my_blog/",
     "base": "/",
