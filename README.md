@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: AshinBlog
-tagline: 左手烟右手笔,可乐配枸杞!
+tagline: 左手烟(已戒)右手笔,可乐配枸杞!
 # heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',
@@ -25,3 +25,5 @@ features:
 - title: Tomorrow
   details: 希望更多的爱好者能够参与进来，帮助这个主题更好的成长
 ---
+
+![](C:\Users\Dell\Pictures\内网通截图20230309182750.png)
