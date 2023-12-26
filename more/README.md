@@ -12,3 +12,8 @@ sidebar: false
 - [使用h2数据库支持单元测试](h2-unittest.md)
 - [Spring boot挂载k8s的ConfigMap中的配置文件](spring-boot-k8s-configmap.md)
 - [Api接口安全问题-AccessSecret](accessSecret.md)
+
+
+**GY_ISTSP接口文档**
+- [GY_ISTSP_WS_网页隐写接口](gy_istsp_ws_api.md)
+- [GY_ISTSP_CS_云服务接口文档](gy_istsp_cs_api.md)
