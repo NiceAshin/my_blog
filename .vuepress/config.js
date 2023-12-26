@@ -20,11 +20,11 @@ module.exports = {
     ],
     "theme": "reco",
     "themeConfig": {
-        repo: 'https://gitee.com/ashin_zhang',
+        repo: 'https://github.com/NiceAshin',
         editLinks: true,
         record: "鲁ICP备2020048949号",
         recordLink: "https://beian.miit.gov.cn/",
-        docsDir: 'packages/docs/docs',
+        docsDir: 'my_blog',
         smoothScroll: true,
         locales: {
             '/': {
