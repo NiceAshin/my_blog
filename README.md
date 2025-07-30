@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: AshinBlog
-tagline: 左手烟右手笔,可乐配枸杞!
+tagline: 黑夜中前行，仍照亮前路!
 # heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',
