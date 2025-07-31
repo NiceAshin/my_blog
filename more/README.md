@@ -17,3 +17,4 @@ sidebar: false
 **GY_ISTSP接口文档**
 - [GY_ISTSP_WS_网页隐写接口](gy_istsp_ws_api.md)
 - [GY_ISTSP_CS_云服务接口文档](gy_istsp_cs_api.md)
+- [第一个springboot](firstSpringBoot.mdfirstSpringBoot.md)
