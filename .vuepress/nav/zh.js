@@ -32,6 +32,10 @@ module.exports = [
         link: '/linux/'
     },
     {
+        text: 'AI',
+        link: '/ai/'
+    },
+    {
         text: '更多',
         link: '/more/'
     },
