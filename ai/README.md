@@ -1,5 +1,8 @@
 ---
 sidebar: false
+date: 2024/04/18 09:55:00
+tags:
+- ai
 ---
 
 # AI
