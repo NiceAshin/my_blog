@@ -33,4 +33,7 @@ sidebar: none
 - [服务质量](./quality.md)
 - [服务部署](./deploy.md)
 - [CQRS](./CQRS.md)
+- [服务治理与网关架构](./governance.md)
+- [微服务可观测性](./observability.md)
+- [契约测试实践](./contract-testing.md)
 
