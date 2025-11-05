@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: AshinBlog
-tagline: 黑夜中前行，仍照亮前路!
+tagline: 有志者、事竟成，破釜沉舟，百二秦关终属楚；苦心人、天不负，卧薪尝胆，三千越甲可吞吴。
 # heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',
