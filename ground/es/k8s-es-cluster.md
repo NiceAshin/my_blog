@@ -1,7 +1,10 @@
 ---
+date: 2024/07/12 09:00:00
 sidebar: auto
 ---
 # k8s部署Elasticsearch集群
+
+> 预计阅读时间：16 分钟
 
 elasticsearch官方已经推出一个k8s operator: Elastic Cloud On Kubernetes. 简称ECK.
 
@@ -261,4 +264,3 @@ spec:
 ```
 
 我是在虚拟机上跑的k8s, 所以需要分别在我的/etc/hosts和本机C:\Windows\System32\drivers\etc\hosts里面都配上域名解析. 然后就可以在浏览器访问了
-

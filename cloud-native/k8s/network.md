@@ -1,9 +1,13 @@
 ---
+date: 2025/02/17 09:00:00
 prev: ./k8s-cluster
 sidebar: auto
 ---
 
 # Pod通信与服务发现
+
+> 预计阅读时间：14 分钟
+
 > k8s网络篇为Kubernetes网络权威指南笔记
 ## IP-per-Pod
 

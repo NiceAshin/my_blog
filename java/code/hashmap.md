@@ -1,9 +1,12 @@
 ---
+date: 2023/01/27 09:00:00
 next: ./nio
 sidebar: auto
 ---
 
 # HashMap
+
+> 预计阅读时间：31 分钟
 
 ![hashmap](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/hashmap.png)
 
@@ -533,22 +536,3 @@ public class LinkedHashMap<K,V> extends HashMap<K,V> implements Map<K,V>{
 ```
 
 //todo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

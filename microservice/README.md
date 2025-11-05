@@ -1,10 +1,13 @@
 ---
+date: 2021/07/08 09:00:00
 next: ./design
 sidebar: none
 ---
 
 
 ## 微服务的优点
+
+> 预计阅读时间：5 分钟
 
 - 使大型复杂应用可以持续交付部署
 
@@ -33,4 +36,6 @@ sidebar: none
 - [服务质量](./quality.md)
 - [服务部署](./deploy.md)
 - [CQRS](./CQRS.md)
-
+- [服务治理与网关架构](./governance.md)
+- [微服务可观测性](./observability.md)
+- [契约测试实践](./contract-testing.md)

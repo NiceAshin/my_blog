@@ -1,9 +1,12 @@
 ---
+date: 2023/02/14 09:00:00
 prev: ./hashmap
 sidebar: auto
 ---
 
 # IO 
+
+> 预计阅读时间：9 分钟
 
 java中提供了三种IO, 分别为BIO, NIO, AIO, 本篇主要记录NIO
 
@@ -171,6 +174,3 @@ DirectByteBuffer继承了MappedByteBuffer, 它持有直接内存的地址引用,
 用户态发出sendfile指令给内核态 -> 内核态完成数据处理 -> sendfile返回 
 
 零拷贝中用户态通过内存文件映射操作内存
-
-
-

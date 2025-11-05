@@ -1,9 +1,12 @@
 ---
+date: 2024/04/11 09:00:00
 prev: ./rxjava
 next: ./projectreactor
 sidebar: auto
 ---
 # 响应式流
+
+> 预计阅读时间：11 分钟
 
 ## 推 与 拉
 
@@ -184,5 +187,3 @@ public interface Subscription {
 
 `cancel()`方法用于取消对流的订阅, 而`request()`方法则扩展了Publisher与Subscriber之间的交互能力. 通过调用这个方法消费者可以通知生产者应该推送多少数据. 加入这个机制后, Publisher只有在Subscriber要求时
 才会发送元素中新的部分.
- 
-

@@ -1,9 +1,12 @@
 ---
+date: 2021/06/01 09:00:00
 prev: ./proxy
 next: ./cmd
 ---
 
 # 模版方法模式
+
+> 预计阅读时间：5 分钟
 
 模版方法模式中, 会在抽象的基类中定义业务逻辑的执行顺序, 而后将其中一部分步骤的实现延迟到子类中去实现. 
 
@@ -62,6 +65,3 @@ Netty内置了一系列的channelHandler用于减少使用者的开发工作. �
 
 当channel发生了读事件后, channel之上绑定的一系列channelHandler的`channelRead`方法将会被调用, 这一过程也是通过模版方法模式实现的, 当入站消息流动到`SimpleChannelInboundHandler`的`channelRead`时. 它会先判断本次传递
 的入站消息是否与泛型中定义类型一致, 当判断一致后向下强转类型为泛型类型, 而后交由模版方法`channelRead0`去执行开发者自定义逻辑. 而后在finally代码块中去释放资源的引用计数.
-
-
-

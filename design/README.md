@@ -1,7 +1,10 @@
 ---
+date: 2020/04/24 09:00:00
 next: ./singleton
 ---
 
+
+> 预计阅读时间：5 分钟
 
 设计模式所遵守的七大设计原则
 
@@ -23,27 +26,25 @@ next: ./singleton
 
 ## 结构型
 
-- [适配器模式](./adapter.md)
-- [桥接模式](./bridge.md)
-- [装饰者模式](./decorator.md)
-- [组合模式](./combination.md)
-- [门面模式](./face.md)
-- [享元模式](./meta.md)
-- [代理模式](./proxy.md)
+- [适配器模式(√)](./adapter.md)
+- [桥接模式(√)](./bridge.md)
+- [装饰者模式(√)](./decorator.md)
+- [组合模式(√)](./combination.md)
+- [门面模式(√)](./face.md)
+- [享元模式(√)](./meta.md)
+- [代理模式(√)](./proxy.md)
 
 
 ## 行为型
 
 - [模版方法模式(√)](./template.md)
-- [命令模式](./cmd.md)
-- [访问者模式](./access.md)
-- [迭代器模式](./iterator.md)
+- [命令模式(√)](./cmd.md)
+- [访问者模式(√)](./access.md)
+- [迭代器模式(√)](./iterator.md)
 - [观察者模式(√)](./observer.md)
-- [中介者模式](./agent.md)
-- [备忘录模式](./memo.md)
+- [中介者模式(√)](./agent.md)
+- [备忘录模式(√)](./memo.md)
 - [解释器模式(√)](./interpreter.md)
-- [状态模式](./state.md)
+- [状态模式(√)](./state.md)
 - [策略模式(√)](./strategy.md)
 - [责任链模式(√)](./chain.md)
-
-

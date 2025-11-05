@@ -1,9 +1,12 @@
 ---
+date: 2024/03/24 09:00:00
 sidebar: auto
 ---
 
 
 # Project Reactor
+
+> 预计阅读时间：65 分钟
 
 Reactor库由Spring推出, 并且Spring5的响应性也是基于Reactor实现. 在前两篇文章中我们已经知道, 回压是响应式流
 中必不可少的一个属性, Reactor库实现了响应式流规范, 所以回压是Reactor本身的核心主题. 

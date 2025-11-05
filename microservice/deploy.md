@@ -1,10 +1,13 @@
 ---
+date: 2021/09/01 09:00:00
 next: ./CQRS
 prev: ./quality
 sidebar: auto
 ---
 
 # 服务部署
+
+> 预计阅读时间：5 分钟
 
 本文记录三种服务部署方式, 根据实际业务量使用. 1 打包部署, 2 docker , 3 k8s
 
@@ -63,4 +66,4 @@ Pod的声明规范, deplyment是一个控制器 . 用于确保始终运行的pod
 :::
 ::: tip configmap
 用于定义一个或多个应用程序服务的外部化配置, pod容器的定义可以引用configmap来定义容器的环境变量 . 还可以使用configmap在容器内创建配置文件
-::: 
+:::

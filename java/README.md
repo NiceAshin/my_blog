@@ -1,10 +1,13 @@
 ---
+date: 2023/01/09 09:00:00
 next: ./code/hashmap
 sidebar: false
 ---
 
 
 ## 基础
+
+> 预计阅读时间：5 分钟
 
 - [HashMap(√)](code/hashmap.md)
 - [NIO(√)](code/nio.md)
@@ -45,4 +48,3 @@ sidebar: false
 - [Netty与Protobuf](netty/protobuf.md)
 - [Netty的群发消息](netty/group.md)
 - [Netty心跳检测](netty/heartbeat.md)
-

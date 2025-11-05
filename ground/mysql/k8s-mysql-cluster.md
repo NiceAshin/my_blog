@@ -1,8 +1,11 @@
 ---
+date: 2024/09/05 09:00:00
 prev: ./optimization
 sidebar: auto
 ---
 # k8s部署mysql的主从复制集群
+
+> 预计阅读时间：29 分钟
 
 目标: 在k8s集群中部署一套mysql集群
 

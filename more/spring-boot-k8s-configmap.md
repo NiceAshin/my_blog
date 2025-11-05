@@ -1,8 +1,11 @@
 ---
+date: 2022/12/21 09:00:00
 sidebar: none
 ---
 
 # Spring boot应用发布到k8s中并挂载外部配置文件
+
+> 预计阅读时间：11 分钟
 
 在项目开发中, 大都会为不同的运行环境编写不同的配置文件, 比如生产环境使用application-prod.yml, 开发环境使用application-dev.yml.
 
@@ -184,4 +187,3 @@ myName: ytg2097
    ```
 
 > 后续再研究一下有什么办法可以做到spring cloud config那样的热更新配置文件
-

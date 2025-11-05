@@ -1,10 +1,13 @@
 ---
+date: 2024/04/29 09:00:00
 prev: ./wayneed
 next: ./rxjava
 sidebar: auto
 ---
 
 # 反应式编程
+
+> 预计阅读时间：14 分钟
 
 本篇笔记为Doug Lea的Scalable IO in Java文章的读后笔记
 
@@ -238,4 +241,4 @@ EventHandler的实现者
 :::
 
 
-**先有Reactor后有NIO, NIO可以理解为是Reactor的不完全实现, Netty是完全实现**. 
+**先有Reactor后有NIO, NIO可以理解为是Reactor的不完全实现, Netty是完全实现**.

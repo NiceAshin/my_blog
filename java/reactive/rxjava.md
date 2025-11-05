@@ -1,10 +1,13 @@
 ---
+date: 2024/05/18 09:00:00
 prev: ./reactor
 next: ./reactive-streams
 sidebar: auto
 ---
 
 # RxJava
+
+> 预计阅读时间：22 分钟
 
 RxJava是Reactive Extensions的java虚拟机实现. Reactive Extensions是一种工具, 能够命令式的处理数据流, 无论这个流是同步还是异步的. ReactiveX通常被定义为观察者模式, 迭代器, 函数式编程的组合.
 本文内容基于RxJava2
@@ -393,4 +396,4 @@ public class TemperatureController {
 - **Flowable**: Flowable实现了响应式流规范的Publisher接口.
 - **Single**: 仅生成一个元素的流. 没有实现Publisher接口, 也具备`toFlowable`方法. 
 - **Maybe**: 生成0个或一个元素的流. 没有实现Publisher接口, 也具备`toFlowable`方法.
-- **Completable**: 不能产生onNext信号, 没有实现Publisher接口, 只能触发onError或onComplete信号. 
+- **Completable**: 不能产生onNext信号, 没有实现Publisher接口, 只能触发onError或onComplete信号.

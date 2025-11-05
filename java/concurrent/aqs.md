@@ -1,10 +1,13 @@
 ---
+date: 2023/03/05 09:00:00
 prev: ./aqs
 next: ./lock
 sidebar: auto
 ---
 
 # AQS队列同步器
+
+> 预计阅读时间：23 分钟
 
 队列同步器类: AbstractQueuedSynchronizer.
 
@@ -489,4 +492,3 @@ int tryAcquireShared(int arg)这个方法返回三种结果
         return false;
     }    
 ```
-

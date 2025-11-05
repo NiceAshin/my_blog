@@ -1,4 +1,5 @@
 ---
+date: 2021/12/20 09:00:00
 next: ./quality
 prev: ./contact
 sidebar: auto
@@ -6,6 +7,8 @@ sidebar: auto
 
 
 # 分布式事务
+
+> 预计阅读时间：9 分钟
 
 ## 分布式事务的基础理论知识
 

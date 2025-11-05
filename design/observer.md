@@ -1,9 +1,12 @@
 ---
+date: 2021/03/01 09:00:00
 prev: ./iterator
 next: ./agent
 ---
 
 # 观察者模式
+
+> 预计阅读时间：12 分钟
 
 观察者模式中有三个主要的概念: 被观察者, 观察者, 被观察者关心的事件. 
 
@@ -220,6 +223,3 @@ public class ActionExecutor extends Subject<ActionExecutor.Event, MessageContext
         actionExecutor.notifyAll(ActionExecutor.Event.ALARM,messageContext);
     } 
 ```
-
-
-

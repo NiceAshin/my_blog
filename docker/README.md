@@ -1,11 +1,13 @@
 ---
 title: Docker学习
-date: 2022-4-15 16:20:43
+date: 2022/01/07 09:00:00
 next: ./commands/help
 sidebar: auto
 ---
 
 ## 简介
+
+> 预计阅读时间：11 分钟
 
 [什么是docker]: 
 
@@ -228,4 +230,3 @@ docker run --restart=unless-stopped -d -p 5672:5672 -p 15672:15672 --name rabbit
 ​	浏览器访问：http://ip:5672
 
 ![image-20220415154903266](https://s2.loli.net/2022/04/15/6qlKBLcQf3vmPhJ.png)
-
