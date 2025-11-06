@@ -1,10 +1,13 @@
 ---
+date: 2025-03-08 14:07:42
 next: ./deploy
 prev: ./ts
 sidebar: auto
 ---
 
 # 服务质量
+
+> 预计阅读时间：5 分钟
 
 服务质量保证主要分为鉴权, 可配置性, 可观测性, 服务基地四个部分. 
 
@@ -80,7 +83,3 @@ Elasticsearch + logstash + kibana
 微服务基底是一个或一组框架, 处理服务通信与服务观察问题 [spring-coud-quick-starters](https://github.com/ytg2097/spring-coud-quick-starters)
 
 ## [服务网格](../cloud-native/service-mesh/service-mesh-1.md)
-
-
-
-

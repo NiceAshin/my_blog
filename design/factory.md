@@ -1,10 +1,13 @@
 ---
+date: 2021-10-08 08:10:46
 sidebar: auto
 next: ./clone
 prev: ./singleton
 ---
 
 # 工厂模式
+
+> 预计阅读时间：17 分钟
 
 工厂模式分为简单工厂模式, 工厂方法模式与抽象工厂模式三种.  
 
@@ -243,4 +246,3 @@ public class SmartTransformerFactoryImpl extends SAXTransformerFactory {
 }
 
 ```
-

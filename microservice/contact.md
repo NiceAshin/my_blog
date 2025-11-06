@@ -1,10 +1,13 @@
 ---
+date: 2024-11-18 12:53:51
 next: ./ts
 prev: ./split
 sidebar: auto
 ---
 
 # 服务间通信
+
+> 预计阅读时间：11 分钟
 
 ## 一、服务发现
 
@@ -230,4 +233,3 @@ customer中数据变更时发出消息, orderService订阅更新自包含数据
     4. orderService通知客户端刚创建的order验证失败
 
 但这种做法会使客户端更复杂, 客户端知道order创建成功, 但不久后返回失败
-

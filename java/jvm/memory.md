@@ -1,10 +1,13 @@
 ---
+date: 2023-11-17 16:47:42
 prev: ./class-load 
 next: ./gc
 sidebar: auto
 ---
 
 # JVM的运行时内存区域
+
+> 预计阅读时间：20 分钟
 
 ![jvm-memory](https://cdn.jsdelivr.net/gh/NiceAshin/FileStore/blogImage/jvm-memory.png)
 

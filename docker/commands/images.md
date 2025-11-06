@@ -1,8 +1,11 @@
 ---
+date: 2022-06-22 03:03:05
 next: ./container
 sidebar: auto
 ---
 ## 镜像命令
+
+> 预计阅读时间：6 分钟
 
 #### docker images
 

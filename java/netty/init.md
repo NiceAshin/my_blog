@@ -1,9 +1,12 @@
 ---
+date: 2024-03-25 02:13:51
 sidebar: auto
 prev: ./component
 next: ./codec
 ---
 # NettyServer端的初始化流程
+
+> 预计阅读时间：5 分钟
 
 先写一个通用的Netty服务端的启动代码, 而后逐步分析
 
@@ -61,5 +64,3 @@ public class NettyServer {
 ## 初始化Channel
 
 ## 绑定端口
-
-

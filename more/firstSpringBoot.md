@@ -1,3 +1,9 @@
+---
+date: 2025-07-14 23:33:51
+---
+
+> 预计阅读时间：41 分钟
+
 **完整的 Spring Boot + Vue3 + Element Plus** 的项目实现，包括：
 
 - 使用 IntelliJ IDEA 创建 Spring Boot 项目
@@ -720,4 +726,3 @@ const app = createApp(App)
 app.use(ElementPlus)
 app.mount('#app')
 ```
-

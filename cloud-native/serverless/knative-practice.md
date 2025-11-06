@@ -1,6 +1,6 @@
 ---
+date: 2020-10-06 12:04:37
 title: Knative 驱动的企业级 Serverless 落地指南
-date: 2024/04/18 12:35:00
 tags:
   - serverless
   - knative

@@ -1,10 +1,13 @@
 ---
+date: 2025-03-26 22:20:00
 next: ./contact
 prev: ./design
 sidebar: auto
 ---
 
 # 服务拆分
+
+> 预计阅读时间：5 分钟
 
 ## 分解步骤 
 
@@ -61,4 +64,3 @@ sidebar: auto
 ### 获取一致性视图
 
 单独创建一个QueryService, 同步CQRS更新视图
-

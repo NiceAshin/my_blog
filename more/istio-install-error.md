@@ -1,8 +1,11 @@
 ---
+date: 2025-09-26 08:23:05
 sidebar: auto
 ---
 
 # 记一次部署Istio遇到的问题
+
+> 预计阅读时间：7 分钟
 
 按照[官方文档](https://istio.io/latest/zh/docs/setup/getting-started/)在虚拟机一主二从k8s环境中部署Istio时遇到**`Istiod encountered an error: failed to wait for resource: resources not ready after 5m0s: timed out waiting for the condition`**问题.
 
@@ -72,4 +75,3 @@ kubeadm reset
 将node3重新加入节点执行kubeadm join.
 
 集群恢复正常.  Istio安装成功
-

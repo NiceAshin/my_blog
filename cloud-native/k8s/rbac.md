@@ -1,6 +1,6 @@
 ---
+date: 2020-09-18 03:52:18
 title: Kubernetes RBAC 权限模型深度实践
-date: 2024/04/18 12:25:00
 tags:
   - kubernetes
   - security

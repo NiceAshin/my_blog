@@ -1,8 +1,11 @@
 ---
+date: 2020-05-31 02:38:28
 sidebar: auto
 ---
 
 # linux网络与docker网络模型
+
+> 预计阅读时间：20 分钟
 
 
 容器的网络依赖于Linux内核支持. 所以需要先学习理解Linux相关的网络知识. 主要是`network namespace`, `veth pair`, `bridge`, `iptables`. 
@@ -233,4 +236,4 @@ CNM和CNI目标都是以一致的编程接口抽象网络实现. CNM现在已经
 
 ---
 
-由于Linux bridge + iptables的单机部署的网络方式, 容器只在主机内部可见, 如果要在实现不同主机间的相互通信还需要借助一些插件比如flannel, calico. 后面会再写 
+由于Linux bridge + iptables的单机部署的网络方式, 容器只在主机内部可见, 如果要在实现不同主机间的相互通信还需要借助一些插件比如flannel, calico. 后面会再写

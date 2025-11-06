@@ -1,10 +1,13 @@
 ---
+date: 2023-07-30 15:33:51
 next: ./aqs
 prev: ./jmm
 sidebar: auto
 ---
 
 # synchronized与volatile的实现原理
+
+> 预计阅读时间：12 分钟
 
 ## Synchronized
 

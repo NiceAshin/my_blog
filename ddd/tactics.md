@@ -1,10 +1,13 @@
 ---
+date: 2021-02-11 21:30:46
 prev: ./stratgy
 next: ./event-source
 sidebar: auto
 ---
 
 # DDD的战术设计
+
+> 预计阅读时间：10 分钟
 
 DDD的战术设计使业务从技术中分离出来, 让代码直接表达业务本身. 其中包含了应用服务, 聚合, 资源库, 工厂等概念.
 面向对象的基本原则([SOLID](https://en.wikipedia.org/wiki/SOLID))在DDD中依然成立.

@@ -1,8 +1,11 @@
 ---
+date: 2024-07-31 11:40:00
 next: ./reactor
 ---
 
 # 响应式编程
+
+> 预计阅读时间：5 分钟
 
 ## 为什么需要响应性
 
@@ -63,4 +66,3 @@ next: ./reactor
 - [RxJava](rxjava.md)
 - [响应式流](reactive-streams.md)
 - [Project Reactor](projectreactor.md)
-

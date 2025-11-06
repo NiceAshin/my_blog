@@ -1,8 +1,11 @@
 ---
+date: 2025-10-14 16:35:23
 sidebar: auto
 ---
 
 # 最大不重复子串的长度
+
+> 预计阅读时间：5 分钟
 
 ## 描述
 
@@ -116,6 +119,3 @@ public class Solution2{
 在这个算法中, 最主要的是怎么去移动left. 
 
 以owwcbo为例, 当right移动到角标2时, 当前的最长不重复子串是ow, 当前字符是w, 发现w已经在map中存在， 那么更新一下``left = map.get(w) + 1``. 而后重新计算``max. max = Math.max(max,right - left + 1) ``
-
-
-

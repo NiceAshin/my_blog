@@ -1,10 +1,13 @@
 ---
+date: 2024-10-31 04:41:32
 next: ./design
 sidebar: none
 ---
 
 
 ## 微服务的优点
+
+> 预计阅读时间：5 分钟
 
 - 使大型复杂应用可以持续交付部署
 
@@ -36,4 +39,3 @@ sidebar: none
 - [服务治理与网关架构](./governance.md)
 - [微服务可观测性](./observability.md)
 - [契约测试实践](./contract-testing.md)
-

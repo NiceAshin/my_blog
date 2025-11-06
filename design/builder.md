@@ -1,9 +1,12 @@
 ---
+date: 2021-06-01 22:44:37
 prev: ./clone
 next: ./adapter
 ---
 
 # 建造者模式
+
+> 预计阅读时间：17 分钟
 
 建造者模式用于将多个简单对象通过组装的方式构建出一个复杂对象. 他保证了复杂对象的在构建时能够有一个清晰的层次.
 
@@ -338,4 +341,3 @@ public final class HttpClient {
         Result result = PtzRestClient.ptzStart(build);
     }
 ```
-

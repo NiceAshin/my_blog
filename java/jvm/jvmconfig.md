@@ -1,9 +1,12 @@
 ---
+date: 2023-10-30 08:35:23
 prev: ./optimization
 sidebar: none
 ---
 
 # JVM配置
+
+> 预计阅读时间：5 分钟
 
 ## 参数
 JVM配置参数的第一位都是**X**, 表示对JVM的配置

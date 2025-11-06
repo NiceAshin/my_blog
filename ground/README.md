@@ -1,8 +1,11 @@
 ---
+date: 2022-10-28 12:29:14
 sidebar: false
 ---
 
 ## Mysql
+
+> 预计阅读时间：5 分钟
 
 - [mysql优化](mysql/optimization.md)
 - [k8s部署mysql主从复制集群](mysql/k8s-mysql-cluster.md)
@@ -16,6 +19,3 @@ sidebar: false
 - [k8s部署ES集群](es/k8s-es-cluster.md)
 
 ## Kafka
-
-
-

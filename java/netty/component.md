@@ -1,9 +1,12 @@
 ---
+date: 2024-01-30 01:36:55
 sidebar: auto
 next: ./init
 ---
 
 # 核心组件
+
+> 预计阅读时间：44 分钟
 
 Netty是一个异步的时间驱动的高性能网络编程框架, 它有比JavaApi更高的吞吐量与低延迟, 并且得益于资源的池化与复用, 有更低的资源消耗. 以及更少的内存复制. Netty提供了统一的API, 支持多种传输类型, 支持阻塞与非阻塞. 它具备简单强大的
 线程模型. 
@@ -647,4 +650,3 @@ public interface ReferenceCounted {
 :::
 
 Netty提供了一个TailHandler来做release操作, 如果handlers的传递过程中没有调用fireChannelRead(), 也需要手动释放.  TailHandler的释放是指对入站消息的释放, 出站消息的释放在HeadHandler的flush中.
-

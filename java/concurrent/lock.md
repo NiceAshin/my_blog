@@ -1,10 +1,13 @@
 ---
+date: 2023-07-12 07:21:32
 prev: ./aqs
 next: ./concurrent-package
 sidebar: auto
 ---
 
 # Lock接口
+
+> 预计阅读时间：17 分钟
 
 jdk1.5之后出现的Lock接口提供synchronized所不具备的三个特性: 他可以尝试非阻塞的获取锁; 能够被中断的获取锁; 超时获取锁.
 它可以显示的获取和释放锁
@@ -352,4 +355,3 @@ Condition是AQS的内部类, 因此每个Condition都拥有AQS的引用
 ConditionObject内部维护了一个AQS的同步队列, 当调用了awit()时, 相当于同步队列的首节点移动到了等待队列中.
 
 当调用signal()时会将等待队列中等待时间最长的节点移动到同步队列中. 当这个节点从同步队列中获取到锁时, 从awit()返回.
- 
