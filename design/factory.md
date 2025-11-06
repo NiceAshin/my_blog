@@ -1,5 +1,5 @@
 ---
-date: 2020/11/30 09:00:00
+date: 2020-11-30 09:00:00
 sidebar: auto
 next: ./clone
 prev: ./singleton

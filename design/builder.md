@@ -1,5 +1,5 @@
 ---
-date: 2020/07/24 09:00:00
+date: 2020-07-24 09:00:00
 prev: ./clone
 next: ./adapter
 ---

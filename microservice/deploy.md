@@ -1,5 +1,5 @@
 ---
-date: 2021/09/01 09:00:00
+date: 2021-09-01 09:00:00
 next: ./CQRS
 prev: ./quality
 sidebar: auto

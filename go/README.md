@@ -1,6 +1,6 @@
 ---
 sidebar: false
-date: 2025/06/07 09:00:00
+date: 2025-06-07 09:00:00
 tags:
   - go
   - roadmap

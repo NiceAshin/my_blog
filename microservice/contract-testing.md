@@ -1,6 +1,6 @@
 ---
 title: 微服务契约测试与自动化校验实践
-date: 2021/08/13 09:00:00
+date: 2021-08-13 09:00:00
 tags:
   - microservice
   - testing

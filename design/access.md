@@ -1,5 +1,5 @@
 ---
-date: 2020/05/12 09:00:00
+date: 2020-05-12 09:00:00
 sidebar: auto
 prev: ./cmd
 next: ./iterator

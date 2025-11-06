@@ -1,5 +1,5 @@
 ---
-date: 2023/07/29 09:00:00
+date: 2023-07-29 09:00:00
 prev: ./optimization
 sidebar: none
 ---

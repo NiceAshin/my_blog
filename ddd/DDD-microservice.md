@@ -1,5 +1,5 @@
 ---
-date: 2020/01/23 09:00:00
+date: 2020-01-23 09:00:00
 prev: ./event-source
 sidebar: auto
 ---

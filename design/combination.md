@@ -1,5 +1,5 @@
 ---
-date: 2020/10/06 09:00:00
+date: 2020-10-06 09:00:00
 sidebar: auto
 prev: ./decorator
 next: ./face

@@ -1,5 +1,5 @@
 ---
-date: 2021/11/13 09:00:00
+date: 2021-11-13 09:00:00
 next: ./deploy
 prev: ./ts
 sidebar: auto

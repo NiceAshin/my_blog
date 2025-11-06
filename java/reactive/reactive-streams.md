@@ -1,5 +1,5 @@
 ---
-date: 2024/04/11 09:00:00
+date: 2024-04-11 09:00:00
 prev: ./rxjava
 next: ./projectreactor
 sidebar: auto

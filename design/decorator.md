@@ -1,5 +1,5 @@
 ---
-date: 2020/10/24 09:00:00
+date: 2020-10-24 09:00:00
 sidebar: auto
 next: ./combination
 prev: ./bridge

@@ -1,6 +1,6 @@
 ---
 title: Go 微服务的可观测性方案
-date: 2025/08/19 09:00:00
+date: 2025-08-19 09:00:00
 tags:
   - go
   - observability

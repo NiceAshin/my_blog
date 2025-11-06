@@ -1,5 +1,5 @@
 ---
-date: 2021/12/20 09:00:00
+date: 2021-12-20 09:00:00
 next: ./quality
 prev: ./contact
 sidebar: auto

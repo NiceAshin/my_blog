@@ -1,5 +1,5 @@
 ---
-date: 2025/05/01 09:00:00
+date: 2025-05-01 09:00:00
 next: ./service-mesh-2
 sidebar: auto
 ---

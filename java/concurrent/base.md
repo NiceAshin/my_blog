@@ -1,5 +1,5 @@
 ---
-date: 2023/03/23 09:00:00
+date: 2023-03-23 09:00:00
 next: ./thread
 sidebar: auto
 ---

@@ -1,5 +1,5 @@
 ---
-date: 2023/12/23 09:00:00
+date: 2023-12-23 09:00:00
 sidebar: auto
 prev: ./protobuf
 next: ./heartbeat

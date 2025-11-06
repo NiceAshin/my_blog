@@ -1,7 +1,7 @@
 ---
 prev: ./cmd
 sidebar: auto
-date: 2022/05/15 09:00:00
+date: 2022-05-15 09:00:00
 tags:
 - linux
 ---

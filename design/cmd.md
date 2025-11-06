@@ -1,5 +1,5 @@
 ---
-date: 2020/09/17 09:00:00
+date: 2020-09-17 09:00:00
 sidebar: auto
 prev: ./template
 next: ./access

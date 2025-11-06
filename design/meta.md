@@ -1,5 +1,5 @@
 ---
-date: 2021/02/11 09:00:00
+date: 2021-02-11 09:00:00
 sidebar: auto
 prev: ./face
 next: ./proxy

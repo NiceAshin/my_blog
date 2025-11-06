@@ -1,6 +1,6 @@
 ---
 title: Docker学习
-date: 2022/01/07 09:00:00
+date: 2022-01-07 09:00:00
 next: ./commands/help
 sidebar: auto
 ---

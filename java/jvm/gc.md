@@ -1,5 +1,5 @@
 ---
-date: 2023/08/17 09:00:00
+date: 2023-08-17 09:00:00
 prev: ./memory
 next: ./monitor
 sidebar: auto

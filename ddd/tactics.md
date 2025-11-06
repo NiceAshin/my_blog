@@ -1,5 +1,5 @@
 ---
-date: 2020/04/05 09:00:00
+date: 2020-04-05 09:00:00
 prev: ./stratgy
 next: ./event-source
 sidebar: auto

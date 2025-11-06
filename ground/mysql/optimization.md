@@ -1,5 +1,5 @@
 ---
-date: 2024/09/23 09:00:00
+date: 2024-09-23 09:00:00
 next: ./k8s-mysql-cluster
 sidebar: auto
 ---

@@ -1,5 +1,5 @@
 ---
-date: 2021/04/07 09:00:00
+date: 2021-04-07 09:00:00
 sidebar: auto
 next: ./factory
 prev: ./

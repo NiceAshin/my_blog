@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Ingress 实战详解
-date: 2024/12/24 09:00:00
+date: 2024-12-24 09:00:00
 tags:
   - kubernetes
   - ingress

@@ -1,5 +1,5 @@
 ---
-date: 2024/01/10 09:00:00
+date: 2024-01-10 09:00:00
 sidebar: auto
 prev: ./protobuf
 ---

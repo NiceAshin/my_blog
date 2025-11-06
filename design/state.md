@@ -1,5 +1,5 @@
 ---
-date: 2021/04/25 09:00:00
+date: 2021-04-25 09:00:00
 sidebar: auto
 prev: ./interpreter
 next: ./strategy

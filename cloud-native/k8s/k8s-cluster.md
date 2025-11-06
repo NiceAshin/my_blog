@@ -1,5 +1,5 @@
 ---
-date: 2025/01/11 09:00:00
+date: 2025-01-11 09:00:00
 prev: ./k8s
 next: ./network
 sidebar: auto

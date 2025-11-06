@@ -1,5 +1,5 @@
 ---
-date: 2020/03/18 09:00:00
+date: 2020-03-18 09:00:00
 prev: ./
 next: ./tactics
 sidebar: auto

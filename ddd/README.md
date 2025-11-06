@@ -1,5 +1,5 @@
 ---
-date: 2020/02/10 09:00:00
+date: 2020-02-10 09:00:00
 next: ./stratgy
 sidebar: false
 ---

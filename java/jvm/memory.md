@@ -1,5 +1,5 @@
 ---
-date: 2023/09/22 09:00:00
+date: 2023-09-22 09:00:00
 prev: ./class-load 
 next: ./gc
 sidebar: auto

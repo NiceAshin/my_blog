@@ -1,5 +1,5 @@
 ---
-date: 2023/05/17 09:00:00
+date: 2023-05-17 09:00:00
 prev: ./aqs
 next: ./concurrent-package
 sidebar: auto

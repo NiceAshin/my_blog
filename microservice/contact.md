@@ -1,5 +1,5 @@
 ---
-date: 2021/07/26 09:00:00
+date: 2021-07-26 09:00:00
 next: ./ts
 prev: ./split
 sidebar: auto

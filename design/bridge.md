@@ -1,5 +1,5 @@
 ---
-date: 2020/07/06 09:00:00
+date: 2020-07-06 09:00:00
 sidebar: auto
 prev: ./adapter
 next: ./decorator

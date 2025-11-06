@@ -1,5 +1,5 @@
 ---
-date: 2020/01/05 09:00:00
+date: 2020-01-05 09:00:00
 home: true
 heroText: AshinBlog
 tagline: 黑夜中前行，仍照亮前路!
