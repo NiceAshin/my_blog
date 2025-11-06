@@ -1,7 +1,7 @@
 ---
+date: 2024-09-06 04:04:37
 next: ./frpc
 sidebar: auto
-date: 2022-04-27 09:00:00
 tags:
 - linux
 ---

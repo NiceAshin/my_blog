@@ -1,5 +1,5 @@
 ---
-date: 2020-02-29 09:00:00
+date: 2021-01-06 05:06:09
 prev: ./tactics
 next: ./DDD-microservice 
 sidebar: auto

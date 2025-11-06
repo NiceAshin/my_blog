@@ -1,5 +1,5 @@
 ---
-date: 2020-06-18 09:00:00
+date: 2021-04-26 06:20:00
 sidebar: auto
 prev: ./observer
 next: ./memo
