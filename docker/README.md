@@ -16,6 +16,37 @@ sidebar: auto
 - [Docker镜像命令](commands/images.md)
 - [Docker容器命令](commands/container.md)
 - [Docker其他命令](commands/other.md)
+- [Docker Compose 常用命令](commands/compose.md)
+
+## Docker 网络基础
+
+Docker 默认会为容器提供隔离的网络环境，通过不同的驱动实现多种网络模式：
+
+- **bridge**：默认模式，同一主机上容器通过虚拟交换机互联，可通过端口映射与宿主机通信。
+- **host**：容器与宿主机共享网络命名空间，适合对性能要求高但不需要端口隔离的场景。
+- **none**：容器仅拥有 loopback 接口，通常用于自定义网络方案或更严格的安全隔离。
+- **overlay**：依赖于 Docker Swarm 或其他分布式存储后端，可跨主机连接容器，实现多节点服务通信。
+
+常见操作示例：
+
+```bash
+# 查看现有网络
+docker network ls
+
+# 查看指定网络详情
+docker network inspect bridge
+
+# 创建自定义桥接网络并指定网段
+docker network create --driver bridge --subnet 172.18.0.0/16 app-net
+
+# 将运行中的容器连接至网络
+docker network connect app-net my-container
+
+# 从网络中移除容器
+docker network disconnect app-net my-container
+```
+
+> 通过自定义网络可以隔离不同应用的通信域，并结合 `docker compose` 在 `networks` 配置块中定义多网络拓扑，实现更灵活的服务编排。
 
 ## Centos7安装docker
 
