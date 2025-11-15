@@ -88,6 +88,30 @@ guns-gitlab/master  →  本地 sync-guns  →  本地 dev  →  origin/dev
 
 至此，`guns-gitlab/master → origin/dev` 的同步链路闭环。
 
+## 🔁 已提交代码的跨仓库 cherry-pick
+
+有时并不是简单的“整分支同步”，而是需要把副仓库里某个特定提交跨仓库、跨分支地同步过来。这时推荐使用 `git cherry-pick`：
+
+1. **在本地同步分支 `sync-guns` 上获取目标提交**
+   ```bash
+   git checkout sync-guns
+   git fetch guns-gitlab
+   git cherry-pick <guns-gitlab-commit>
+   ```
+2. **将 cherry-pick 结果合并回 `dev`，再推送到 `origin/dev`**
+   ```bash
+   git checkout dev
+   git merge sync-guns
+   git push origin dev
+   ```
+
+> ✅ `git cherry-pick --abort`：当 cherry-pick 过程中出现冲突或想要放弃操作时，使用该命令可立即回滚到操作前的状态。
+
+为了更快锁定需要 cherry-pick 的提交，可搭配下面的命令：
+
+- `git log --oneline --decorate -n 5`：快速查看最近 5 条提交、分支或 tag 装饰信息。把 `-n 5` 改成更大的数字即可查看更多历史。
+- `git revert <commit>`：如果误 cherry-pick 了某个提交，可通过 revert 引入一个新的反向提交，从历史中“撤销”这次变更，而不会重写已有提交。
+
 ## 🌈 同步流程示意图
 
 ```
@@ -130,6 +154,13 @@ git checkout dev
 git merge sync-guns            # 将更新合入 dev
 
 git push origin dev            # 推送到主仓库 dev
+
+# cherry-pick 相关
+git checkout sync-guns
+git cherry-pick <guns-gitlab-commit>
+git cherry-pick --abort        # 放弃当前 cherry-pick
+git log --oneline --decorate -n 5
+git revert <commit>            # 引入反向提交撤销历史
 ```
 
 ## 📝 总结
