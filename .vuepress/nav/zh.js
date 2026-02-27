@@ -30,6 +30,15 @@ module.exports = [
         ]
     },
     {
+        text: 'PHP 框架探索',
+        items: [
+            {
+                text: 'Yii2 核心解析',
+                link: '/yii2/'
+            }
+        ]
+    },
+    {
         text: '平台工程与基础设施',
         items: [
             {
