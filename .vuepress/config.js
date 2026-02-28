@@ -38,7 +38,7 @@ module.exports = {
         },
         subSidebar: 'auto',
         "type": "blog",
-        "logo": "/logo-ashin.png",
+        "logo": "/logo2.png",
         "search": true,
         "searchMaxSuggestions": 10,
         "lastUpdated": "Last Updated",
