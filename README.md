@@ -11,7 +11,7 @@ heroImageStyle: {
   borderRadius: '50%',
   boxShadow: '0 5px 18px rgba(0,0,0,0.2)'
 }
-bgImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920'
+bgImage: '/images/home-bg.jpg'
 bgImageStyle: {
   height: '450px'
 }
