@@ -1,0 +1,57 @@
+// 极简风格自定义 (Index)
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+// 全局字体
+body
+  font-family: "JetBrains Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+
+// 导航栏磨砂玻璃 (Glassmorphism)
+.navbar
+  background-color: rgba(255, 255, 255, 0.7) !important
+  backdrop-filter: blur(10px)
+  border-bottom: 1px solid rgba(0,0,0,0.05) !important
+
+// 侧边栏样式优化
+.sidebar
+  background-color: rgba(255, 255, 255, 0.8) !important
+  backdrop-filter: blur(8px)
+  border-right: 1px solid rgba(0,0,0,0.05) !important
+  .sidebar-sub-headers
+    font-size: 0.85em
+
+// 卡片 (reco 核心样式)
+.reco-card
+  border: none !important
+  border-radius: 15px !important
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1) !important
+  &:hover
+    transform: translateY(-5px) scale(1.01) !important
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important
+
+// 首页 Hero 动画
+.hero
+  h1
+    font-weight: 600 !important
+    background: linear-gradient(120deg, #3498db 0%, #8e44ad 100%)
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+  p.tagline
+    font-family: "JetBrains Mono", monospace !important
+    color: #7f8c8d !important
+
+// 按钮美化
+.action-button
+  border-radius: 30px !important
+  padding: 0.8rem 2rem !important
+  transition: all 0.3s ease !important
+  &:hover
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4) !important
+
+// 暗色模式微调 (Reco 内置支持)
+.dark
+  .navbar, .sidebar
+    background-color: rgba(26, 26, 26, 0.7) !important
+  .reco-card
+    background-color: #252526 !important
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important

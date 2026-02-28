@@ -1,28 +1,28 @@
 ---
-date: 2020-01-05 09:00:00
 home: true
 heroText: AshinBlog
-tagline: 有志者、事竟成，破釜沉舟，百二秦关终属楚；苦心人、天不负，卧薪尝胆，三千越甲可吞吴。
-# heroImage: /hero.png
-# heroImageStyle: {
-#   maxWidth: '600px',
-#   width: '100%',
-#   display: block,
-#   margin: '9rem auto 2rem',
-#   background: '#fff',
-#   borderRadius: '1rem',
-# }
+tagline: 专注于 PHP, Java, Go 与云原生的极客空间
+# heroImage: /logo.png
+heroImageStyle: {
+  maxWidth: '200px',
+  width: '100%',
+  display: block,
+  margin: '6rem auto 1.5rem',
+  borderRadius: '50%',
+  boxShadow: '0 5px 18px rgba(0,0,0,0.2)'
+}
+bgImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920'
 bgImageStyle: {
   height: '450px'
 }
 isShowTitleInHome: false
-actionText: Guide
+actionText: 阅读文章 →
 actionLink: /views/other/guide
 features:
-- title: Yesterday
-  details: 开发一款看着开心、写着顺手的 vuepress 博客主题
-- title: Today
-  details: 希望帮助更多的人花更多的时间在内容创作上，而不是博客搭建上
-- title: Tomorrow
-  details: 希望更多的爱好者能够参与进来，帮助这个主题更好的成长
+- title: 架构深度
+  details: 从 DDD 到微服务，探索复杂系统的拆解与演进之道。
+- title: 基础设施
+  details: 玩转 K8s, Docker 与 Service Mesh，构建高效的云原生底座。
+- title: 全栈探索
+  details: 深度剖析 Java, Go, PHP(Yii2) 与 AI 智能工具的应用实战。
 ---
