@@ -38,7 +38,7 @@ module.exports = {
         },
         subSidebar: 'auto',
         "type": "blog",
-        "logo": "/logo2.png",
+        "logo": "/logo2-128.png",
         "search": true,
         "searchMaxSuggestions": 10,
         "lastUpdated": "Last Updated",
