@@ -20,11 +20,12 @@ module.exports = {
     ],
     "theme": "reco",
     "themeConfig": {
-        repo: 'https://github.com/NiceAshin',
+        repo: 'NiceAshin/my_blog',
         editLinks: true,
+        docsBranch: 'main',
         record: "鲁ICP备2020048949号",
         recordLink: "https://beian.miit.gov.cn/",
-        docsDir: 'my_blog',
+        docsDir: '',
         smoothScroll: true,
         locales: {
             '/': {
