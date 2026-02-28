@@ -45,6 +45,8 @@ module.exports = {
         "author": "AshinZhang",
         "authorAvatar": "/avatar.png",
         "startYear": "2020",
+        "mode": "dark",
+        "modePicker": false,
         noFoundPageByTencent: false
     },
     "markdown": {
