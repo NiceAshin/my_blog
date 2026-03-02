@@ -1,69 +1,95 @@
 ---
-title: AI CLI 工具实战
+title: Gemini CLI 终极指南
 date: 2026-02-28
 categories:
   - AI
 tags:
   - AI
-  - Claude
   - Gemini
   - CLI
-  - 终端工具
+  - 开发工具
 ---
 
-# 终端霸主：Claude Code 与 Gemini CLI 深度指南
+# Gemini CLI (v0.30.0+)：全功能交互与语法字典
 
-对于追求极致效率的开发者，终端（CLI）是 Vibe Coding 的天然土壤。以下是目前最强大的两款 AI CLI 工具的实战解析，重点关注它们的内置语法与核心命令。
-
-## 1. Gemini CLI (npx @google/gemini-cli)
-
-Gemini CLI 的核心哲学是**交互式控制**与**技能驱动**。它通过一套丰富的“斜杠指令（Slash Commands）”赋予开发者对 Agent 状态的精准操控。
-
-### 核心交互语法 (Slash Commands)
-
-- **`/rewind` —— 时光机回溯**
-    - **含义**：逐步回溯对话历史。
-    - **功能**：不仅仅是撤销对话，它允许你预览并选择性地回滚“对话状态”、“代码更改”或两者。当你发现 Agent 走偏了，这是纠偏最快的手段。
-- **`/plan` —— 计划先行**
-    - **功能**：进入计划模式。在执行复杂重构前，要求 Agent 先输出一份“架构规划书”。你可以在确认计划后再让它动手，极大降低了大范围改错的风险。
-- **`/chat` —— 会话分支管理**
-    - `save <tag>`: 给当前的思维状态打个快照。
-    - `resume <tag>`: 随时跳回之前的任何一个思维分支。
-- **`/memory` —— 上下文宪法**
-    - **功能**：管理基于 `GEMINI.md` 的层级指令。通过 `/memory show` 可以实时查看 Agent 到底记住了哪些项目规则。
-- **`/rewind` vs `/restore`**
-    - `/rewind` 侧重于回溯对话流，而 `/restore` 专门用于从自动创建的检查点中恢复被 AI 修改坏了的文件。
-
-### 核心工作流命令
-- **`npx skills find`**: 在生态中发现新技能（如 `git`, `docker`, `testing`）。
-- **`codebase_investigator`**: 调动专门的子代理进行全库扫描，生成代码地图。
+Gemini CLI 不仅仅是一个终端聊天窗口，它是一个具备**状态感知**、**技能扩展**和**全库审计**能力的 AI 软件工程师。本指南将详尽解析其每一项功能和内置指令。
 
 ---
 
-## 2. Claude Code (Claude CLI)
-
-Claude Code 以其深厚的工程推理能力著称，其指令系统更侧重于自动化任务的自主执行。
-
-### 常用快捷指令
-- **`/files`**: 列出 Agent 正在“盯着”的文件。在处理大型项目时，控制上下文窗口的大小是防乱码的关键。
-- **`/compact`**: 当对话达到数万 Token 时，手动触发上下文压缩，只保留核心逻辑，节省 Token 费用的同时也提高了推理准确度。
-- **`/cost`**: 实时透明地显示当前任务消耗了多少美元。
-
-### 自主执行语法
-Claude CLI 最强大的地方在于它可以直接运行并理解 shell 命令：
-- “运行所有测试，如果失败了请修好它们。”
-- Agent 会自主执行 `npm test` -> 捕获报错 -> `read_file` 分析 -> 尝试修复 -> 重新运行测试，直到闭环。
+## 1. 核心哲学：意图驱动开发
+Gemini CLI 的操作逻辑遵循 **“研究 (Research) -> 策略 (Strategy) -> 执行 (Execution)”** 的三段式循环。它通过 `GEMINI.md` 建立项目宪法，利用 `Skills` 扩展原子能力。
 
 ---
 
-## 3. 工具选型与实战策略
+## 2. 内置斜杠指令 (Slash Commands) 全解
 
-| 需求场景 | 推荐工具 | 核心指令 |
-| --- | --- | --- |
-| **精准思维回溯** | Gemini CLI | `/rewind`, `/chat resume` |
-| **大规模自动修复** | Claude CLI | `/compact`, 直接执行 shell |
-| **架构与规范强约束** | Gemini CLI | `/memory`, `GEMINI.md` |
-| **UI 系统快速生成** | Gemini CLI | `activate_skill ui-ux-pro-max` |
+斜杠指令是直接控制 Agent 行为、会话状态和环境配置的最快方式。
 
-**实战总结**：
-如果您在开发过程中需要频繁进行“尝试与撤销”，Gemini CLI 的 `/rewind` 和状态管理功能是您的救星；如果您需要 AI 独立承担一个耗时较长的“自动重构”任务，Claude Code 的自主性则更具优势。
+### A. 会话与状态控制 (Session Management)
+- **`/rewind` (时光机)**：逐步回溯对话历史。你可以选择性地回滚对话内容、已修改的代码或两者。*快捷键：双击 Esc*。
+- **`/chat` (分支管理)**：
+    - `save <tag>`: 手动保存当前思维快照。
+    - `resume <tag>`: 恢复到指定的对话分支。
+    - `list`: 查看当前项目的所有快照。
+    - `share`: 将对话导出为 Markdown/JSON。
+- **`/resume`**：打开交互式浏览器，搜索并恢复历史上自动保存的所有会话。
+- **`/reset`**：清空当前上下文，开启全新任务。
+- **`/quit` / `/exit`**：退出当前会话。
+
+### B. 工作区与上下文 (Workspace & Context)
+- **`/memory` (内存管理)**：
+    - `show`: 查看 Agent 此时此刻记住了哪些项目规则（源自 `GEMINI.md`）。
+    - `refresh`: 强制重新扫描并加载项目内的所有上下文文件。
+- **`/directory` (或 `/dir`)**：管理多目录工作区。支持 `add <path>` 将外部组件库加入 Agent 的扫描范围。
+- **`/init`**：分析项目结构并一键生成初始的 `GEMINI.md`。
+- **`/restore [id]`**：从自动创建的检查点中恢复受损文件，是撤销 AI 误修改的“后悔药”。
+
+### C. 高级工作流 (Advanced Workflow)
+- **`/plan` (计划模式)**：在执行复杂重构前，强制模型输出详细规划。支持预览、修改和二次确认后再执行。
+- **`/compress` (上下文压缩)**：当对话达到数万 Token 时，将历史记录替换为语义摘要，从而保持模型的高推理精度并节省成本。
+- **`/stats`**：显示当前任务的实时数据：Token 消耗、耗时、工具调用次数等。
+- **`/copy`**：将 Agent 的最后一次输出一键存入系统剪贴板。
+
+### D. 技能与扩展 (Skills & Tools)
+- **`/skills`**：列出当前可用的 Agent 技能。支持 `enable/disable` 特定扩展。
+- **`/tools`**：显示所有内置工具（如 `replace`, `run_shell_command`）的详细 API 描述。
+- **`/mcp`**：管理 Model Context Protocol 服务器。通过 `refresh` 更新外部连接工具列表。
+
+### E. 系统配置与偏好 (System & UI)
+- **`/settings`**：打开交互式 JSON 编辑器，修改自动保存、工具调用权限等偏好。
+- **`/theme`**：切换终端视觉风格。
+- **`/vim`**：切换 Vim 模拟模式（INSERT/NORMAL 模式）。
+- **`/terminal-setup`**：配置多行输入、快捷键映射等终端环境。
+
+---
+
+## 3. 核心功能模块解析
+
+### 1. 子代理系统 (Sub-agents)
+Gemini CLI 内部集成了专门的专家代理：
+- **`codebase_investigator`**：专门负责跨文件阅读代码、理解架构、建立依赖图。
+- **`cli_help`**：Gemini CLI 自身的活字典，回答关于本工具的所有疑问。
+
+### 2. 自动化工具集 (Built-in Tools)
+Agent 能够调用的物理工具包括：
+- **文件操作**：`read_file`, `write_file`, `replace` (带上下文感知的精准替换)。
+- **搜索增强**：`grep_search` (正则表达式), `glob` (文件查找)。
+- **系统执行**：`run_shell_command` (在安全授权下运行本地脚本)。
+
+### 3. 技能生态 (Skills Ecosystem)
+通过 `npx skills` 命令可以安装全球社区贡献的专业技能，如：
+- **`review-bugs`**：8 维度逻辑漏洞审计。
+- **`git-pushing`**：全自动约定式提交与推送。
+- **`ui-ux-pro-max`**：设计系统生成。
+
+---
+
+## 4. 实战建议：如何用好 Gemini CLI？
+
+1. **规则先行**：始终保持 `GEMINI.md` 的更新。将项目的技术栈、禁止事项（如“禁止使用 Lombok”）写入其中。
+2. **小步快跑**：每完成一个子功能，使用 `/chat save` 打快照。
+3. **怀疑 AI**：在执行大规模修改前，先用 `/plan` 查看其意图。
+4. **回溯有力**：如果代码编译失败，第一时间用 `/rewind` 回滚到最近一个稳定点，而不是手动修。
+
+---
+*注：本手册基于 Gemini CLI 0.30.0 版本整理，最新指令可通过内置 `/help` 查询。*
