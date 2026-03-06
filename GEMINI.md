@@ -8,7 +8,7 @@
 
 - **核心技术:** [VuePress v1.x](https://vuepress.vuejs.org/)
 - **主题:** [vuepress-theme-reco](https://vuepress-reco.recoluan.com/)
-- **作者:** AshinZhang 
+- **作者:** AshinZhang
 - **内容聚焦:** 
     - **架构设计:** 领域驱动设计 (DDD)、微服务实践、设计模式。
     - **编程语言:** Java (JVM、并发编程、Netty、响应式流)、Go 语言。
