@@ -20,6 +20,7 @@ sidebar: false
 ### 模型选型与应用
 - [YOLOv8 全景指南](./ultralytics-yolov8-guide)
 - [YOLO 系列模型选型](./yolo-model-selection)
+- [目标跟踪算法实战](./object-tracking-guide)
 - [OCR 工具选型指南](./ocr-tool-selection)
 - [Java 项目集成 OCR](./java-ocr-integration)
 
