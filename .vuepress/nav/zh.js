@@ -2,7 +2,17 @@ module.exports = [
     {
         text: '架构设计',
         items: [
-            { text: '领域驱动设计', link: '/ddd/' },
+            {
+                text: '领域驱动设计',
+                link: '/ddd/',
+                items: [
+                    { text: 'DDD 概览', link: '/ddd/' },
+                    { text: '战略设计', link: '/ddd/stratgy' },
+                    { text: '战术设计', link: '/ddd/tactics' },
+                    { text: '事件溯源', link: '/ddd/event-source' },
+                    { text: '微服务拆分', link: '/ddd/DDD-microservice' }
+                ]
+            },
             { text: '微服务实践', link: '/microservice/' },
             { text: '设计模式', link: '/design/' }
         ]
@@ -27,7 +37,20 @@ module.exports = [
     {
         text: 'AI 实践',
         items: [
-            { text: 'AI 探索', link: '/ai/' }
+            {
+                text: 'AI 探索',
+                link: '/ai/',
+                items: [
+                    { text: 'AI 概览', link: '/ai/' },
+                    { text: 'Vibe Coding 核心概念', link: '/ai/vibe-coding-concepts' },
+                    { text: 'AI CLI 工具实战', link: '/ai/ai-cli-tools-guide' },
+                    { text: 'YOLOv8 全景指南', link: '/ai/ultralytics-yolov8-guide' },
+                    { text: 'YOLO 模型选型', link: '/ai/yolo-model-selection' },
+                    { text: '目标跟踪算法实战', link: '/ai/object-tracking-guide' },
+                    { text: 'OCR 工具选型', link: '/ai/ocr-tool-selection' },
+                    { text: 'Java OCR 集成', link: '/ai/java-ocr-integration' }
+                ]
+            }
         ]
     },
     {
