@@ -4,6 +4,7 @@
 
 ## 目录
 
+- [PHP 高阶语法](./php-advanced-syntax)
 - [应用主体](./app-instance)
 - [应用组件](./app-components)
 - [控制器](./controllers)
