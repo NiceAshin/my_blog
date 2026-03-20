@@ -5,6 +5,7 @@
 ## 目录
 
 - [PHP 高阶语法](./php-advanced-syntax)
+- [PHP 5.5 经典代码片段](./php55-classic-code)
 - [应用主体](./app-instance)
 - [应用组件](./app-components)
 - [控制器](./controllers)
