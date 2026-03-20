@@ -17,6 +17,9 @@ sidebar: false
 - [AI CLI 工具实战指南](./ai-cli-tools-guide)
 - [Antigravity 技能实践](./antigravity-and-advanced-skills)
 
+### 个人 AI 助手
+- [OpenClaw 部署指南（MacBook Air）](./openclaw-macos-deploy)
+
 ### 模型选型与应用
 - [YOLOv8 全景指南](./ultralytics-yolov8-guide)
 - [YOLO 系列模型选型](./yolo-model-selection)
