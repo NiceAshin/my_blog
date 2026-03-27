@@ -175,6 +175,246 @@ openclaw channels add discord --token "xxx" --application-id "xxx"
 | WhatsApp | 中等 | 需要 Facebook 开发者账号 |
 | Slack | 中等 | 需要创建 Slack App |
 | WebChat | 简单 | 内置网页聊天 |
+| 企业微信 | 简单 | 群机器人 Webhook |
+
+---
+
+## 企业微信对接
+
+OpenClaw 支持通过企业微信机器人实现消息推送和交互，让你在公司群里也能使用小龙虾。
+
+### 方式一：群机器人 Webhook（推荐）
+
+适合在群聊中使用，配置简单。
+
+#### 1. 创建群机器人
+
+1. 打开企业微信手机端或桌面端
+2. 进入目标群聊 → 点击右上角 `···` → `群机器人` → `添加机器人`
+3. 自定义机器人名称（如：小龙虾助手）
+4. 复制 **Webhook 地址**（格式：`https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxx`）
+
+#### 2. 配置 OpenClaw 通道
+
+```bash
+openclaw channels add wecom-webhook \
+  --webhook "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=你的key" \
+  --name "公司群机器人"
+```
+
+#### 3. 测试消息发送
+
+```bash
+openclaw message send \
+  --channel wecom-webhook \
+  --message "小龙虾已上线！@所有人"
+```
+
+#### 4. 在 OpenClaw 中配置自动推送
+
+编辑 `~/.openclaw/config.json`，添加自动规则：
+
+```json
+{
+  "channels": {
+    "wecom-webhook": {
+      "type": "wecom",
+      "webhook": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=你的key",
+      "enabled": true
+    }
+  },
+  "rules": [
+    {
+      "trigger": "schedule",
+      "cron": "0 9 * * 1-5",
+      "message": "早安！今日工作提醒：检查 Jira 任务",
+      "channel": "wecom-webhook"
+    }
+  ]
+}
+```
+
+#### 5. 群机器人消息格式
+
+```bash
+# 文本消息
+openclaw message send --channel wecom-webhook \
+  --type text \
+  --message "这是一条文本消息" \
+  --mentioned-list "@all"
+
+# Markdown 消息
+openclaw message send --channel wecom-webhook \
+  --type markdown \
+  --message "## 今日日报\n> **完成**: 3\n> **进行中**: 5\n> [查看详情](https://jira.company.com)"
+
+# 图文消息
+openclaw message send --channel wecom-webhook \
+  --type news \
+  --title "项目进度更新" \
+  --description "本周完成了核心功能开发..." \
+  --url "https://docs.company.com/weekly" \
+  --picurl "https://company.com/logo.png"
+```
+
+### 方式二：企业微信应用（高级）
+
+适合私聊交互，需要管理员权限。
+
+#### 1. 创建企业微信应用
+
+1. 登录 [企业微信管理后台](https://work.weixin.qq.com/wework_admin/frame)
+2. 应用管理 → 自建应用 → 创建应用
+3. 记录以下信息：
+   - **AgentId**：应用 ID
+   - **Secret**：应用密钥
+   - **企业 ID（CorpId）**：我的企业 → 企业信息
+
+#### 2. 配置可信域名
+
+在应用设置中添加可信域名：
+```
+your-server.com
+```
+
+如果是本地开发，可以使用内网穿透工具（如 ngrok、frp）。
+
+#### 3. 配置 OpenClaw
+
+```bash
+openclaw channels add wecom-app \
+  --type wecom \
+  --corpid "你的企业ID" \
+  --agentid "你的应用AgentId" \
+  --secret "你的应用Secret" \
+  --token "自定义Token" \
+  --encodingaeskey "自定义EncodingAESKey"
+```
+
+#### 4. 启动接收服务
+
+```bash
+# 启动 Gateway 并监听企业微信回调
+openclaw gateway --port 18789 --enable-callback
+```
+
+#### 5. 设置回调 URL
+
+在企业微信应用设置中，配置回调 URL：
+```
+https://your-server.com/wecom/callback
+```
+
+### 企业微信交互示例
+
+配置完成后，你可以在企业微信中这样使用小龙虾：
+
+```
+用户: @小龙虾 帮我查一下今天的会议
+小龙虾: 今天有 3 个会议：
+       1. 10:00 产品评审（会议室A）
+       2. 14:00 技术分享（线上）
+       3. 16:00 1:1 沟通（会议室B）
+
+用户: @小龙虾 生成周报
+小龙虾: 好的，根据本周的工作记录，已生成周报：
+
+       ## 本周工作总结
+       ### 已完成
+       - 完成用户模块重构
+       - 修复 3 个 P1 bug
+       - ...
+
+       已发送到你的邮箱。
+```
+
+### 企业微信配置完整示例
+
+```json
+// ~/.openclaw/config.json
+{
+  "channels": {
+    "wecom-group": {
+      "type": "wecom-webhook",
+      "webhook": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxx",
+      "name": "技术群机器人",
+      "enabled": true
+    },
+    "wecom-app": {
+      "type": "wecom-app",
+      "corpid": "ww1234567890abcdef",
+      "agentid": "1000001",
+      "secret": "abc123xyz789",
+      "token": "mytoken123",
+      "encodingaeskey": "1234567890abcdefghijklmnopqrstuvwxyzABCDEF",
+      "name": "小龙虾助手",
+      "enabled": true
+    }
+  },
+  "skills": {
+    "enabled": ["calendar", "jira", "email"]
+  }
+}
+```
+
+### 企业微信常见问题
+
+**Q: Webhook 发送消息失败？**
+
+检查 Webhook URL 是否正确，可以在浏览器直接访问测试：
+```bash
+curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=你的key' \
+  -H 'Content-Type: application/json' \
+  -d '{"msgtype":"text","text":{"content":"测试消息"}}'
+```
+
+**Q: 应用收不到消息？**
+
+1. 检查回调 URL 是否可访问
+2. 确认 Token 和 EncodingAESKey 配置正确
+3. 查看企业微信管理后台的错误日志
+
+**Q: 如何实现 @指定人？**
+
+```bash
+openclaw message send --channel wecom-webhook \
+  --type text \
+  --message "请及时处理" \
+  --mentioned-list "zhangsan,lisi"  # 企业微信用户ID
+  # 或使用手机号
+  --mentioned-mobile-list "13800138000"
+```
+
+**Q: 如何发送卡片消息？**
+
+```json
+{
+  "msgtype": "template_card",
+  "template_card": {
+    "card_type": "text_notice",
+    "main_title": {
+      "title": "任务提醒",
+      "desc": "您有一个新任务待处理"
+    },
+    "sub_title_text": "点击查看详情",
+    "card_action": {
+      "type": 1,
+      "url": "https://jira.company.com/task/123"
+    }
+  }
+}
+```
+
+### 企业微信 vs 其他通道对比
+
+| 特性 | 企业微信群机器人 | 企业微信应用 | Telegram | Discord |
+|------|-----------------|-------------|----------|---------|
+| 配置难度 | 简单 | 中等 | 简单 | 中等 |
+| 私聊支持 | ❌ | ✅ | ✅ | ✅ |
+| 群聊支持 | ✅ | ✅ | ✅ | ✅ |
+| @提醒 | ✅ | ✅ | ✅ | ✅ |
+| 交互按钮 | ❌ | ✅ | ✅ | ✅ |
+| 企业合规 | ✅ | ✅ | ❌ | ❌ |
 
 ---
 
@@ -352,4 +592,4 @@ openclaw models default gpt-4o
 
 ---
 
-*最后更新：2026-03-20*
+*最后更新：2026-03-23*
