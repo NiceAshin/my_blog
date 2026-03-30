@@ -22,7 +22,8 @@ module.exports = [
         items: [
             { text: 'Java 栈', link: '/java/' },
             { text: 'Go 语言', link: '/go/' },
-            { text: 'PHP(Yii2)', link: '/yii2/' }
+            { text: 'PHP(Yii2)', link: '/yii2/' },
+            { text: 'PHP(Laravel12)', link: '/laravel12/' }
         ]
     },
     {
