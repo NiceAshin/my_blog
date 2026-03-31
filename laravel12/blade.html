@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Blade 模板引擎 | AshinBlog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="黑夜中前行，仍照亮前路!">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.6ea8f289.css" as="style"><link rel="preload" href="/assets/js/app.37eb6f02.js" as="script"><link rel="preload" href="/assets/js/3.477d8e52.js" as="script"><link rel="preload" href="/assets/js/1.d87c4fb6.js" as="script"><link rel="preload" href="/assets/js/114.7b07f419.js" as="script"><link rel="prefetch" href="/assets/js/10.ca47366c.js"><link rel="prefetch" href="/assets/js/100.f742e394.js"><link rel="prefetch" href="/assets/js/101.13adc297.js"><link rel="prefetch" href="/assets/js/102.fb92c93d.js"><link rel="prefetch" href="/assets/js/103.d3c29beb.js"><link rel="prefetch" href="/assets/js/104.f70c5d7e.js"><link rel="prefetch" href="/assets/js/105.60a73d2a.js"><link rel="prefetch" href="/assets/js/106.4a5d8a93.js"><link rel="prefetch" href="/assets/js/107.2b20fd97.js"><link rel="prefetch" href="/assets/js/108.75ab5e3f.js"><link rel="prefetch" href="/assets/js/109.04a2814b.js"><link rel="prefetch" href="/assets/js/11.93ffa39c.js"><link rel="prefetch" href="/assets/js/110.56f8d3e0.js"><link rel="prefetch" href="/assets/js/111.ef295dde.js"><link rel="prefetch" href="/assets/js/112.ea7a0805.js"><link rel="prefetch" href="/assets/js/113.d605afe7.js"><link rel="prefetch" href="/assets/js/115.152c1863.js"><link rel="prefetch" href="/assets/js/116.458fbb53.js"><link rel="prefetch" href="/assets/js/117.08299058.js"><link rel="prefetch" href="/assets/js/118.f6a22d0b.js"><link rel="prefetch" href="/assets/js/119.9f071cab.js"><link rel="prefetch" href="/assets/js/12.ef38dcb4.js"><link rel="prefetch" href="/assets/js/120.b6468699.js"><link rel="prefetch" href="/assets/js/121.9fc58851.js"><link rel="prefetch" href="/assets/js/122.4e67a5a5.js"><link rel="prefetch" href="/assets/js/123.9a57dd5b.js"><link rel="prefetch" href="/assets/js/124.527b562a.js"><link rel="prefetch" href="/assets/js/125.d806c00d.js"><link rel="prefetch" href="/assets/js/126.ba10c3df.js"><link rel="prefetch" href="/assets/js/127.532a0d24.js"><link rel="prefetch" href="/assets/js/128.3bbc921e.js"><link rel="prefetch" href="/assets/js/129.43237b30.js"><link rel="prefetch" href="/assets/js/13.a39a890f.js"><link rel="prefetch" href="/assets/js/130.f2330cca.js"><link rel="prefetch" href="/assets/js/131.a5680fe8.js"><link rel="prefetch" href="/assets/js/132.77b4d8a6.js"><link rel="prefetch" href="/assets/js/133.cef28410.js"><link rel="prefetch" href="/assets/js/134.ea9eff82.js"><link rel="prefetch" href="/assets/js/135.6ab47c4f.js"><link rel="prefetch" href="/assets/js/136.502ca293.js"><link rel="prefetch" href="/assets/js/137.3fb8f93d.js"><link rel="prefetch" href="/assets/js/138.dc41d6db.js"><link rel="prefetch" href="/assets/js/139.5a70cdd3.js"><link rel="prefetch" href="/assets/js/14.e194c01f.js"><link rel="prefetch" href="/assets/js/140.4ba32a8d.js"><link rel="prefetch" href="/assets/js/141.015b9844.js"><link rel="prefetch" href="/assets/js/142.44652343.js"><link rel="prefetch" href="/assets/js/143.df20aeac.js"><link rel="prefetch" href="/assets/js/144.d61e4544.js"><link rel="prefetch" href="/assets/js/145.9add5ff8.js"><link rel="prefetch" href="/assets/js/146.89de9476.js"><link rel="prefetch" href="/assets/js/147.a39484bb.js"><link rel="prefetch" href="/assets/js/148.7b25ff6c.js"><link rel="prefetch" href="/assets/js/149.f06fbf31.js"><link rel="prefetch" href="/assets/js/15.99a60c53.js"><link rel="prefetch" href="/assets/js/150.4589fc34.js"><link rel="prefetch" href="/assets/js/151.a23d69e0.js"><link rel="prefetch" href="/assets/js/152.07ebc6f9.js"><link rel="prefetch" href="/assets/js/153.8310094b.js"><link rel="prefetch" href="/assets/js/154.7e42e259.js"><link rel="prefetch" href="/assets/js/155.b110c63d.js"><link rel="prefetch" href="/assets/js/16.a07fc62b.js"><link rel="prefetch" href="/assets/js/17.7ff7e138.js"><link rel="prefetch" href="/assets/js/18.cb7a6aa2.js"><link rel="prefetch" href="/assets/js/19.1d11cee7.js"><link rel="prefetch" href="/assets/js/20.9dc11914.js"><link rel="prefetch" href="/assets/js/21.7e7fb470.js"><link rel="prefetch" href="/assets/js/22.8204b9a1.js"><link rel="prefetch" href="/assets/js/23.6fb8fe68.js"><link rel="prefetch" href="/assets/js/24.d0ec2e52.js"><link rel="prefetch" href="/assets/js/25.3b5368d3.js"><link rel="prefetch" href="/assets/js/26.9915e089.js"><link rel="prefetch" href="/assets/js/27.57fbe37f.js"><link rel="prefetch" href="/assets/js/28.b56bd5d9.js"><link rel="prefetch" href="/assets/js/29.e2f9c7c4.js"><link rel="prefetch" href="/assets/js/30.9e475733.js"><link rel="prefetch" href="/assets/js/31.9379b242.js"><link rel="prefetch" href="/assets/js/32.8ca07edd.js"><link rel="prefetch" href="/assets/js/33.b30c6c3d.js"><link rel="prefetch" href="/assets/js/34.b3c52a5c.js"><link rel="prefetch" href="/assets/js/35.c6b8fed2.js"><link rel="prefetch" href="/assets/js/36.cb4e2ecd.js"><link rel="prefetch" href="/assets/js/37.b2a835bb.js"><link rel="prefetch" href="/assets/js/38.2eaeb61f.js"><link rel="prefetch" href="/assets/js/39.30792e62.js"><link rel="prefetch" href="/assets/js/4.d14c4ac1.js"><link rel="prefetch" href="/assets/js/40.87d4aaac.js"><link rel="prefetch" href="/assets/js/41.20a2765b.js"><link rel="prefetch" href="/assets/js/42.e9d24f68.js"><link rel="prefetch" href="/assets/js/43.e368d4a9.js"><link rel="prefetch" href="/assets/js/44.82bbc22a.js"><link rel="prefetch" href="/assets/js/45.36dad897.js"><link rel="prefetch" href="/assets/js/46.8618e62d.js"><link rel="prefetch" href="/assets/js/47.dfc28120.js"><link rel="prefetch" href="/assets/js/48.4afd93ef.js"><link rel="prefetch" href="/assets/js/49.e8a4c012.js"><link rel="prefetch" href="/assets/js/5.6e2b6adf.js"><link rel="prefetch" href="/assets/js/50.7d75b084.js"><link rel="prefetch" href="/assets/js/51.11415c08.js"><link rel="prefetch" href="/assets/js/52.ffff7b47.js"><link rel="prefetch" href="/assets/js/53.a46da115.js"><link rel="prefetch" href="/assets/js/54.2a07c0a9.js"><link rel="prefetch" href="/assets/js/55.b7f0d3e9.js"><link rel="prefetch" href="/assets/js/56.4300cc2c.js"><link rel="prefetch" href="/assets/js/57.359fb8e1.js"><link rel="prefetch" href="/assets/js/58.8e80dc16.js"><link rel="prefetch" href="/assets/js/59.de47f976.js"><link rel="prefetch" href="/assets/js/6.14a5d79a.js"><link rel="prefetch" href="/assets/js/60.9c993b71.js"><link rel="prefetch" href="/assets/js/61.812035dc.js"><link rel="prefetch" href="/assets/js/62.6c6aa482.js"><link rel="prefetch" href="/assets/js/63.1073de28.js"><link rel="prefetch" href="/assets/js/64.2b2ff6e0.js"><link rel="prefetch" href="/assets/js/65.e5dd1184.js"><link rel="prefetch" href="/assets/js/66.344d8910.js"><link rel="prefetch" href="/assets/js/67.27998314.js"><link rel="prefetch" href="/assets/js/68.125a19d7.js"><link rel="prefetch" href="/assets/js/69.84841a04.js"><link rel="prefetch" href="/assets/js/7.559e6d92.js"><link rel="prefetch" href="/assets/js/70.402c16d5.js"><link rel="prefetch" href="/assets/js/71.1d8aab22.js"><link rel="prefetch" href="/assets/js/72.9bb9a0e2.js"><link rel="prefetch" href="/assets/js/73.b5f1405d.js"><link rel="prefetch" href="/assets/js/74.4936421d.js"><link rel="prefetch" href="/assets/js/75.375fa879.js"><link rel="prefetch" href="/assets/js/76.1cf468ba.js"><link rel="prefetch" href="/assets/js/77.dabdaece.js"><link rel="prefetch" href="/assets/js/78.162886cc.js"><link rel="prefetch" href="/assets/js/79.f3bdbeba.js"><link rel="prefetch" href="/assets/js/8.fb065c98.js"><link rel="prefetch" href="/assets/js/80.a4bbdcf3.js"><link rel="prefetch" href="/assets/js/81.bb18314f.js"><link rel="prefetch" href="/assets/js/82.c6dea70e.js"><link rel="prefetch" href="/assets/js/83.e9eccc7e.js"><link rel="prefetch" href="/assets/js/84.510418ba.js"><link rel="prefetch" href="/assets/js/85.b245e6c3.js"><link rel="prefetch" href="/assets/js/86.821a6cdb.js"><link rel="prefetch" href="/assets/js/87.1218064e.js"><link rel="prefetch" href="/assets/js/88.9811ad0f.js"><link rel="prefetch" href="/assets/js/89.ab01269d.js"><link rel="prefetch" href="/assets/js/9.6794789a.js"><link rel="prefetch" href="/assets/js/90.fc1bbaaa.js"><link rel="prefetch" href="/assets/js/91.c1bb4047.js"><link rel="prefetch" href="/assets/js/92.836d389c.js"><link rel="prefetch" href="/assets/js/93.92dc9e71.js"><link rel="prefetch" href="/assets/js/94.27b52852.js"><link rel="prefetch" href="/assets/js/95.151f5f95.js"><link rel="prefetch" href="/assets/js/96.6fc025a9.js"><link rel="prefetch" href="/assets/js/97.1eba0a63.js"><link rel="prefetch" href="/assets/js/98.b315e110.js"><link rel="prefetch" href="/assets/js/99.8ff4e098.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.6ea8f289.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>AshinBlog</h3> <p class="description" data-v-59e6cb88>黑夜中前行，仍照亮前路!</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>AshinZhang</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2026
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo2-128.png" alt="AshinBlog" class="logo"> <span class="site-name">AshinBlog</span></a> <div class="links"><!----> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      架构设计
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>领域驱动设计</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ddd/" class="nav-link"><i class="undefined"></i>
+  DDD 概览
+</a></li><li class="dropdown-subitem"><a href="/ddd/stratgy.html" class="nav-link"><i class="undefined"></i>
+  战略设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/tactics.html" class="nav-link"><i class="undefined"></i>
+  战术设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/event-source.html" class="nav-link"><i class="undefined"></i>
+  事件溯源
+</a></li><li class="dropdown-subitem"><a href="/ddd/DDD-microservice.html" class="nav-link"><i class="undefined"></i>
+  微服务拆分
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link"><i class="undefined"></i>
+  微服务实践
+</a></li><li class="dropdown-item"><!----> <a href="/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      编程语言
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java/" class="nav-link"><i class="undefined"></i>
+  Java 栈
+</a></li><li class="dropdown-item"><!----> <a href="/go/" class="nav-link"><i class="undefined"></i>
+  Go 语言
+</a></li><li class="dropdown-item"><!----> <a href="/yii2/" class="nav-link"><i class="undefined"></i>
+  PHP(Yii2)
+</a></li><li class="dropdown-item"><!----> <a href="/laravel12/" class="nav-link router-link-active"><i class="undefined"></i>
+  PHP(Laravel12)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础设施
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link"><i class="undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/cloud-native/" class="nav-link"><i class="undefined"></i>
+  云原生
+</a></li><li class="dropdown-item"><!----> <a href="/ground/" class="nav-link"><i class="undefined"></i>
+  中间件
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      AI 实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>AI 探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/" class="nav-link"><i class="undefined"></i>
+  AI 概览
+</a></li><li class="dropdown-subitem"><a href="/ai/vibe-coding-concepts.html" class="nav-link"><i class="undefined"></i>
+  Vibe Coding 核心概念
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-cli-tools-guide.html" class="nav-link"><i class="undefined"></i>
+  AI CLI 工具实战
+</a></li><li class="dropdown-subitem"><a href="/ai/ultralytics-yolov8-guide.html" class="nav-link"><i class="undefined"></i>
+  YOLOv8 全景指南
+</a></li><li class="dropdown-subitem"><a href="/ai/yolo-model-selection.html" class="nav-link"><i class="undefined"></i>
+  YOLO 模型选型
+</a></li><li class="dropdown-subitem"><a href="/ai/object-tracking-guide.html" class="nav-link"><i class="undefined"></i>
+  目标跟踪算法实战
+</a></li><li class="dropdown-subitem"><a href="/ai/ocr-tool-selection.html" class="nav-link"><i class="undefined"></i>
+  OCR 工具选型
+</a></li><li class="dropdown-subitem"><a href="/ai/java-ocr-integration.html" class="nav-link"><i class="undefined"></i>
+  Java OCR 集成
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工程实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/#问题排查与经验" class="nav-link"><i class="undefined"></i>
+  问题排查
+</a></li><li class="dropdown-item"><!----> <a href="/more/#项目与配置实战" class="nav-link"><i class="undefined"></i>
+  配置实战
+</a></li><li class="dropdown-item"><!----> <a href="/more/#接口文档专区" class="nav-link"><i class="undefined"></i>
+  接口文档
+</a></li></ul></div></div> <a href="https://github.com/NiceAshin/my_blog" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    AshinZhang
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>141</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>72</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      架构设计
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>领域驱动设计</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ddd/" class="nav-link"><i class="undefined"></i>
+  DDD 概览
+</a></li><li class="dropdown-subitem"><a href="/ddd/stratgy.html" class="nav-link"><i class="undefined"></i>
+  战略设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/tactics.html" class="nav-link"><i class="undefined"></i>
+  战术设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/event-source.html" class="nav-link"><i class="undefined"></i>
+  事件溯源
+</a></li><li class="dropdown-subitem"><a href="/ddd/DDD-microservice.html" class="nav-link"><i class="undefined"></i>
+  微服务拆分
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link"><i class="undefined"></i>
+  微服务实践
+</a></li><li class="dropdown-item"><!----> <a href="/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      编程语言
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java/" class="nav-link"><i class="undefined"></i>
+  Java 栈
+</a></li><li class="dropdown-item"><!----> <a href="/go/" class="nav-link"><i class="undefined"></i>
+  Go 语言
+</a></li><li class="dropdown-item"><!----> <a href="/yii2/" class="nav-link"><i class="undefined"></i>
+  PHP(Yii2)
+</a></li><li class="dropdown-item"><!----> <a href="/laravel12/" class="nav-link router-link-active"><i class="undefined"></i>
+  PHP(Laravel12)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础设施
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link"><i class="undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/cloud-native/" class="nav-link"><i class="undefined"></i>
+  云原生
+</a></li><li class="dropdown-item"><!----> <a href="/ground/" class="nav-link"><i class="undefined"></i>
+  中间件
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      AI 实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>AI 探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/" class="nav-link"><i class="undefined"></i>
+  AI 概览
+</a></li><li class="dropdown-subitem"><a href="/ai/vibe-coding-concepts.html" class="nav-link"><i class="undefined"></i>
+  Vibe Coding 核心概念
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-cli-tools-guide.html" class="nav-link"><i class="undefined"></i>
+  AI CLI 工具实战
+</a></li><li class="dropdown-subitem"><a href="/ai/ultralytics-yolov8-guide.html" class="nav-link"><i class="undefined"></i>
+  YOLOv8 全景指南
+</a></li><li class="dropdown-subitem"><a href="/ai/yolo-model-selection.html" class="nav-link"><i class="undefined"></i>
+  YOLO 模型选型
+</a></li><li class="dropdown-subitem"><a href="/ai/object-tracking-guide.html" class="nav-link"><i class="undefined"></i>
+  目标跟踪算法实战
+</a></li><li class="dropdown-subitem"><a href="/ai/ocr-tool-selection.html" class="nav-link"><i class="undefined"></i>
+  OCR 工具选型
+</a></li><li class="dropdown-subitem"><a href="/ai/java-ocr-integration.html" class="nav-link"><i class="undefined"></i>
+  Java OCR 集成
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工程实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/#问题排查与经验" class="nav-link"><i class="undefined"></i>
+  问题排查
+</a></li><li class="dropdown-item"><!----> <a href="/more/#项目与配置实战" class="nav-link"><i class="undefined"></i>
+  配置实战
+</a></li><li class="dropdown-item"><!----> <a href="/more/#接口文档专区" class="nav-link"><i class="undefined"></i>
+  接口文档
+</a></li></ul></div></div> <a href="https://github.com/NiceAshin/my_blog" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Blade 模板引擎</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>AshinZhang</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2026
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">Blade 模板引擎</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>AshinZhang</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>3/31/2026</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>Laravel12</span><span class="tag-item" data-v-8a445198>PHP</span></i></div></div> <div class="theme-reco-content content__default"><h1 id="blade-模板引擎"><a href="#blade-模板引擎" class="header-anchor">#</a> Blade 模板引擎</h1> <p>Blade 是 Laravel 内置的强大模板引擎，提供简洁的语法和丰富的功能。</p> <h2 id="基本语法"><a href="#基本语法" class="header-anchor">#</a> 基本语法</h2> <h3 id="输出数据"><a href="#输出数据" class="header-anchor">#</a> 输出数据</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 转义输出（推荐，防止 XSS） --}}
+{{ $title }}
+{{ $post-&gt;title }}
+{{ strtoupper($title) }}
+
+{{-- 原始输出（不转义，谨慎使用） --}}
+{!! $htmlContent !!}
+
+{{-- 未定义变量默认值 --}}
+{{ $title ?? '默认标题' }}
+
+{{-- 转义 JSON --}}
+@json($data)
+@json($data, JSON_PRETTY_PRINT)
+
+{{-- 注释（不会出现在 HTML 中） --}}
+{{-- 这是 Blade 注释 --}}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h3 id="blade-指令"><a href="#blade-指令" class="header-anchor">#</a> Blade 指令</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- @if @elseif @else @endif --}}
+@if($post-&gt;status === 'published')
+    &lt;span class=&quot;badge&quot;&gt;已发布&lt;/span&gt;
+@elseif($post-&gt;status === 'draft')
+    &lt;span class=&quot;badge&quot;&gt;草稿&lt;/span&gt;
+@else
+    &lt;span class=&quot;badge&quot;&gt;未知&lt;/span&gt;
+@endif
+
+{{-- @unless --}}
+@unless($post-&gt;is_featured)
+    &lt;span&gt;普通文章&lt;/span&gt;
+@endunless
+
+{{-- @isset @empty --}}
+@isset($post-&gt;title)
+    &lt;h1&gt;{{ $post-&gt;title }}&lt;/h1&gt;
+@endisset
+
+@empty($post-&gt;comments)
+    &lt;p&gt;暂无评论&lt;/p&gt;
+@endempty
+
+{{-- @auth @guest --}}
+@auth
+    &lt;p&gt;欢迎，{{ auth()-&gt;user()-&gt;name }}&lt;/p&gt;
+@endauth
+
+@guest
+    &lt;a href=&quot;{{ route('login') }}&quot;&gt;登录&lt;/a&gt;
+@endguest
+
+{{-- @production @env --}}
+@production
+    &lt;script src=&quot;{{ asset('js/app.js') }}&quot;&gt;&lt;/script&gt;
+@endproduction
+
+@env('local')
+    &lt;p&gt;开发环境&lt;/p&gt;
+@endenv
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><h3 id="循环指令"><a href="#循环指令" class="header-anchor">#</a> 循环指令</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- @for --}}
+@for($i = 0; $i &lt; 10; $i++)
+    &lt;li&gt;{{ $i }}&lt;/li&gt;
+@endfor
+
+{{-- @foreach --}}
+@foreach($posts as $post)
+    &lt;article&gt;
+        {{ $loop-&gt;index }}       {{-- 索引（从0开始） --}}
+        {{ $loop-&gt;iteration }}   {{-- 迭代次数（从1开始） --}}
+        {{ $loop-&gt;first }}       {{-- 是否第一个 --}}
+        {{ $loop-&gt;last }}        {{-- 是否最后一个 --}}
+        {{ $loop-&gt;count }}       {{-- 总数量 --}}
+        {{ $loop-&gt;even }}        {{-- 是否偶数项 --}}
+        {{ $loop-&gt;odd }}         {{-- 是否奇数项 --}}
+        {{ $post-&gt;title }}
+    &lt;/article&gt;
+@endforeach
+
+{{-- @forelse（空数据时显示默认内容） --}}
+@forelse($posts as $post)
+    &lt;div&gt;{{ $post-&gt;title }}&lt;/div&gt;
+@empty
+    &lt;p&gt;暂无文章&lt;/p&gt;
+@endforelse
+
+{{-- @while --}}
+@while(true)
+    {{-- 需要手动 break --}}
+@endwhile
+
+{{-- @continue @break --}}
+@foreach($posts as $post)
+    @continue($post-&gt;status === 'draft')
+    &lt;div&gt;{{ $post-&gt;title }}&lt;/div&gt;
+    @break($loop-&gt;iteration &gt; 10)
+@endforeach
+
+{{-- 循环变量 --}}
+@foreach($posts as $post)
+    @if($loop-&gt;first)
+        &lt;div class=&quot;first&quot;&gt;{{ $post-&gt;title }}&lt;/div&gt;
+    @elseif($loop-&gt;last)
+        &lt;div class=&quot;last&quot;&gt;{{ $post-&gt;title }}&lt;/div&gt;
+    @else
+        &lt;div&gt;{{ $post-&gt;title }}&lt;/div&gt;
+    @endif
+@endforeach
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br></div></div><h2 id="布局系统"><a href="#布局系统" class="header-anchor">#</a> 布局系统</h2> <h3 id="模板继承"><a href="#模板继承" class="header-anchor">#</a> 模板继承</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- resources/views/layouts/app.blade.php --}}
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;@yield('title', '我的网站')&lt;/title&gt;
+    @stack('styles')
+&lt;/head&gt;
+&lt;body&gt;
+    @include('partials.header')
+
+    &lt;main&gt;
+        @yield('content')
+    &lt;/main&gt;
+
+    @include('partials.footer')
+
+    @stack('scripts')
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 子模板 --}}
+@extends('layouts.app')
+
+@section('title', '文章列表')
+
+@section('content')
+&lt;div class=&quot;posts&quot;&gt;
+    @foreach($posts as $post)
+        &lt;article&gt;{{ $post-&gt;title }}&lt;/article&gt;
+    @endforeach
+&lt;/div&gt;
+@endsection
+
+@push('styles')
+&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset('css/posts.css') }}&quot;&gt;
+@endpush
+
+@push('scripts')
+&lt;script src=&quot;{{ asset('js/posts.js') }}&quot;&gt;&lt;/script&gt;
+@endpush
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h3 id="section-和-yield"><a href="#section-和-yield" class="header-anchor">#</a> @section 和 @yield</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 定义区块 --}}
+@section('sidebar')
+    &lt;div class=&quot;sidebar&quot;&gt;
+        {{-- 内容 --}}
+    &lt;/div&gt;
+@endsection
+
+{{-- 输出区块 --}}
+@yield('sidebar')
+
+{{-- 带默认值 --}}
+@yield('title', '默认标题')
+
+{{-- 追加内容 --}}
+@section('sidebar')
+    @parent  {{-- 保留父级内容 --}}
+    &lt;div&gt;追加内容&lt;/div&gt;
+@endsection
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h3 id="stack-和-push"><a href="#stack-和-push" class="header-anchor">#</a> @stack 和 @push</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 定义堆栈 --}}
+&lt;head&gt;
+    @stack('styles')
+&lt;/head&gt;
+&lt;body&gt;
+    @stack('scripts')
+&lt;/body&gt;
+
+{{-- 推送到堆栈 --}}
+@push('styles')
+&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset('css/custom.css') }}&quot;&gt;
+@endpush
+
+{{-- 预置到堆栈开头 --}}
+@prepend('scripts')
+&lt;script src=&quot;{{ asset('js/jquery.js') }}&quot;&gt;&lt;/script&gt;
+@endprepend
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="组件系统"><a href="#组件系统" class="header-anchor">#</a> 组件系统</h2> <h3 id="定义组件"><a href="#定义组件" class="header-anchor">#</a> 定义组件</h3> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 创建组件</span>
+php artisan make:component Alert
+php artisan make:component Components/Alert
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><div class="language-php line-numbers-mode"><pre class="language-php"><code><span class="token comment">// app/View/Components/Alert.php</span>
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>View<span class="token punctuation">\</span>Components</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Closure</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>View<span class="token punctuation">\</span>View</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>View<span class="token punctuation">\</span>Component</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">Alert</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__construct</span><span class="token punctuation">(</span>
+        <span class="token keyword">public</span> <span class="token keyword type-declaration">string</span> <span class="token variable">$type</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'info'</span><span class="token punctuation">,</span>
+        <span class="token keyword">public</span> <span class="token operator">?</span><span class="token keyword type-hint">string</span> <span class="token variable">$title</span> <span class="token operator">=</span> <span class="token constant">null</span><span class="token punctuation">,</span>
+        <span class="token keyword">public</span> <span class="token keyword type-declaration">bool</span> <span class="token variable">$dismissible</span> <span class="token operator">=</span> <span class="token constant boolean">false</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token class-name">View</span><span class="token operator">|</span><span class="token class-name">Closure</span><span class="token operator">|</span><span class="token keyword type-declaration">string</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">view</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'components.alert'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 组件方法</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">classes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword return-type">string</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string double-quoted-string">&quot;alert alert-<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">type</span><span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- resources/views/components/alert.blade.php --}}
+&lt;div {{ $attributes-&gt;merge(['class' =&gt; $this-&gt;classes()]) }}&gt;
+    @if($title)
+        &lt;h4 class=&quot;alert-title&quot;&gt;{{ $title }}&lt;/h4&gt;
+    @endif
+
+    {{ $slot }}
+
+    @if($dismissible)
+        &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot;&gt;×&lt;/button&gt;
+    @endif
+&lt;/div&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h3 id="使用组件"><a href="#使用组件" class="header-anchor">#</a> 使用组件</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 基本使用 --}}
+&lt;x-alert type=&quot;error&quot; title=&quot;错误&quot;&gt;
+    操作失败，请重试。
+&lt;/x-alert&gt;
+
+{{-- 传递属性 --}}
+&lt;x-alert type=&quot;success&quot; dismissible class=&quot;mb-4&quot;&gt;
+    保存成功！
+&lt;/x-alert&gt;
+
+{{-- 插槽 --}}
+&lt;x-card&gt;
+    &lt;x-slot:title&gt;
+        &lt;h3&gt;卡片标题&lt;/h3&gt;
+    &lt;/x-slot:title&gt;
+
+    &lt;p&gt;卡片内容...&lt;/p&gt;
+
+    &lt;x-slot:footer&gt;
+        &lt;button&gt;确定&lt;/button&gt;
+    &lt;/x-slot:footer&gt;
+&lt;/x-card&gt;
+
+{{-- 动态组件 --}}
+&lt;x-dynamic-component :component=&quot;$componentName&quot; :data=&quot;$data&quot; /&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h3 id="内联组件"><a href="#内联组件" class="header-anchor">#</a> 内联组件</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- resources/views/components/button.blade.php --}}
+@props(['type' =&gt; 'primary'])
+
+&lt;button {{ $attributes-&gt;merge(['class' =&gt; &quot;btn btn-{$type}&quot;]) }}&gt;
+    {{ $slot }}
+&lt;/button&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="组件属性"><a href="#组件属性" class="header-anchor">#</a> 组件属性</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 组件中访问属性 --}}
+&lt;div {{ $attributes }}&gt;
+    {{-- $attributes-&gt;get('class') --}}
+    {{-- $attributes-&gt;has('class') --}}
+    {{-- $attributes-&gt;merge(['class' =&gt; 'additional']) --}}
+&lt;/div&gt;
+
+{{-- @props 指令定义属性 --}}
+@props(['type' =&gt; 'info'])
+&lt;div class=&quot;alert alert-{{ $type }}&quot;&gt;
+    {{ $slot }}
+&lt;/div&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="包含子视图"><a href="#包含子视图" class="header-anchor">#</a> 包含子视图</h2> <h3 id="include"><a href="#include" class="header-anchor">#</a> @include</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 包含视图 --}}
+@include('partials.header')
+
+{{-- 传递数据 --}}
+@include('partials.post-card', ['post' =&gt; $post])
+
+{{-- 条件包含 --}}
+@includeIf('partials.maybe-exists')
+
+{{-- 存在时包含 --}}
+@includeWhen($showFooter, 'partials.footer')
+
+{{-- 循环包含 --}}
+@includeFirst(['custom.header', 'partials.header'])
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h3 id="each"><a href="#each" class="header-anchor">#</a> @each</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 循环包含 --}}
+@each('partials.post-card', $posts, 'post')
+
+{{-- 带空视图 --}}
+@each('partials.post-card', $posts, 'post', 'partials.empty')
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="表单"><a href="#表单" class="header-anchor">#</a> 表单</h2> <h3 id="csrf-保护"><a href="#csrf-保护" class="header-anchor">#</a> CSRF 保护</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>&lt;form method=&quot;POST&quot; action=&quot;{{ route('posts.store') }}&quot;&gt;
+    @csrf
+    {{-- 等同于 --}}
+    &lt;input type=&quot;hidden&quot; name=&quot;_token&quot; value=&quot;{{ csrf_token() }}&quot;&gt;
+&lt;/form&gt;
+
+{{-- PUT/PATCH/DELETE 方法 --}}
+&lt;form method=&quot;POST&quot; action=&quot;{{ route('posts.update', $post) }}&quot;&gt;
+    @csrf
+    @method('PUT')
+&lt;/form&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="表单错误"><a href="#表单错误" class="header-anchor">#</a> 表单错误</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>&lt;form action=&quot;{{ route('posts.store') }}&quot; method=&quot;POST&quot;&gt;
+    @csrf
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;title&quot;&gt;标题&lt;/label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;title&quot; id=&quot;title&quot; value=&quot;{{ old('title') }}&quot;
+               class=&quot;@error('title') is-invalid @enderror&quot;&gt;
+        @error('title')
+            &lt;div class=&quot;invalid-feedback&quot;&gt;{{ $message }}&lt;/div&gt;
+        @enderror
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;content&quot;&gt;内容&lt;/label&gt;
+        &lt;textarea name=&quot;content&quot; id=&quot;content&quot;&gt;{{ old('content') }}&lt;/textarea&gt;
+        @error('content')
+            &lt;span class=&quot;error&quot;&gt;{{ $message }}&lt;/span&gt;
+        @enderror
+    &lt;/div&gt;
+
+    &lt;button type=&quot;submit&quot;&gt;提交&lt;/button&gt;
+&lt;/form&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h3 id="错误处理指令"><a href="#错误处理指令" class="header-anchor">#</a> 错误处理指令</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 检查是否有错误 --}}
+@if($errors-&gt;any())
+    &lt;div class=&quot;alert alert-danger&quot;&gt;
+        &lt;ul&gt;
+            @foreach($errors-&gt;all() as $error)
+                &lt;li&gt;{{ $error }}&lt;/li&gt;
+            @endforeach
+        &lt;/ul&gt;
+    &lt;/div&gt;
+@endif
+
+{{-- @error 指令 --}}
+@error('email')
+    &lt;span class=&quot;error&quot;&gt;{{ $message }}&lt;/span&gt;
+@enderror
+
+{{-- 检查特定字段错误 --}}
+@if($errors-&gt;has('email'))
+    &lt;span class=&quot;error&quot;&gt;{{ $errors-&gt;first('email') }}&lt;/span&gt;
+@endif
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="控制结构"><a href="#控制结构" class="header-anchor">#</a> 控制结构</h2> <h3 id="php"><a href="#php" class="header-anchor">#</a> @php</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 内联 PHP --}}
+@php
+    $count = 0;
+    $status = 'active';
+@endphp
+
+{{-- 不推荐在视图中写复杂逻辑 --}}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="inject"><a href="#inject" class="header-anchor">#</a> @inject</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 注入服务 --}}
+@inject('metrics', 'App\Services\MetricsService')
+
+&lt;div&gt;
+    月度收入: {{ $metrics-&gt;monthlyRevenue() }}
+&lt;/div&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="once"><a href="#once" class="header-anchor">#</a> @once</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 只渲染一次 --}}
+@once
+    &lt;script&gt;
+        // 这段代码在页面中只出现一次
+        console.log('只执行一次');
+    &lt;/script&gt;
+@endonce
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="spaceless"><a href="#spaceless" class="header-anchor">#</a> @spaceless</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 移除空白 --}}
+@spaceless
+    &lt;div&gt;
+        &lt;span&gt;文本&lt;/span&gt;
+    &lt;/div&gt;
+@endspaceless
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="javascript-变量"><a href="#javascript-变量" class="header-anchor">#</a> JavaScript 变量</h2> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- @vite --}}
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+
+{{-- 传递变量到 JS --}}
+&lt;script&gt;
+    const user = @json(auth()-&gt;user());
+    const config = @json([
+        'baseUrl' =&gt; url('/'),
+        'csrfToken' =&gt; csrf_token(),
+    ]);
+&lt;/script&gt;
+
+{{-- 或使用 window 对象 --}}
+&lt;script&gt;
+    window.Laravel = {
+        csrfToken: '{{ csrf_token() }}',
+        user: @json(auth()-&gt;user())
+    };
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h2 id="自定义指令"><a href="#自定义指令" class="header-anchor">#</a> 自定义指令</h2> <div class="language-php line-numbers-mode"><pre class="language-php"><code>// AppServiceProvider 中注册
+use Illuminate\Support\Facades\Blade;
+
+public function boot(): void
+{
+    // 自定义 @datetime 指令
+    Blade::directive('datetime', function (string $expression) {
+        return &quot;<span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">echo</span> <span class="token punctuation">(</span><span class="token variable">$expression</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'Y-m-d H:i:s'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter important">?&gt;</span></span>&quot;;
+    });
+
+    // 自定义 @currency 指令
+    Blade::directive('currency', function (string $expression) {
+        return &quot;<span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">echo</span> <span class="token string single-quoted-string">'¥'</span> <span class="token operator">.</span> <span class="token function">number_format</span><span class="token punctuation">(</span><span class="token variable">$expression</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter important">?&gt;</span></span>&quot;;
+    });
+
+    // 自定义 @admin 指令
+    Blade::if('admin', function () {
+        return auth()-&gt;check() &amp;&amp; auth()-&gt;user()-&gt;isAdmin();
+    });
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 使用自定义指令 --}}
+&lt;span&gt;@datetime($post-&gt;created_at)&lt;/span&gt;
+&lt;span&gt;@currency($order-&gt;amount)&lt;/span&gt;
+
+@admin
+    &lt;a href=&quot;{{ route('admin.dashboard') }}&quot;&gt;管理后台&lt;/a&gt;
+@endadmin
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="视图组合器"><a href="#视图组合器" class="header-anchor">#</a> 视图组合器</h2> <div class="language-php line-numbers-mode"><pre class="language-php"><code><span class="token comment">// 创建视图组合器</span>
+<span class="token comment">// app/View/Composers/ProfileComposer.php</span>
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>View<span class="token punctuation">\</span>Composers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Repositories<span class="token punctuation">\</span>UserRepository</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>View<span class="token punctuation">\</span>View</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name-definition class-name">ProfileComposer</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__construct</span><span class="token punctuation">(</span>
+        <span class="token keyword">protected</span> <span class="token class-name type-declaration">UserRepository</span> <span class="token variable">$users</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">compose</span><span class="token punctuation">(</span><span class="token class-name type-declaration">View</span> <span class="token variable">$view</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword return-type">void</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$view</span><span class="token operator">-&gt;</span><span class="token function">with</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'user'</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">users</span><span class="token operator">-&gt;</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 注册视图组合器</span>
+<span class="token comment">// AppServiceProvider 中</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>View<span class="token punctuation">\</span>Composers<span class="token punctuation">\</span>ProfileComposer</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span class="token punctuation">\</span>View</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">boot</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword return-type">void</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// 为特定视图添加数据</span>
+    <span class="token class-name static-context">View</span><span class="token operator">::</span><span class="token function">composer</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'profile'</span><span class="token punctuation">,</span> <span class="token class-name static-context">ProfileComposer</span><span class="token operator">::</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 多个视图</span>
+    <span class="token class-name static-context">View</span><span class="token operator">::</span><span class="token function">composer</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'profile'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'dashboard'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token class-name static-context">ProfileComposer</span><span class="token operator">::</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 通配符</span>
+    <span class="token class-name static-context">View</span><span class="token operator">::</span><span class="token function">composer</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'posts.*'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token class-name type-declaration">View</span> <span class="token variable">$view</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$view</span><span class="token operator">-&gt;</span><span class="token function">with</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'categories'</span><span class="token punctuation">,</span> <span class="token class-name static-context">Category</span><span class="token operator">::</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 视图创建器（在视图创建时立即执行）</span>
+    <span class="token class-name static-context">View</span><span class="token operator">::</span><span class="token function">creator</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'profile'</span><span class="token punctuation">,</span> <span class="token class-name static-context">ProfileCreator</span><span class="token operator">::</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><h2 id="最佳实践"><a href="#最佳实践" class="header-anchor">#</a> 最佳实践</h2> <h3 id="_1-保持视图简洁"><a href="#_1-保持视图简洁" class="header-anchor">#</a> 1. 保持视图简洁</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 错误：视图中有业务逻辑 --}}
+@if(auth()-&gt;user()-&gt;posts()-&gt;where('status', 'published')-&gt;count() &gt; 0)
+    &lt;p&gt;有已发布的文章&lt;/p&gt;
+@endif
+
+{{-- 正确：在控制器中处理 --}}
+@if($hasPublishedPosts)
+    &lt;p&gt;有已发布的文章&lt;/p&gt;
+@endif
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="_2-使用组件封装可复用-ui"><a href="#_2-使用组件封装可复用-ui" class="header-anchor">#</a> 2. 使用组件封装可复用 UI</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 错误：重复的 HTML --}}
+&lt;div class=&quot;card&quot;&gt;
+    &lt;div class=&quot;card-header&quot;&gt;{{ $title }}&lt;/div&gt;
+    &lt;div class=&quot;card-body&quot;&gt;{{ $content }}&lt;/div&gt;
+&lt;/div&gt;
+
+{{-- 正确：使用组件 --}}
+&lt;x-card :title=&quot;$title&quot;&gt;
+    {{ $content }}
+&lt;/x-card&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="_3-合理使用布局"><a href="#_3-合理使用布局" class="header-anchor">#</a> 3. 合理使用布局</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 多个布局 --}}
+@extends('layouts.app')      {{-- 前台布局 --}}
+@extends('layouts.admin')    {{-- 后台布局 --}}
+@extends('layouts.print')    {{-- 打印布局 --}}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="_4-避免在视图中查询数据库"><a href="#_4-避免在视图中查询数据库" class="header-anchor">#</a> 4. 避免在视图中查询数据库</h3> <div class="language-blade line-numbers-mode"><pre class="language-text"><code>{{-- 错误 --}}
+@foreach(App\Models\Category::all() as $category)
+    &lt;li&gt;{{ $category-&gt;name }}&lt;/li&gt;
+@endforeach
+
+{{-- 正确：在控制器中预加载 --}}
+@foreach($categories as $category)
+    &lt;li&gt;{{ $category-&gt;name }}&lt;/li&gt;
+@endforeach
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="_5-使用视图名称约定"><a href="#_5-使用视图名称约定" class="header-anchor">#</a> 5. 使用视图名称约定</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>resources/views/
+├── layouts/
+│   ├── app.blade.php
+│   └── admin.blade.php
+├── partials/
+│   ├── header.blade.php
+│   └── footer.blade.php
+├── components/
+│   ├── alert.blade.php
+│   └── card.blade.php
+├── posts/
+│   ├── index.blade.php
+│   ├── show.blade.php
+│   ├── create.blade.php
+│   └── edit.blade.php
+└── errors/
+    ├── 404.blade.php
+    └── 500.blade.php
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div></div></section> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/NiceAshin/my_blog/edit/main/laravel12/blade.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">3/31/2026, 1:58:42 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/laravel12/eloquent.html" class="prev">
+          Eloquent ORM
+        </a></span> <!----></p></div> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/laravel12/blade.html#基本语法" class="sidebar-link reco-side-基本语法" data-v-b57cc07c>基本语法</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#输出数据" class="sidebar-link reco-side-输出数据" data-v-b57cc07c>输出数据</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#blade-指令" class="sidebar-link reco-side-blade-指令" data-v-b57cc07c>Blade 指令</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#循环指令" class="sidebar-link reco-side-循环指令" data-v-b57cc07c>循环指令</a></li><li class="level-2" data-v-b57cc07c><a href="/laravel12/blade.html#布局系统" class="sidebar-link reco-side-布局系统" data-v-b57cc07c>布局系统</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#模板继承" class="sidebar-link reco-side-模板继承" data-v-b57cc07c>模板继承</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#section-和-yield" class="sidebar-link reco-side-section-和-yield" data-v-b57cc07c>@section 和 @yield</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#stack-和-push" class="sidebar-link reco-side-stack-和-push" data-v-b57cc07c>@stack 和 @push</a></li><li class="level-2" data-v-b57cc07c><a href="/laravel12/blade.html#组件系统" class="sidebar-link reco-side-组件系统" data-v-b57cc07c>组件系统</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#定义组件" class="sidebar-link reco-side-定义组件" data-v-b57cc07c>定义组件</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#使用组件" class="sidebar-link reco-side-使用组件" data-v-b57cc07c>使用组件</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#内联组件" class="sidebar-link reco-side-内联组件" data-v-b57cc07c>内联组件</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#组件属性" class="sidebar-link reco-side-组件属性" data-v-b57cc07c>组件属性</a></li><li class="level-2" data-v-b57cc07c><a href="/laravel12/blade.html#包含子视图" class="sidebar-link reco-side-包含子视图" data-v-b57cc07c>包含子视图</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#include" class="sidebar-link reco-side-include" data-v-b57cc07c>@include</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#each" class="sidebar-link reco-side-each" data-v-b57cc07c>@each</a></li><li class="level-2" data-v-b57cc07c><a href="/laravel12/blade.html#表单" class="sidebar-link reco-side-表单" data-v-b57cc07c>表单</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#csrf-保护" class="sidebar-link reco-side-csrf-保护" data-v-b57cc07c>CSRF 保护</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#表单错误" class="sidebar-link reco-side-表单错误" data-v-b57cc07c>表单错误</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#错误处理指令" class="sidebar-link reco-side-错误处理指令" data-v-b57cc07c>错误处理指令</a></li><li class="level-2" data-v-b57cc07c><a href="/laravel12/blade.html#控制结构" class="sidebar-link reco-side-控制结构" data-v-b57cc07c>控制结构</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#php" class="sidebar-link reco-side-php" data-v-b57cc07c>@php</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#inject" class="sidebar-link reco-side-inject" data-v-b57cc07c>@inject</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#once" class="sidebar-link reco-side-once" data-v-b57cc07c>@once</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#spaceless" class="sidebar-link reco-side-spaceless" data-v-b57cc07c>@spaceless</a></li><li class="level-2" data-v-b57cc07c><a href="/laravel12/blade.html#javascript-变量" class="sidebar-link reco-side-javascript-变量" data-v-b57cc07c>JavaScript 变量</a></li><li class="level-2" data-v-b57cc07c><a href="/laravel12/blade.html#自定义指令" class="sidebar-link reco-side-自定义指令" data-v-b57cc07c>自定义指令</a></li><li class="level-2" data-v-b57cc07c><a href="/laravel12/blade.html#视图组合器" class="sidebar-link reco-side-视图组合器" data-v-b57cc07c>视图组合器</a></li><li class="level-2" data-v-b57cc07c><a href="/laravel12/blade.html#最佳实践" class="sidebar-link reco-side-最佳实践" data-v-b57cc07c>最佳实践</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#_1-保持视图简洁" class="sidebar-link reco-side-_1-保持视图简洁" data-v-b57cc07c>1. 保持视图简洁</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#_2-使用组件封装可复用-ui" class="sidebar-link reco-side-_2-使用组件封装可复用-ui" data-v-b57cc07c>2. 使用组件封装可复用 UI</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#_3-合理使用布局" class="sidebar-link reco-side-_3-合理使用布局" data-v-b57cc07c>3. 合理使用布局</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#_4-避免在视图中查询数据库" class="sidebar-link reco-side-_4-避免在视图中查询数据库" data-v-b57cc07c>4. 避免在视图中查询数据库</a></li><li class="level-3" data-v-b57cc07c><a href="/laravel12/blade.html#_5-使用视图名称约定" class="sidebar-link reco-side-_5-使用视图名称约定" data-v-b57cc07c>5. 使用视图名称约定</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.37eb6f02.js" defer></script><script src="/assets/js/3.477d8e52.js" defer></script><script src="/assets/js/1.d87c4fb6.js" defer></script><script src="/assets/js/114.7b07f419.js" defer></script>
+  </body>
+</html>
