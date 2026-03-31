@@ -6,8 +6,8 @@ tags:
   - PHP
 categories:
   - PHP
-prev: views-comparison
-next: middleware-comparison
+prev: /laravel12/views-comparison
+next: /laravel12/middleware-comparison
 ---
 
 # 路由对比

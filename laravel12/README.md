@@ -8,7 +8,7 @@ tags:
 categories:
   - PHP
 prev: false
-next: controllers-comparison
+next: /laravel12/controllers-comparison
 ---
 
 # Yii2 到 Laravel12 快速迁移指南

@@ -6,8 +6,8 @@ tags:
   - PHP
 categories:
   - PHP
-prev: middleware-comparison
-next: service-container
+prev: /laravel12/middleware-comparison
+next: /laravel12/service-container
 ---
 
 # 数据库操作对比

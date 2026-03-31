@@ -6,8 +6,8 @@ tags:
   - PHP
 categories:
   - PHP
-prev: README
-next: models-comparison
+prev: /laravel12/
+next: /laravel12/models-comparison
 ---
 
 # 控制器对比

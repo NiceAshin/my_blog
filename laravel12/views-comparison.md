@@ -6,8 +6,8 @@ tags:
   - PHP
 categories:
   - PHP
-prev: models-comparison
-next: routing-comparison
+prev: /laravel12/models-comparison
+next: /laravel12/routing-comparison
 ---
 
 # 视图对比

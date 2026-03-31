@@ -6,7 +6,7 @@ tags:
   - PHP
 categories:
   - PHP
-prev: database-comparison
+prev: /laravel12/database-comparison
 next: false
 ---
 

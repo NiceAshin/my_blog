@@ -6,8 +6,8 @@ tags:
   - PHP
 categories:
   - PHP
-prev: controllers-comparison
-next: views-comparison
+prev: /laravel12/controllers-comparison
+next: /laravel12/views-comparison
 ---
 
 # 模型对比
