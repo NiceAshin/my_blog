@@ -1,4 +1,4 @@
-module.exports = [
+﻿module.exports = [
     {
         text: '架构设计',
         items: [
@@ -43,6 +43,9 @@ module.exports = [
                 link: '/ai/',
                 items: [
                     { text: 'AI 概览', link: '/ai/' },
+                    { text: 'AI Agent 工程化落地', link: '/ai/ai-agent-engineering-guide' },
+                    { text: 'RAG 系统设计实战', link: '/ai/rag-system-design-guide' },
+                    { text: '上下文工程实战', link: '/ai/context-engineering-guide' },
                     { text: 'Vibe Coding 核心概念', link: '/ai/vibe-coding-concepts' },
                     { text: 'AI CLI 工具实战', link: '/ai/ai-cli-tools-guide' },
                     { text: 'YOLOv8 全景指南', link: '/ai/ultralytics-yolov8-guide' },
