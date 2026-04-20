@@ -32,7 +32,14 @@
                     { text: '目录结构', link: '/laravel12/directory-structure' },
                     { text: '路由系统', link: '/laravel12/routing' },
                     { text: 'Eloquent ORM', link: '/laravel12/eloquent' },
-                    { text: 'Blade 模板', link: '/laravel12/blade' }
+                    { text: 'Blade 模板', link: '/laravel12/blade' },
+                    { text: '认证系统', link: '/laravel12/authentication' },
+                    { text: 'API 开发', link: '/laravel12/api' },
+                    { text: '队列系统', link: '/laravel12/queues' },
+                    { text: '事件系统', link: '/laravel12/events' },
+                    { text: '缓存系统', link: '/laravel12/cache' },
+                    { text: '文件存储', link: '/laravel12/filesystem' },
+                    { text: '邮件发送', link: '/laravel12/mail' }
                 ]
             }
         ]

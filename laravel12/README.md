@@ -143,13 +143,13 @@ class PaymentController
 
 ### 功能篇
 
-- [认证系统](./authentication) - 用户认证与授权 ⏳ 待补充
-- [API 开发](./api) - RESTful API 构建 ⏳ 待补充
-- [队列系统](./queues) - 异步任务处理 ⏳ 待补充
-- [事件系统](./events) - 事件驱动架构 ⏳ 待补充
-- [缓存系统](./cache) - 数据缓存策略 ⏳ 待补充
-- [文件存储](./filesystem) - 文件上传与管理 ⏳ 待补充
-- [邮件发送](./mail) - 邮件服务集成 ⏳ 待补充
+- [认证系统](./authentication) - 用户认证与授权
+- [API 开发](./api) - RESTful API 构建
+- [队列系统](./queues) - 异步任务处理
+- [事件系统](./events) - 事件驱动架构
+- [缓存系统](./cache) - 数据缓存策略
+- [文件存储](./filesystem) - 文件上传与管理
+- [邮件发送](./mail) - 邮件服务集成
 
 ### 工具篇
 
