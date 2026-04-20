@@ -117,45 +117,45 @@ class PaymentController
 - [安装与配置](./installation) - 环境搭建与配置详解
 - [目录结构](./directory-structure) - 项目结构深度解析
 - [路由系统](./routing) - 路由定义与高级特性
-- [控制器](./controllers) - 控制器设计模式
-- [请求与响应](./request-response) - HTTP 请求处理
+- [控制器](./controllers) - 控制器设计模式 ⏳ 待补充
+- [请求与响应](./request-response) - HTTP 请求处理 ⏳ 待补充
 
 ### 数据库篇
 
-- [数据库配置](./database-config) - 多数据库连接与配置
-- [查询构建器](./query-builder) - 数据库查询详解
+- [数据库配置](./database-config) - 多数据库连接与配置 ⏳ 待补充
+- [查询构建器](./query-builder) - 数据库查询详解 ⏳ 待补充
 - [Eloquent ORM](./eloquent) - 模型与关联关系
-- [数据库迁移](./migrations) - 数据库版本控制
-- [模型工厂与填充](./factories-seeders) - 测试数据生成
+- [数据库迁移](./migrations) - 数据库版本控制 ⏳ 待补充
+- [模型工厂与填充](./factories-seeders) - 测试数据生成 ⏳ 待补充
 
 ### 视图层篇
 
 - [Blade 模板](./blade) - 模板引擎详解
-- [视图组件](./view-components) - 可复用 UI 组件
-- [前端资源](./frontend) - Vite 与资源管理
+- [视图组件](./view-components) - 可复用 UI 组件 ⏳ 待补充
+- [前端资源](./frontend) - Vite 与资源管理 ⏳ 待补充
 
 ### 架构篇
 
-- [中间件](./middleware) - 请求过滤与处理
-- [服务容器](./container) - 依赖注入核心
-- [服务提供者](./providers) - 服务注册与引导
-- [门面模式](./facades) - 静态代理模式
+- [中间件](./middleware) - 请求过滤与处理 ⏳ 待补充
+- [服务容器](./container) - 依赖注入核心 ⏳ 待补充
+- [服务提供者](./providers) - 服务注册与引导 ⏳ 待补充
+- [门面模式](./facades) - 静态代理模式 ⏳ 待补充
 
 ### 功能篇
 
-- [认证系统](./authentication) - 用户认证与授权
-- [API 开发](./api) - RESTful API 构建
-- [队列系统](./queues) - 异步任务处理
-- [事件系统](./events) - 事件驱动架构
-- [缓存系统](./cache) - 数据缓存策略
-- [文件存储](./filesystem) - 文件上传与管理
-- [邮件发送](./mail) - 邮件服务集成
+- [认证系统](./authentication) - 用户认证与授权 ⏳ 待补充
+- [API 开发](./api) - RESTful API 构建 ⏳ 待补充
+- [队列系统](./queues) - 异步任务处理 ⏳ 待补充
+- [事件系统](./events) - 事件驱动架构 ⏳ 待补充
+- [缓存系统](./cache) - 数据缓存策略 ⏳ 待补充
+- [文件存储](./filesystem) - 文件上传与管理 ⏳ 待补充
+- [邮件发送](./mail) - 邮件服务集成 ⏳ 待补充
 
 ### 工具篇
 
-- [Artisan 命令](./artisan) - 命令行工具详解
-- [调试与日志](./debugging) - 问题排查技巧
-- [测试驱动](./testing) - 单元测试与功能测试
+- [Artisan 命令](./artisan) - 命令行工具详解 ⏳ 待补充
+- [调试与日志](./debugging) - 问题排查技巧 ⏳ 待补充
+- [测试驱动](./testing) - 单元测试与功能测试 ⏳ 待补充
 
 ## 学习路线
 

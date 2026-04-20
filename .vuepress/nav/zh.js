@@ -23,7 +23,18 @@
             { text: 'Java 栈', link: '/java/' },
             { text: 'Go 语言', link: '/go/' },
             { text: 'PHP(Yii2)', link: '/yii2/' },
-            { text: 'PHP(Laravel12)', link: '/laravel12/' }
+            {
+                text: 'PHP(Laravel12)',
+                link: '/laravel12/',
+                items: [
+                    { text: 'Laravel12 概览', link: '/laravel12/' },
+                    { text: '安装与配置', link: '/laravel12/installation' },
+                    { text: '目录结构', link: '/laravel12/directory-structure' },
+                    { text: '路由系统', link: '/laravel12/routing' },
+                    { text: 'Eloquent ORM', link: '/laravel12/eloquent' },
+                    { text: 'Blade 模板', link: '/laravel12/blade' }
+                ]
+            }
         ]
     },
     {
