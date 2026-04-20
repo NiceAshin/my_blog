@@ -7,7 +7,7 @@ tags:
 categories:
   - PHP
 prev: /laravel12/filesystem
-next: /laravel12/artisan
+next: false
 ---
 
 # 邮件发送

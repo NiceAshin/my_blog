@@ -6,7 +6,7 @@ tags:
   - PHP
 categories:
   - PHP
-prev: /laravel12/facades
+prev: /laravel12/blade
 next: /laravel12/api
 ---
 
