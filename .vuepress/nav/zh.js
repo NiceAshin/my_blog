@@ -1,4 +1,4 @@
-﻿module.exports = [
+module.exports = [
     {
         text: '架构设计',
         items: [
@@ -66,6 +66,7 @@
                     { text: '上下文工程实战', link: '/ai/context-engineering-guide' },
                     { text: 'Vibe Coding 核心概念', link: '/ai/vibe-coding-concepts' },
                     { text: 'AI CLI 工具实战', link: '/ai/ai-cli-tools-guide' },
+                    { text: 'Antigravity CLI 终极指南', link: '/ai/antigravity-cli-complete-guide' },
                     { text: 'YOLOv8 全景指南', link: '/ai/ultralytics-yolov8-guide' },
                     { text: 'YOLO 模型选型', link: '/ai/yolo-model-selection' },
                     { text: '目标跟踪算法实战', link: '/ai/object-tracking-guide' },

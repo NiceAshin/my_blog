@@ -1,4 +1,4 @@
-﻿---
+---
 title: AI 实践
 date: 2020-01-05
 categories:
@@ -15,6 +15,7 @@ sidebar: false
 - [构建可落地的 AI Agent：从工作流设计到评测治理](./ai-agent-engineering-guide)
 - [RAG 系统设计实战：从切分、召回到评测闭环](./rag-system-design-guide)
 - [从提示词工程到上下文工程：让大模型稳定、可控、可复用](./context-engineering-guide)
+- [Antigravity CLI 终极全景实战指南：从零重力思想到大规模工程重构](./antigravity-cli-complete-guide)
 
 ## Vibe Coding 系列
 
