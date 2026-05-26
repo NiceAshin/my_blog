@@ -1,6 +1,6 @@
 ---
 title: Java OCR 集成
-date: 2020-02-29
+date: 2025-06-07
 categories:
   - AI
 tags:

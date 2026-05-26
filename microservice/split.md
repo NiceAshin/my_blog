@@ -1,5 +1,5 @@
 ---
-date: 2025-03-26 22:20:00
+date: 2024-11-28
 next: ./contact
 prev: ./design
 sidebar: auto

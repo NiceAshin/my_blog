@@ -1,6 +1,6 @@
 ---
 title: YOLOv8 指南
-date: 2024-07-21
+date: 2025-10-04
 categories:
   - AI
 tags:

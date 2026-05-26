@@ -1,5 +1,5 @@
 ---
-date: 2020-06-18 10:50:46
+date: 2022-04-12
 title: Kubernetes Ingress 实战详解
 tags:
   - kubernetes

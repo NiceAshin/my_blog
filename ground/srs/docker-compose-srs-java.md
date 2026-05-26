@@ -1,6 +1,6 @@
 ---
 title: 使用 Docker Compose 部署 SRS 并通过 Java 调用
-date: 2024-05-05 10:00:00
+date: 2022-01-15
 sidebar: auto
 ---
 

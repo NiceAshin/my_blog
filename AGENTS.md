@@ -1,3 +1,7 @@
+---
+date: 2026-01-15
+---
+
 # Repository Guidelines
 
 ## Project Structure & Module Organization

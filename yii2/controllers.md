@@ -1,6 +1,6 @@
 ---
 title: 控制器
-date: 2026-02-27
+date: 2026-06-03
 tags:
   - Yii2
   - PHP

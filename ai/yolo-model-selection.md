@@ -1,6 +1,6 @@
 ---
 title: YOLO 选型参考
-date: 2020-04-06
+date: 2025-11-21
 categories:
   - AI
 tags:

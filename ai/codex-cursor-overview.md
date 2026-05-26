@@ -1,6 +1,6 @@
 ---
 title: Codex & Cursor
-date: 2024-05-20
+date: 2025-04-20
 categories:
   - AI
 tags:

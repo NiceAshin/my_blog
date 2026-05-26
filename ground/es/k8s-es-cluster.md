@@ -1,5 +1,5 @@
 ---
-date: 2022-11-15 20:41:32
+date: 2023-02-07
 sidebar: auto
 ---
 # k8s部署Elasticsearch集群

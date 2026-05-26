@@ -1,5 +1,5 @@
 ---
-date: 2024-10-31 04:41:32
+date: 2024-07-17
 next: ./design
 sidebar: none
 ---

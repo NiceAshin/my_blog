@@ -1,6 +1,6 @@
 ---
 title: Gemini CLI 终极指南
-date: 2026-02-28
+date: 2025-03-03
 categories:
   - AI
 tags:

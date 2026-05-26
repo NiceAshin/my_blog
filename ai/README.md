@@ -1,6 +1,6 @@
 ---
 title: AI 实践
-date: 2020-01-05
+date: 2025-01-15
 categories:
   - AI
 sidebar: false

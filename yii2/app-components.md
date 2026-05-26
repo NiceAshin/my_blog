@@ -1,6 +1,6 @@
 ---
 title: 应用组件
-date: 2026-02-27
+date: 2026-05-25
 tags:
   - Yii2
   - PHP

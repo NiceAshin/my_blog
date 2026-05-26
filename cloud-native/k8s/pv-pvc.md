@@ -1,5 +1,5 @@
 ---
-date: 2020-08-30 19:40:00
+date: 2022-06-22
 title: Kubernetes 持久化存储：PV 与 PVC 全面解析
 tags:
   - kubernetes

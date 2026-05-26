@@ -1,6 +1,6 @@
 ---
 title: Vibe Coding 核心
-date: 2026-02-28
+date: 2025-10-28
 categories:
   - AI
 tags:

@@ -1,6 +1,6 @@
 ---
 title: PHP 5.5 经典代码片段
-date: 2026-03-19
+date: 2026-06-21
 tags:
   - PHP
   - PHP5.5

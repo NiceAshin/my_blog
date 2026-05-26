@@ -1,6 +1,6 @@
 ---
 title: Antigravity CLI 终极全景实战指南
-date: 2026-05-25
+date: 2025-12-14
 categories:
   - AI
 tags:

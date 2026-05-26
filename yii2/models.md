@@ -1,6 +1,6 @@
 ---
 title: 模型
-date: 2026-02-27
+date: 2026-06-12
 tags:
   - Yii2
   - PHP

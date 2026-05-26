@@ -1,5 +1,5 @@
 ---
-date: 2025-04-14 06:32:18
+date: 2024-12-15
 next: ./quality
 prev: ./contact
 sidebar: auto

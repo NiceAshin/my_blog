@@ -1,5 +1,5 @@
 ---
-date: 2024-12-06 21:06:09
+date: 2024-08-19
 title: 微服务契约测试与自动化校验实践
 tags:
   - microservice

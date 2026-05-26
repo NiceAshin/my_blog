@@ -1,6 +1,6 @@
 ---
 title: DDD 战略设计
-date: 2023-10-12
+date: 2024-03-05
 categories:
   - 架构
 tags:

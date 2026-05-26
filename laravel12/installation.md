@@ -1,6 +1,6 @@
 ---
 title: 安装与配置
-date: 2026-03-31
+date: 2026-03-09
 tags:
   - Laravel12
   - PHP

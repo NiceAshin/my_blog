@@ -1,6 +1,6 @@
 ---
 title: OpenClaw 部署指南：MacBook Air 上的私人 AI 助手
-date: 2026-03-20
+date: 2025-08-17
 categories:
   - AI
 tags:

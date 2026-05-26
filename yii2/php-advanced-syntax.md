@@ -1,6 +1,6 @@
 ---
 title: PHP 高阶语法
-date: 2026-03-17
+date: 2026-06-16
 tags:
   - PHP
   - 高阶语法

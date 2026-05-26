@@ -1,5 +1,5 @@
 ---
-date: 2021-09-01 15:46:09
+date: 2020-07-24
 sidebar: auto
 next: ./combination
 prev: ./bridge
