@@ -1,6 +1,6 @@
 ---
 title: 应用主体
-date: 2026-05-29
+date: 2026-05-02
 tags:
   - Yii2
   - PHP

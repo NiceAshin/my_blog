@@ -1,6 +1,6 @@
 ---
 title: 队列系统
-date: 2026-03-18
+date: 2026-03-06
 tags:
   - Laravel12
   - PHP

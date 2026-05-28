@@ -1,6 +1,6 @@
 ---
 title: 认证系统
-date: 2026-02-06
+date: 2026-02-01
 tags:
   - Laravel12
   - PHP

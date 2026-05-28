@@ -1,6 +1,6 @@
 ---
 title: 邮件发送
-date: 2026-03-14
+date: 2026-03-02
 tags:
   - Laravel12
   - PHP
