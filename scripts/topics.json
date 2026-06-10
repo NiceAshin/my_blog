@@ -1,14 +1,3 @@
 {
-  "topics": [
-    {
-      "title": "Kubernetes 中 StatefulSet 有状态服务原地升级机制",
-      "category": "cloud-native",
-      "tags": [
-        "K8s",
-        "StatefulSet",
-        "云服务"
-      ],
-      "prompt": "解释 Kubernetes 中 StatefulSet 有状态应用的原地升级（OnDelete/RollingUpdate）原理及实践，如何防范数据丢失。"
-    }
-  ]
+  "topics": []
 }

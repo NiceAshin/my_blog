@@ -17,6 +17,7 @@ sidebar: false
 - [Ingress 实战详解](k8s/ingress.md)
 - [PV 与 PVC 全面解析](k8s/pv-pvc.md)
 - [RBAC 权限模型实践](k8s/rbac.md)
+- [StatefulSet 有状态服务原地升级机制](k8s/statefulset-in-place-update.md)
 
 
 ## 服务网格
