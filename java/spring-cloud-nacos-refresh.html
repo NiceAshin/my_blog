@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Spring Cloud Aliyun Nacos 配置中心动态刷新机制 | AshinBlog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="黑夜中前行，仍照亮前路!">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.6ea8f289.css" as="style"><link rel="preload" href="/assets/js/app.449f81bc.js" as="script"><link rel="preload" href="/assets/js/3.477d8e52.js" as="script"><link rel="preload" href="/assets/js/1.d87c4fb6.js" as="script"><link rel="preload" href="/assets/js/118.3badba0d.js" as="script"><link rel="prefetch" href="/assets/js/10.3d5f8604.js"><link rel="prefetch" href="/assets/js/100.b4ca68a9.js"><link rel="prefetch" href="/assets/js/101.d6cb3754.js"><link rel="prefetch" href="/assets/js/102.8c9701f2.js"><link rel="prefetch" href="/assets/js/103.3efa43fc.js"><link rel="prefetch" href="/assets/js/104.9faf9c0a.js"><link rel="prefetch" href="/assets/js/105.a69ec41a.js"><link rel="prefetch" href="/assets/js/106.c84336ac.js"><link rel="prefetch" href="/assets/js/107.7d8333da.js"><link rel="prefetch" href="/assets/js/108.b8149ae6.js"><link rel="prefetch" href="/assets/js/109.975e305c.js"><link rel="prefetch" href="/assets/js/11.9d2b3353.js"><link rel="prefetch" href="/assets/js/110.47401e1d.js"><link rel="prefetch" href="/assets/js/111.b4e187c6.js"><link rel="prefetch" href="/assets/js/112.08fafc7e.js"><link rel="prefetch" href="/assets/js/113.b74c17ed.js"><link rel="prefetch" href="/assets/js/114.5d661d7e.js"><link rel="prefetch" href="/assets/js/115.f04e1be8.js"><link rel="prefetch" href="/assets/js/116.b7606825.js"><link rel="prefetch" href="/assets/js/117.74de5efe.js"><link rel="prefetch" href="/assets/js/119.bb3386ab.js"><link rel="prefetch" href="/assets/js/12.bd06fc58.js"><link rel="prefetch" href="/assets/js/120.0f2674d7.js"><link rel="prefetch" href="/assets/js/121.7b60bbee.js"><link rel="prefetch" href="/assets/js/122.fcd326fb.js"><link rel="prefetch" href="/assets/js/123.190dbffe.js"><link rel="prefetch" href="/assets/js/124.69588a0c.js"><link rel="prefetch" href="/assets/js/125.52cdafb4.js"><link rel="prefetch" href="/assets/js/126.58821191.js"><link rel="prefetch" href="/assets/js/127.54888757.js"><link rel="prefetch" href="/assets/js/128.4d1e9971.js"><link rel="prefetch" href="/assets/js/129.cd35e106.js"><link rel="prefetch" href="/assets/js/13.cf84d322.js"><link rel="prefetch" href="/assets/js/130.c08eaa16.js"><link rel="prefetch" href="/assets/js/131.2fa9e1ed.js"><link rel="prefetch" href="/assets/js/132.84b9e142.js"><link rel="prefetch" href="/assets/js/133.1dbda419.js"><link rel="prefetch" href="/assets/js/134.4d11c7fa.js"><link rel="prefetch" href="/assets/js/135.b2ab902b.js"><link rel="prefetch" href="/assets/js/136.0a6ac9eb.js"><link rel="prefetch" href="/assets/js/137.75447ea5.js"><link rel="prefetch" href="/assets/js/138.646a50e0.js"><link rel="prefetch" href="/assets/js/139.1a7183ca.js"><link rel="prefetch" href="/assets/js/14.00677070.js"><link rel="prefetch" href="/assets/js/140.aa23c5fd.js"><link rel="prefetch" href="/assets/js/141.02da9444.js"><link rel="prefetch" href="/assets/js/142.6e0f8f91.js"><link rel="prefetch" href="/assets/js/143.b6f622e4.js"><link rel="prefetch" href="/assets/js/144.074432ed.js"><link rel="prefetch" href="/assets/js/145.c2505787.js"><link rel="prefetch" href="/assets/js/146.da20a459.js"><link rel="prefetch" href="/assets/js/147.cdeb58ed.js"><link rel="prefetch" href="/assets/js/148.233a9e25.js"><link rel="prefetch" href="/assets/js/149.01ff5286.js"><link rel="prefetch" href="/assets/js/15.eed94813.js"><link rel="prefetch" href="/assets/js/150.475362ca.js"><link rel="prefetch" href="/assets/js/151.b9ba4739.js"><link rel="prefetch" href="/assets/js/152.ade62e9a.js"><link rel="prefetch" href="/assets/js/153.2806955e.js"><link rel="prefetch" href="/assets/js/154.5178319f.js"><link rel="prefetch" href="/assets/js/155.1b0fb2f8.js"><link rel="prefetch" href="/assets/js/156.87f647dd.js"><link rel="prefetch" href="/assets/js/157.2b574505.js"><link rel="prefetch" href="/assets/js/158.e15bb304.js"><link rel="prefetch" href="/assets/js/159.a29a449b.js"><link rel="prefetch" href="/assets/js/16.806ef8b0.js"><link rel="prefetch" href="/assets/js/160.33953467.js"><link rel="prefetch" href="/assets/js/161.f0403030.js"><link rel="prefetch" href="/assets/js/162.f7247808.js"><link rel="prefetch" href="/assets/js/163.719c3b58.js"><link rel="prefetch" href="/assets/js/164.f93e0cb9.js"><link rel="prefetch" href="/assets/js/165.c31459bd.js"><link rel="prefetch" href="/assets/js/166.bda0eac0.js"><link rel="prefetch" href="/assets/js/167.5ec60cad.js"><link rel="prefetch" href="/assets/js/168.a6a62fd2.js"><link rel="prefetch" href="/assets/js/17.5cd8583b.js"><link rel="prefetch" href="/assets/js/18.5df57fb0.js"><link rel="prefetch" href="/assets/js/19.cb220d99.js"><link rel="prefetch" href="/assets/js/20.e0d0895f.js"><link rel="prefetch" href="/assets/js/21.47376abe.js"><link rel="prefetch" href="/assets/js/22.8599713b.js"><link rel="prefetch" href="/assets/js/23.8e030f85.js"><link rel="prefetch" href="/assets/js/24.3024e419.js"><link rel="prefetch" href="/assets/js/25.b4116cc3.js"><link rel="prefetch" href="/assets/js/26.688e443f.js"><link rel="prefetch" href="/assets/js/27.8cfdbb0b.js"><link rel="prefetch" href="/assets/js/28.ed4f196b.js"><link rel="prefetch" href="/assets/js/29.bffe23f0.js"><link rel="prefetch" href="/assets/js/30.83a7158f.js"><link rel="prefetch" href="/assets/js/31.f78970e2.js"><link rel="prefetch" href="/assets/js/32.9c86c7b9.js"><link rel="prefetch" href="/assets/js/33.65eb1024.js"><link rel="prefetch" href="/assets/js/34.09289673.js"><link rel="prefetch" href="/assets/js/35.b98b7c9f.js"><link rel="prefetch" href="/assets/js/36.f71409ed.js"><link rel="prefetch" href="/assets/js/37.6b2081b4.js"><link rel="prefetch" href="/assets/js/38.e5113c21.js"><link rel="prefetch" href="/assets/js/39.41b6499d.js"><link rel="prefetch" href="/assets/js/4.d14c4ac1.js"><link rel="prefetch" href="/assets/js/40.18d6d466.js"><link rel="prefetch" href="/assets/js/41.1e2ee6e8.js"><link rel="prefetch" href="/assets/js/42.08ee0981.js"><link rel="prefetch" href="/assets/js/43.c52ea3c5.js"><link rel="prefetch" href="/assets/js/44.c194230b.js"><link rel="prefetch" href="/assets/js/45.b982291a.js"><link rel="prefetch" href="/assets/js/46.1073db27.js"><link rel="prefetch" href="/assets/js/47.eacab1b6.js"><link rel="prefetch" href="/assets/js/48.0d16ce66.js"><link rel="prefetch" href="/assets/js/49.8ccbd45a.js"><link rel="prefetch" href="/assets/js/5.6e2b6adf.js"><link rel="prefetch" href="/assets/js/50.e586e174.js"><link rel="prefetch" href="/assets/js/51.b8034a47.js"><link rel="prefetch" href="/assets/js/52.05357ba6.js"><link rel="prefetch" href="/assets/js/53.3834824c.js"><link rel="prefetch" href="/assets/js/54.dd9a891e.js"><link rel="prefetch" href="/assets/js/55.1fcb4259.js"><link rel="prefetch" href="/assets/js/56.8c002f22.js"><link rel="prefetch" href="/assets/js/57.3d673795.js"><link rel="prefetch" href="/assets/js/58.62b62e6e.js"><link rel="prefetch" href="/assets/js/59.787a89d6.js"><link rel="prefetch" href="/assets/js/6.14a5d79a.js"><link rel="prefetch" href="/assets/js/60.61969ee9.js"><link rel="prefetch" href="/assets/js/61.688dab1d.js"><link rel="prefetch" href="/assets/js/62.2e926aea.js"><link rel="prefetch" href="/assets/js/63.81b20d2c.js"><link rel="prefetch" href="/assets/js/64.ba9c81eb.js"><link rel="prefetch" href="/assets/js/65.c7464862.js"><link rel="prefetch" href="/assets/js/66.4957520f.js"><link rel="prefetch" href="/assets/js/67.3503229e.js"><link rel="prefetch" href="/assets/js/68.15a28e20.js"><link rel="prefetch" href="/assets/js/69.b6ca0213.js"><link rel="prefetch" href="/assets/js/7.559e6d92.js"><link rel="prefetch" href="/assets/js/70.1cdb25fd.js"><link rel="prefetch" href="/assets/js/71.e393f291.js"><link rel="prefetch" href="/assets/js/72.f46b23a6.js"><link rel="prefetch" href="/assets/js/73.cfa269e6.js"><link rel="prefetch" href="/assets/js/74.4025081e.js"><link rel="prefetch" href="/assets/js/75.e15508d2.js"><link rel="prefetch" href="/assets/js/76.d1ac3192.js"><link rel="prefetch" href="/assets/js/77.e6c70748.js"><link rel="prefetch" href="/assets/js/78.ececa4f7.js"><link rel="prefetch" href="/assets/js/79.13791048.js"><link rel="prefetch" href="/assets/js/8.fb065c98.js"><link rel="prefetch" href="/assets/js/80.78f15aba.js"><link rel="prefetch" href="/assets/js/81.45b1c56d.js"><link rel="prefetch" href="/assets/js/82.0ff2a601.js"><link rel="prefetch" href="/assets/js/83.c818130b.js"><link rel="prefetch" href="/assets/js/84.94a9cb7e.js"><link rel="prefetch" href="/assets/js/85.c26e850a.js"><link rel="prefetch" href="/assets/js/86.2614bb99.js"><link rel="prefetch" href="/assets/js/87.42b6875d.js"><link rel="prefetch" href="/assets/js/88.3100a1b6.js"><link rel="prefetch" href="/assets/js/89.c1ee095d.js"><link rel="prefetch" href="/assets/js/9.22a1087e.js"><link rel="prefetch" href="/assets/js/90.a86fd1fc.js"><link rel="prefetch" href="/assets/js/91.7d61ae19.js"><link rel="prefetch" href="/assets/js/92.e155fe9e.js"><link rel="prefetch" href="/assets/js/93.f786ba6c.js"><link rel="prefetch" href="/assets/js/94.4b808774.js"><link rel="prefetch" href="/assets/js/95.08595b13.js"><link rel="prefetch" href="/assets/js/96.0f5b9069.js"><link rel="prefetch" href="/assets/js/97.2cd94525.js"><link rel="prefetch" href="/assets/js/98.dcafac15.js"><link rel="prefetch" href="/assets/js/99.a6e0d873.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.6ea8f289.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>AshinBlog</h3> <p class="description" data-v-59e6cb88>黑夜中前行，仍照亮前路!</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>AshinZhang</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2026
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo2-128.png" alt="AshinBlog" class="logo"> <span class="site-name">AshinBlog</span></a> <div class="links"><!----> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      架构设计
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>领域驱动设计</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ddd/" class="nav-link"><i class="undefined"></i>
+  DDD 概览
+</a></li><li class="dropdown-subitem"><a href="/ddd/stratgy.html" class="nav-link"><i class="undefined"></i>
+  战略设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/tactics.html" class="nav-link"><i class="undefined"></i>
+  战术设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/event-source.html" class="nav-link"><i class="undefined"></i>
+  事件溯源
+</a></li><li class="dropdown-subitem"><a href="/ddd/DDD-microservice.html" class="nav-link"><i class="undefined"></i>
+  微服务拆分
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link"><i class="undefined"></i>
+  微服务实践
+</a></li><li class="dropdown-item"><!----> <a href="/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      编程语言
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java/" class="nav-link router-link-active"><i class="undefined"></i>
+  Java 栈
+</a></li><li class="dropdown-item"><!----> <a href="/go/" class="nav-link"><i class="undefined"></i>
+  Go 语言
+</a></li><li class="dropdown-item"><!----> <a href="/yii2/" class="nav-link"><i class="undefined"></i>
+  PHP(Yii2)
+</a></li><li class="dropdown-item"><h4>PHP(Laravel12)</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/laravel12/" class="nav-link"><i class="undefined"></i>
+  Laravel12 概览
+</a></li><li class="dropdown-subitem"><a href="/laravel12/installation.html" class="nav-link"><i class="undefined"></i>
+  安装与配置
+</a></li><li class="dropdown-subitem"><a href="/laravel12/directory-structure.html" class="nav-link"><i class="undefined"></i>
+  目录结构
+</a></li><li class="dropdown-subitem"><a href="/laravel12/routing.html" class="nav-link"><i class="undefined"></i>
+  路由系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/eloquent.html" class="nav-link"><i class="undefined"></i>
+  Eloquent ORM
+</a></li><li class="dropdown-subitem"><a href="/laravel12/blade.html" class="nav-link"><i class="undefined"></i>
+  Blade 模板
+</a></li><li class="dropdown-subitem"><a href="/laravel12/authentication.html" class="nav-link"><i class="undefined"></i>
+  认证系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/api.html" class="nav-link"><i class="undefined"></i>
+  API 开发
+</a></li><li class="dropdown-subitem"><a href="/laravel12/queues.html" class="nav-link"><i class="undefined"></i>
+  队列系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/events.html" class="nav-link"><i class="undefined"></i>
+  事件系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/cache.html" class="nav-link"><i class="undefined"></i>
+  缓存系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/filesystem.html" class="nav-link"><i class="undefined"></i>
+  文件存储
+</a></li><li class="dropdown-subitem"><a href="/laravel12/mail.html" class="nav-link"><i class="undefined"></i>
+  邮件发送
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础设施
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link"><i class="undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/cloud-native/" class="nav-link"><i class="undefined"></i>
+  云原生
+</a></li><li class="dropdown-item"><!----> <a href="/ground/" class="nav-link"><i class="undefined"></i>
+  中间件
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      AI 实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>AI 探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/" class="nav-link"><i class="undefined"></i>
+  AI 概览
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-agent-engineering-guide.html" class="nav-link"><i class="undefined"></i>
+  AI Agent 工程化落地
+</a></li><li class="dropdown-subitem"><a href="/ai/rag-system-design-guide.html" class="nav-link"><i class="undefined"></i>
+  RAG 系统设计实战
+</a></li><li class="dropdown-subitem"><a href="/ai/context-engineering-guide.html" class="nav-link"><i class="undefined"></i>
+  上下文工程实战
+</a></li><li class="dropdown-subitem"><a href="/ai/vibe-coding-concepts.html" class="nav-link"><i class="undefined"></i>
+  Vibe Coding 核心概念
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-cli-tools-guide.html" class="nav-link"><i class="undefined"></i>
+  AI CLI 工具实战
+</a></li><li class="dropdown-subitem"><a href="/ai/antigravity-cli-complete-guide.html" class="nav-link"><i class="undefined"></i>
+  Antigravity CLI 终极指南
+</a></li><li class="dropdown-subitem"><a href="/ai/ultralytics-yolov8-guide.html" class="nav-link"><i class="undefined"></i>
+  YOLOv8 全景指南
+</a></li><li class="dropdown-subitem"><a href="/ai/yolo-model-selection.html" class="nav-link"><i class="undefined"></i>
+  YOLO 模型选型
+</a></li><li class="dropdown-subitem"><a href="/ai/object-tracking-guide.html" class="nav-link"><i class="undefined"></i>
+  目标跟踪算法实战
+</a></li><li class="dropdown-subitem"><a href="/ai/ocr-tool-selection.html" class="nav-link"><i class="undefined"></i>
+  OCR 工具选型
+</a></li><li class="dropdown-subitem"><a href="/ai/java-ocr-integration.html" class="nav-link"><i class="undefined"></i>
+  Java OCR 集成
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工程实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/#问题排查与经验" class="nav-link"><i class="undefined"></i>
+  问题排查
+</a></li><li class="dropdown-item"><!----> <a href="/more/#项目与配置实战" class="nav-link"><i class="undefined"></i>
+  配置实战
+</a></li><li class="dropdown-item"><!----> <a href="/more/#接口文档专区" class="nav-link"><i class="undefined"></i>
+  接口文档
+</a></li></ul></div></div> <a href="https://github.com/NiceAshin/my_blog" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    AshinZhang
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>151</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>76</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      架构设计
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>领域驱动设计</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ddd/" class="nav-link"><i class="undefined"></i>
+  DDD 概览
+</a></li><li class="dropdown-subitem"><a href="/ddd/stratgy.html" class="nav-link"><i class="undefined"></i>
+  战略设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/tactics.html" class="nav-link"><i class="undefined"></i>
+  战术设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/event-source.html" class="nav-link"><i class="undefined"></i>
+  事件溯源
+</a></li><li class="dropdown-subitem"><a href="/ddd/DDD-microservice.html" class="nav-link"><i class="undefined"></i>
+  微服务拆分
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link"><i class="undefined"></i>
+  微服务实践
+</a></li><li class="dropdown-item"><!----> <a href="/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      编程语言
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java/" class="nav-link router-link-active"><i class="undefined"></i>
+  Java 栈
+</a></li><li class="dropdown-item"><!----> <a href="/go/" class="nav-link"><i class="undefined"></i>
+  Go 语言
+</a></li><li class="dropdown-item"><!----> <a href="/yii2/" class="nav-link"><i class="undefined"></i>
+  PHP(Yii2)
+</a></li><li class="dropdown-item"><h4>PHP(Laravel12)</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/laravel12/" class="nav-link"><i class="undefined"></i>
+  Laravel12 概览
+</a></li><li class="dropdown-subitem"><a href="/laravel12/installation.html" class="nav-link"><i class="undefined"></i>
+  安装与配置
+</a></li><li class="dropdown-subitem"><a href="/laravel12/directory-structure.html" class="nav-link"><i class="undefined"></i>
+  目录结构
+</a></li><li class="dropdown-subitem"><a href="/laravel12/routing.html" class="nav-link"><i class="undefined"></i>
+  路由系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/eloquent.html" class="nav-link"><i class="undefined"></i>
+  Eloquent ORM
+</a></li><li class="dropdown-subitem"><a href="/laravel12/blade.html" class="nav-link"><i class="undefined"></i>
+  Blade 模板
+</a></li><li class="dropdown-subitem"><a href="/laravel12/authentication.html" class="nav-link"><i class="undefined"></i>
+  认证系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/api.html" class="nav-link"><i class="undefined"></i>
+  API 开发
+</a></li><li class="dropdown-subitem"><a href="/laravel12/queues.html" class="nav-link"><i class="undefined"></i>
+  队列系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/events.html" class="nav-link"><i class="undefined"></i>
+  事件系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/cache.html" class="nav-link"><i class="undefined"></i>
+  缓存系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/filesystem.html" class="nav-link"><i class="undefined"></i>
+  文件存储
+</a></li><li class="dropdown-subitem"><a href="/laravel12/mail.html" class="nav-link"><i class="undefined"></i>
+  邮件发送
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础设施
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link"><i class="undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/cloud-native/" class="nav-link"><i class="undefined"></i>
+  云原生
+</a></li><li class="dropdown-item"><!----> <a href="/ground/" class="nav-link"><i class="undefined"></i>
+  中间件
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      AI 实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>AI 探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/" class="nav-link"><i class="undefined"></i>
+  AI 概览
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-agent-engineering-guide.html" class="nav-link"><i class="undefined"></i>
+  AI Agent 工程化落地
+</a></li><li class="dropdown-subitem"><a href="/ai/rag-system-design-guide.html" class="nav-link"><i class="undefined"></i>
+  RAG 系统设计实战
+</a></li><li class="dropdown-subitem"><a href="/ai/context-engineering-guide.html" class="nav-link"><i class="undefined"></i>
+  上下文工程实战
+</a></li><li class="dropdown-subitem"><a href="/ai/vibe-coding-concepts.html" class="nav-link"><i class="undefined"></i>
+  Vibe Coding 核心概念
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-cli-tools-guide.html" class="nav-link"><i class="undefined"></i>
+  AI CLI 工具实战
+</a></li><li class="dropdown-subitem"><a href="/ai/antigravity-cli-complete-guide.html" class="nav-link"><i class="undefined"></i>
+  Antigravity CLI 终极指南
+</a></li><li class="dropdown-subitem"><a href="/ai/ultralytics-yolov8-guide.html" class="nav-link"><i class="undefined"></i>
+  YOLOv8 全景指南
+</a></li><li class="dropdown-subitem"><a href="/ai/yolo-model-selection.html" class="nav-link"><i class="undefined"></i>
+  YOLO 模型选型
+</a></li><li class="dropdown-subitem"><a href="/ai/object-tracking-guide.html" class="nav-link"><i class="undefined"></i>
+  目标跟踪算法实战
+</a></li><li class="dropdown-subitem"><a href="/ai/ocr-tool-selection.html" class="nav-link"><i class="undefined"></i>
+  OCR 工具选型
+</a></li><li class="dropdown-subitem"><a href="/ai/java-ocr-integration.html" class="nav-link"><i class="undefined"></i>
+  Java OCR 集成
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工程实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/#问题排查与经验" class="nav-link"><i class="undefined"></i>
+  问题排查
+</a></li><li class="dropdown-item"><!----> <a href="/more/#项目与配置实战" class="nav-link"><i class="undefined"></i>
+  配置实战
+</a></li><li class="dropdown-item"><!----> <a href="/more/#接口文档专区" class="nav-link"><i class="undefined"></i>
+  接口文档
+</a></li></ul></div></div> <a href="https://github.com/NiceAshin/my_blog" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Spring Cloud Aliyun Nacos 配置中心动态刷新机制</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>AshinZhang</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2026
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">Spring Cloud Aliyun Nacos 配置中心动态刷新机制</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>AshinZhang</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>6/10/2026</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>SpringCloud</span><span class="tag-item" data-v-8a445198>Nacos</span><span class="tag-item" data-v-8a445198>微服务</span></i></div></div> <div class="theme-reco-content content__default"><h1 id="spring-cloud-aliyun-nacos-配置中心动态刷新机制"><a href="#spring-cloud-aliyun-nacos-配置中心动态刷新机制" class="header-anchor">#</a> Spring Cloud Aliyun Nacos 配置中心动态刷新机制</h1> <p>在微服务架构中，配置的动态更新是保证服务高可用、低停机时间的关键技术之一。Spring Cloud Aliyun 集成了 Alibaba Nacos 作为其配置中心，并提供了开箱即用的<strong>动态刷新</strong>能力。</p> <p>本文将深入拆解 Nacos 配置中心动态刷新的底层机制，通过源码级的链路剖析与实战演练，帮助大家彻底掌握这一核心原理。</p> <hr> <h2 id="_1-动态刷新的核心使用方式"><a href="#_1-动态刷新的核心使用方式" class="header-anchor">#</a> 1. 动态刷新的核心使用方式</h2> <p>在 Spring Cloud 中，我们通常有两种方式来使配置动态生效：</p> <h3 id="_1-1-refreshscope-注解-推荐"><a href="#_1-1-refreshscope-注解-推荐" class="header-anchor">#</a> 1.1 <code>@RefreshScope</code> 注解 (推荐)</h3> <p>将注解标注在需要动态更新配置的 Bean Class 上：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">&quot;/config&quot;</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@RefreshScope</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConfigController</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">&quot;${user.name:Guest}&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> username<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">&quot;/username&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getUsername</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> username<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="_1-2-configurationproperties-注解"><a href="#_1-2-configurationproperties-注解" class="header-anchor">#</a> 1.2 <code>@ConfigurationProperties</code> 注解</h3> <p>凡是使用 <code>@ConfigurationProperties</code> 绑定的配置类，Nacos 默认支持动态刷新，无需额外添加 <code>@RefreshScope</code>：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">&quot;user&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserProperties</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token comment">// getter/setter</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><hr> <h2 id="_2-nacos-动态刷新的底层架构设计"><a href="#_2-nacos-动态刷新的底层架构设计" class="header-anchor">#</a> 2. Nacos 动态刷新的底层架构设计</h2> <p>Nacos 的动态配置刷新并非由配置中心主动 &quot;Push&quot;（推送）到客户端，而是基于<strong>客户端长轮询（Long Polling）与事件驱动</strong>的“拉（Pull）模式”实现的。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>+------------------+                   +------------------+
+|  Nacos Client    |                   |  Nacos Server    |
++------------------+                   +------------------+
+         |                                      |
+         | ---- 1. 发起配置监听请求 (长轮询 30s) -&gt; |
+         |                                      | -- 2. 检查 MD5 是否变化 --+
+         |                                      |                          |
+         | &lt;--- 3. 配置无变化 (挂起并在30s后返回) - | &lt;------------------------+
+         |                                      |
+         | ---- 4. 再次发起配置监听 (长轮询) ----&gt; |
+         |                                      | -- 5. 此时控制台发布新配置 --+
+         |                                      |                             |
+         | &lt;--- 6. 触发变化，立即返回最新 MD5 --- | &lt;---------------------------+
+         |                                      |
+         | ---- 7. 主动发起 Get Config 请求 ----&gt; |
+         | &lt;--- 8. 返回最新 YAML/Properties 配置 -|
+         |                                      |
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h3 id="_2-1-长轮询机制-long-polling"><a href="#_2-1-长轮询机制-long-polling" class="header-anchor">#</a> 2.1 长轮询机制 (Long Polling)</h3> <ol><li><strong>客户端请求</strong>：客户端发起一个配置监听的 HTTP POST 请求，超时时间设置为 30 秒。</li> <li><strong>服务端挂起</strong>：Nacos 服务端收到请求后，若发现客户端的配置 MD5 值与服务端一致，不会立即返回，而是将请求挂起（Hold）29.5 秒。</li> <li><strong>变化响应</strong>：如果在挂起期间，有管理员在 Nacos 控制台修改了该配置，服务端会立刻触发事件唤醒该请求，并将修改后的配置 DataID 及其最新 MD5 返回给客户端；若无变化，则在 29.5 秒超时后返回空。</li> <li><strong>获取最新值</strong>：客户端收到有变化的响应后，立即发起一个同步的 <code>Get Config</code> 请求拉取最新配置数据。</li></ol> <hr> <h2 id="_3-spring-cloud-接收并应用配置的源码链路"><a href="#_3-spring-cloud-接收并应用配置的源码链路" class="header-anchor">#</a> 3. Spring Cloud 接收并应用配置的源码链路</h2> <p>当客户端拉取到最新的配置后，Spring Cloud 是如何将新的属性值替换到运行中的 Bean 上的呢？这依赖于 <strong>Spring Event 监听机制</strong> 以及 <strong><code>RefreshScope</code> 的缓存销毁机制</strong>。</p> <h3 id="_3-1-核心链路拓扑"><a href="#_3-1-核心链路拓扑" class="header-anchor">#</a> 3.1 核心链路拓扑</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>[Nacos Context Refresher] (监听到配置变更)
+          |
+          v
+[Publish ApplicationEvent] -&gt; 发布 RefreshEvent
+          |
+          v
+[ContextRefresher.refresh()]
+          |
+     +----+----+
+     |         |
+     v         v
+【步骤 A】     【步骤 B】
+重建 Environment        清理 RefreshScope 缓存
+(重新加载 PropertySource) (下次请求时 Lazy-load 重新创建 Bean)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h3 id="_3-2-步骤-a-重建-environment-属性源"><a href="#_3-2-步骤-a-重建-environment-属性源" class="header-anchor">#</a> 3.2 步骤 A：重建 Environment 属性源</h3> <p><code>NacosContextRefresher</code> 会在监听到配置变更后，发布一个 <code>RefreshEvent</code>。Spring Cloud 的 <code>RefreshListener</code> 监听到该事件后，会调用 <code>ContextRefresher.refresh()</code> 方法：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 1. 提取当前的 Environment 属性，并备份</span>
+    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> before <span class="token operator">=</span> <span class="token function">extract</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">.</span><span class="token function">getEnvironment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getPropertySources</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// 2. 重新加载 Bootstrap/Nacos 属性源，覆盖旧属性</span>
+    <span class="token function">addConfigFilesToEnvironment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// 3. 对比变更的键值对</span>
+    <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> keys <span class="token operator">=</span> <span class="token function">changes</span><span class="token punctuation">(</span>before<span class="token punctuation">,</span> <span class="token function">extract</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">.</span><span class="token function">getEnvironment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getPropertySources</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// 4. 发布 EnvironmentChangeEvent 事件</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">.</span><span class="token function">publishEvent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">EnvironmentChangeEvent</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">,</span> keys<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// 5. 销毁并重建 RefreshScope 中的 Beans</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>scope<span class="token punctuation">.</span><span class="token function">refreshAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> keys<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h3 id="_3-3-步骤-b-refreshscope-缓存清理与重建"><a href="#_3-3-步骤-b-refreshscope-缓存清理与重建" class="header-anchor">#</a> 3.3 步骤 B：<code>RefreshScope</code> 缓存清理与重建</h3> <p><code>@RefreshScope</code> 标注的 Bean 在容器中其实是一个<strong>代理对象</strong>。</p> <ul><li>所有的 <code>@RefreshScope</code> 实例都托管在一个名为 <code>GenericScope</code> 的容器中，其内部维护了一个缓存 Map（存储着真实的 Bean 实例）。</li> <li>当调用 <code>this.scope.refreshAll()</code> 时，Spring 只是简单地<strong>清空了这个缓存 Map</strong>，并没有立刻重新创建 Bean。</li> <li><strong>懒加载重建</strong>：当外部请求再次访问该 Bean 的方法时，代理对象发现缓存中没有实例，便会调用 <code>BeanFactory.getBean()</code> 触发依赖注入，此时 Spring 会读取最新的 <code>Environment</code> 属性源，重新实例化 Bean 并写入缓存。这便是动态更新的核心秘密。</li></ul> <hr> <h2 id="_4-避坑指南与最佳实践"><a href="#_4-避坑指南与最佳实践" class="header-anchor">#</a> 4. 避坑指南与最佳实践</h2> <ol><li><strong>局部变量与局部注入失效</strong>：
+如果在普通方法内部使用 <code>System.getProperty()</code> 或手动提取配置，刷新机制将无法感知。请务必使用 <code>@Value</code> 或 <code>@ConfigurationProperties</code>。</li> <li><strong>多线程并发下的数据不一致</strong>：
+在频繁刷新的场景下，清空缓存并重建 Bean 的瞬间，如果有高并发请求访问代理对象，可能会导致短暂的请求积压或读取到旧的中间状态。建议对核心高频配置使用无状态的配置类，并配置合理的平滑过渡策略。</li></ol> <p>通过掌握长轮询机制与 <code>RefreshScope</code> 代理重建原理，我们在微服务架构的配置管理上将更加得心应手。</p></div></section> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/NiceAshin/my_blog/edit/main/java/spring-cloud-nacos-refresh.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">6/10/2026, 2:12:44 AM</span></div></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/java/spring-cloud-nacos-refresh.html#_1-动态刷新的核心使用方式" class="sidebar-link reco-side-_1-动态刷新的核心使用方式" data-v-b57cc07c>1. 动态刷新的核心使用方式</a></li><li class="level-3" data-v-b57cc07c><a href="/java/spring-cloud-nacos-refresh.html#_1-1-refreshscope-注解-推荐" class="sidebar-link reco-side-_1-1-refreshscope-注解-推荐" data-v-b57cc07c>1.1 @RefreshScope 注解 (推荐)</a></li><li class="level-3" data-v-b57cc07c><a href="/java/spring-cloud-nacos-refresh.html#_1-2-configurationproperties-注解" class="sidebar-link reco-side-_1-2-configurationproperties-注解" data-v-b57cc07c>1.2 @ConfigurationProperties 注解</a></li><li class="level-2" data-v-b57cc07c><a href="/java/spring-cloud-nacos-refresh.html#_2-nacos-动态刷新的底层架构设计" class="sidebar-link reco-side-_2-nacos-动态刷新的底层架构设计" data-v-b57cc07c>2. Nacos 动态刷新的底层架构设计</a></li><li class="level-3" data-v-b57cc07c><a href="/java/spring-cloud-nacos-refresh.html#_2-1-长轮询机制-long-polling" class="sidebar-link reco-side-_2-1-长轮询机制-long-polling" data-v-b57cc07c>2.1 长轮询机制 (Long Polling)</a></li><li class="level-2" data-v-b57cc07c><a href="/java/spring-cloud-nacos-refresh.html#_3-spring-cloud-接收并应用配置的源码链路" class="sidebar-link reco-side-_3-spring-cloud-接收并应用配置的源码链路" data-v-b57cc07c>3. Spring Cloud 接收并应用配置的源码链路</a></li><li class="level-3" data-v-b57cc07c><a href="/java/spring-cloud-nacos-refresh.html#_3-1-核心链路拓扑" class="sidebar-link reco-side-_3-1-核心链路拓扑" data-v-b57cc07c>3.1 核心链路拓扑</a></li><li class="level-3" data-v-b57cc07c><a href="/java/spring-cloud-nacos-refresh.html#_3-2-步骤-a-重建-environment-属性源" class="sidebar-link reco-side-_3-2-步骤-a-重建-environment-属性源" data-v-b57cc07c>3.2 步骤 A：重建 Environment 属性源</a></li><li class="level-3" data-v-b57cc07c><a href="/java/spring-cloud-nacos-refresh.html#_3-3-步骤-b-refreshscope-缓存清理与重建" class="sidebar-link reco-side-_3-3-步骤-b-refreshscope-缓存清理与重建" data-v-b57cc07c>3.3 步骤 B：RefreshScope 缓存清理与重建</a></li><li class="level-2" data-v-b57cc07c><a href="/java/spring-cloud-nacos-refresh.html#_4-避坑指南与最佳实践" class="sidebar-link reco-side-_4-避坑指南与最佳实践" data-v-b57cc07c>4. 避坑指南与最佳实践</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.449f81bc.js" defer></script><script src="/assets/js/3.477d8e52.js" defer></script><script src="/assets/js/1.d87c4fb6.js" defer></script><script src="/assets/js/118.3badba0d.js" defer></script>
+  </body>
+</html>
