@@ -11,7 +11,7 @@ TOPICS_FILE = os.path.join(WORKSPACE_DIR, "scripts", "topics.json")
 
 def generate_blog_content(topic):
     """调用 Gemini API 生成技术博客"""
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
     
     prompt = f"""
     你是一个精通软件架构与系统运维的顶尖技术博主。请根据以下主题撰写一篇深度、硬核的中文技术博客：
