@@ -1,3 +1,22 @@
 {
-  "topics": []
+  "topics": [
+    {
+      "title": "Linux grep 与管道符组合实战指南",
+      "category": "linux",
+      "tags": ["Linux", "Grep", "管道符", "运维基础"],
+      "prompt": "详细讲解 grep 的常见参数（-i, -v, -n, -c, -r）以及如何配合管道符（|）实现多层日志过滤与数据统计，必须提供真实运维场景的实例，且文章字数不低于 800 字。"
+    },
+    {
+      "title": "Vim 极速上手与高效文本编辑秘籍",
+      "category": "linux",
+      "tags": ["Linux", "Vim", "编辑器"],
+      "prompt": "梳理 Vim 三大模式，提供最实用的快捷键组合（光标移动、复制粘贴、查找替换），并配以实际操作示例，字数不低于 800 字。"
+    },
+    {
+      "title": "Linux 常用网络排查命令与网络状态诊断",
+      "category": "linux",
+      "tags": ["Linux", "网络命令", "故障排查"],
+      "prompt": "拆解 ping, netstat, ss, curl, telnet 等网络调试命令，并给出具体场景（如端口连通性测试、连接状态统计）的命令输出与分析示例，字数不低于 800 字。"
+    }
+  ]
 }
