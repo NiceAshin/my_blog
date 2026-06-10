@@ -8,6 +8,7 @@ sidebar: false
 
 - [常用命令](cmd.md)
 - [grep 与管道符组合实战指南](grep-and-pipe-guide.md)
+- [Vim 极速上手与高效文本编辑秘籍](vim-quick-start.md)
 
 - [Git 多仓库同步最佳实践：在不操作主仓库 master 的前提下进行跨仓库合并](git-multi-remote-sync.md)
 

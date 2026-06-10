@@ -1,12 +1,6 @@
 {
   "topics": [
     {
-      "title": "Vim 极速上手与高效文本编辑秘籍",
-      "category": "linux",
-      "tags": ["Linux", "Vim", "编辑器"],
-      "prompt": "梳理 Vim 三大模式，提供最实用的快捷键组合（光标移动、复制粘贴、查找替换），并配以实际操作示例，字数不低于 800 字。"
-    },
-    {
       "title": "Linux 常用网络排查命令与网络状态诊断",
       "category": "linux",
       "tags": ["Linux", "网络命令", "故障排查"],
