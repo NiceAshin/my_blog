@@ -1,16 +1,6 @@
 {
   "topics": [
     {
-      "title": "Laravel 12 中的异步队列与高并发任务调度实战",
-      "category": "laravel12",
-      "tags": [
-        "PHP",
-        "Laravel",
-        "Queue"
-      ],
-      "prompt": "分享在 Laravel 12 中使用 Redis 驱动进行异步队列消费的最佳实践，包括失败重试、限流及 Supervisor 进程守护配置。"
-    },
-    {
       "title": "Kubernetes 中 StatefulSet 有状态服务原地升级机制",
       "category": "cloud-native",
       "tags": [
