@@ -1,33 +1,43 @@
 {
   "topics": [
     {
-      "title": "Spring Boot 3.x 核心装配原理解析",
-      "category": "java",
-      "tags": ["Java", "SpringBoot", "IOC"],
-      "prompt": "详细分析 Spring Boot 3.x 中的 @EnableAutoConfiguration 和 AutoConfigurationImportSelector 的源码执行流程，并对比旧版变化。"
-    },
-    {
       "title": "Spring Cloud Aliyun Nacos 配置中心动态刷新机制",
       "category": "java",
-      "tags": ["SpringCloud", "Nacos", "微服务"],
+      "tags": [
+        "SpringCloud",
+        "Nacos",
+        "微服务"
+      ],
       "prompt": "深入讲解 Nacos 配置中心的动态刷新机制底层原理（长轮询、事件监听），并给出代码示例。"
     },
     {
       "title": "国产操作系统（欧拉 openEuler）下的安全合规基线加固",
       "category": "linux",
-      "tags": ["Linux", "openEuler", "系统安全"],
+      "tags": [
+        "Linux",
+        "openEuler",
+        "系统安全"
+      ],
       "prompt": "针对国产 openEuler 系统，讲解如何进行 SSH 加固、密码复杂度审计、全局防火墙及日志审计规则配置。"
     },
     {
       "title": "Laravel 12 中的异步队列与高并发任务调度实战",
       "category": "laravel12",
-      "tags": ["PHP", "Laravel", "Queue"],
+      "tags": [
+        "PHP",
+        "Laravel",
+        "Queue"
+      ],
       "prompt": "分享在 Laravel 12 中使用 Redis 驱动进行异步队列消费的最佳实践，包括失败重试、限流及 Supervisor 进程守护配置。"
     },
     {
       "title": "Kubernetes 中 StatefulSet 有状态服务原地升级机制",
       "category": "cloud-native",
-      "tags": ["K8s", "StatefulSet", "云服务"],
+      "tags": [
+        "K8s",
+        "StatefulSet",
+        "云服务"
+      ],
       "prompt": "解释 Kubernetes 中 StatefulSet 有状态应用的原地升级（OnDelete/RollingUpdate）原理及实践，如何防范数据丢失。"
     }
   ]
