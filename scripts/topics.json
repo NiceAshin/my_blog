@@ -1,16 +1,6 @@
 {
   "topics": [
     {
-      "title": "Spring Cloud Aliyun Nacos 配置中心动态刷新机制",
-      "category": "java",
-      "tags": [
-        "SpringCloud",
-        "Nacos",
-        "微服务"
-      ],
-      "prompt": "深入讲解 Nacos 配置中心的动态刷新机制底层原理（长轮询、事件监听），并给出代码示例。"
-    },
-    {
       "title": "国产操作系统（欧拉 openEuler）下的安全合规基线加固",
       "category": "linux",
       "tags": [
