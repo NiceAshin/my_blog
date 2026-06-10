@@ -1,10 +1,3 @@
 {
-  "topics": [
-    {
-      "title": "Linux 常用网络排查命令与网络状态诊断",
-      "category": "linux",
-      "tags": ["Linux", "网络命令", "故障排查"],
-      "prompt": "拆解 ping, netstat, ss, curl, telnet 等网络调试命令，并给出具体场景（如端口连通性测试、连接状态统计）的命令输出与分析示例，字数不低于 800 字。"
-    }
-  ]
+  "topics": []
 }
