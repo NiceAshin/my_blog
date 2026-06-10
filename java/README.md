@@ -48,3 +48,7 @@ sidebar: false
 - [Netty与Protobuf](netty/protobuf.md)
 - [Netty的群发消息](netty/group.md)
 - [Netty心跳检测](netty/heartbeat.md)
+
+## 微服务与框架
+
+- [Spring Cloud Aliyun Nacos 配置中心动态刷新机制](spring-cloud-nacos-refresh.md)
