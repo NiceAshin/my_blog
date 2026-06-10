@@ -2,6 +2,7 @@ import os
 import json
 import re
 import urllib.request
+import urllib.error
 from datetime import datetime
 
 # 基础配置
@@ -42,6 +43,14 @@ def generate_blog_content(topic):
             res_data = json.loads(response.read().decode("utf-8"))
             content = res_data['candidates'][0]['content']['parts'][0]['text']
             return content
+    except urllib.error.HTTPError as e:
+        print(f"API 调用失败 (HTTPError): {e}")
+        try:
+            error_body = e.read().decode("utf-8")
+            print(f"Google API 返回的详细错误信息: {error_body}")
+        except Exception:
+            pass
+        return None
     except Exception as e:
         print(f"API 调用失败: {e}")
         return None
