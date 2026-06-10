@@ -1,16 +1,6 @@
 {
   "topics": [
     {
-      "title": "国产操作系统（欧拉 openEuler）下的安全合规基线加固",
-      "category": "linux",
-      "tags": [
-        "Linux",
-        "openEuler",
-        "系统安全"
-      ],
-      "prompt": "针对国产 openEuler 系统，讲解如何进行 SSH 加固、密码复杂度审计、全局防火墙及日志审计规则配置。"
-    },
-    {
       "title": "Laravel 12 中的异步队列与高并发任务调度实战",
       "category": "laravel12",
       "tags": [
