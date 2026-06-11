@@ -169,7 +169,7 @@ Always adhere to the developer profile constraints specified below.
 
 ## 4. ECC 核心命令行字典详解
 
-为了方便您在遇到问题时能随时查阅，以下是 `ecc-universal` 提供的完整命令行工具箱（CLI Reference）：
+为了方便您在遇到问题时能随时查阅，以下是 `ecc-universal` 提供的完整命令行工具箱（CLI Reference）以及高阶指令：
 
 ### 4.1 项目初始化与配置：`ecc init`
 - **命令格式**：`ecc init [--harness <harness_name>] [--force]`
@@ -195,11 +195,19 @@ Always adhere to the developer profile constraints specified below.
 - **命令格式**：`ecc list-installed`
 - **功能描述**：列出当前全局或项目局部安装的所有 ECC 插件、原子技能及扩展模块。
 
+### 4.6 高阶子代理控制：`ecc subagent`
+- **命令格式**：`ecc subagent [run|list|kill] --name <agent_name> --prompt <task>`
+- **功能描述**：在后台独立进程派生（Fork）一个具有专用 System Prompt 的专家子智能体，执行异步长程任务（如：跑测试、搜集文档、静态扫描），不占用当前主窗口对话上下文。
+
+### 4.7 多窗口会话复用：`ecc session`
+- **命令格式**：`ecc session [new|list|attach] --id <session_id>`
+- **功能描述**：用于在多窗口多终端并发运行 Claude Code 时，隔离或共享上下文状态，防止多窗口之间产生缓存冲突和 Token 锁。
+
 ---
 
 ## 5. 实战教学：利用 ECC 实现开发生产力暴涨
 
-了解了理论和命令，下面我们通过三个最典型、最具代表性的实际业务场景，看看如何用它来“开挂”编程。
+了解了理论和命令，下面我们通过五个最典型、最具代表性的实际业务场景，看看如何用它来“开挂”编程。
 
 ---
 
@@ -269,6 +277,64 @@ Do you want to override this block? (y/N):
 ```
 
 此时，大模型的写操作被强制拦截。这就为您筑起了一道防范机密泄露的“安全大坝”。
+
+---
+
+### 场景 5.4：分工协作——通过 ECC 运行子代理（Sub-agents）网络
+
+当您开发一个庞大的系统（例如重构一个包含数百个接口的微服务模块）时，将所有任务全部塞进同一个 Claude Code 会话中，会迅速**耗尽 Token 上下文**，导致 AI 遗忘先前的规则，甚至产生严重的推理幻觉。
+
+ECC 支持**分治模式（Divide and Conquer）**。您可以在当前的主窗口中，命令 ECC 派生专门的**后台子代理（Sub-agents）**去执行特定的繁重支线任务。
+
+#### 示例操作：
+```text
+> ecc subagent run --name doc_collector --prompt "递归检索整个项目中所有与 Redis 相关的配置，输出详细的 Markdown 依赖大纲，并保存为 scratch/redis_dependency.md"
+```
+
+#### 🛠️ 后台协同工作流：
+1. **进程隔离**：ECC 在系统后台孵化一个隔离的 node 进程运行 `doc_collector` 子智能体，独立消耗它的 API 配额。
+2. **免干扰执行**：子代理默默分析您的 Redis 代码和配置文件。在此期间，您的主 Claude Code 窗口完全不受干扰，您可以继续让主 AI 帮您修改前端组件或梳理核心逻辑。
+3. **状态通知**：子代理完成后，会通过进程通信总线向主终端发回一条通知：
+   ```text
+   [Subagent: doc_collector] Completed successfully! Output saved to scratch/redis_dependency.md.
+   ```
+4. **上下文合并**：您只需直接在主窗口中敲入 `read_file scratch/redis_dependency.md`，即可瞬间获取最新的整理成果。通过这种“蜂群式”协作，您的核心上下文永远保持干净和高精度。
+
+---
+
+### 场景 5.5：分身有术——多窗口/多会话并发 Claude Code 高效调度
+
+在实际开发中，我们常常需要**多线程工作**。例如：**“在左边窗口让 AI 跑长时的测试套件并修复 Bug，在右边窗口让 AI 编写新的接口文档，而下方窗口用于启动 Web 服务进行本地联调。”**
+
+如果您直接在多个终端里同时启动 `claude`：
+- **痛点 A (规则碰撞)**：多个实例会由于同时读写同一个缓存或本地全局状态，导致配置文件（如 `.claude.json`）产生文件锁异常或读写覆盖。
+- **痛点 B (内存污染)**：Claude Code 内部的内存快照会相互混淆，导致 AI 在 A 窗口误把 B 窗口尚未提交的代码作为依赖基础。
+
+ECC 通过 **`ecc session` 隔离机制**，为您提供完美的多窗口复用体验。
+
+#### 🛠️ 实战配置指南（多窗口多会话）：
+
+1. **第一步：创建并标记独立的会话环境**
+   在您的多终端分屏工具（如 tmux、Windows Terminal、iTerm2 等）中，为每个窗口定义独立的会话 ID：
+   ```bash
+   # 在左边窗口（会话1 - 专职测试）中声明
+   export ECC_SESSION_ID="session_testing"
+   ecc session new --id $ECC_SESSION_ID
+   
+   # 在右边窗口（会话2 - 专职文档与新需求）中声明
+   export ECC_SESSION_ID="session_features"
+   ecc session new --id $ECC_SESSION_ID
+   ```
+2. **第二步：启动隔离后的 Claude Code**
+   在各窗口启动 Claude Code。此时，由于环境变量 `ECC_SESSION_ID` 的不同，ECC 会自动在本地创建独立的符号链接目录：
+   - 窗口 1 专用的规则缓存区：`~/.ecc/sessions/session_testing/`
+   - 窗口 2 专用的规则缓存区：`~/.ecc/sessions/session_features/`
+3. **第三步：会话同步与挂载（可选）**
+   当您在“会话 1（`session_testing`）”中成功修改了某个复杂 Bug，并希望将其经验直接“共享”给“会话 2”时，无需退出对话，只需在会话 2 的终端中执行：
+   ```bash
+   ecc session attach --id session_testing --share-history
+   ```
+   这会将两个窗口的会话上下文建立符号链接，实现经验的即时双向共享。通过这种架构，您拥有了**多线程分身编程**的能力，彻底告别了“等 AI 跑完测试才能写下一行代码”的低效等待。
 
 ---
 
