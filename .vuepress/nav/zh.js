@@ -67,6 +67,7 @@ module.exports = [
                     { text: 'Vibe Coding 核心概念', link: '/ai/vibe-coding-concepts' },
                     { text: 'AI CLI 工具实战', link: '/ai/ai-cli-tools-guide' },
                     { text: 'Antigravity CLI 终极指南', link: '/ai/antigravity-cli-complete-guide' },
+                    { text: 'ECC 终极实战指南', link: '/ai/ecc-tools-claude-code-guide' },
                     { text: 'YOLOv8 全景指南', link: '/ai/ultralytics-yolov8-guide' },
                     { text: 'YOLO 模型选型', link: '/ai/yolo-model-selection' },
                     { text: '目标跟踪算法实战', link: '/ai/object-tracking-guide' },

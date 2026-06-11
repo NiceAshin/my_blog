@@ -16,6 +16,7 @@ sidebar: false
 - [RAG 系统设计实战：从切分、召回到评测闭环](./rag-system-design-guide)
 - [从提示词工程到上下文工程：让大模型稳定、可控、可复用](./context-engineering-guide)
 - [Antigravity CLI 终极全景实战指南：从零重力思想到大规模工程重构](./antigravity-cli-complete-guide)
+- [ECC (Everything Claude Code) 终极实战指南：从零基础上手到 Claude Code 深度集成](./ecc-tools-claude-code-guide)
 
 ## Vibe Coding 系列
 
