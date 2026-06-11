@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ECC (Everything Claude Code) 终极实战指南 | AshinBlog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="黑夜中前行，仍照亮前路!">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.6ea8f289.css" as="style"><link rel="preload" href="/assets/js/app.dcc392bb.js" as="script"><link rel="preload" href="/assets/js/3.477d8e52.js" as="script"><link rel="preload" href="/assets/js/1.d87c4fb6.js" as="script"><link rel="preload" href="/assets/js/20.e5efcc7b.js" as="script"><link rel="prefetch" href="/assets/js/10.8913ff42.js"><link rel="prefetch" href="/assets/js/100.0052424d.js"><link rel="prefetch" href="/assets/js/101.f6418445.js"><link rel="prefetch" href="/assets/js/102.54893bfd.js"><link rel="prefetch" href="/assets/js/103.864102eb.js"><link rel="prefetch" href="/assets/js/104.b47db26e.js"><link rel="prefetch" href="/assets/js/105.fdd39781.js"><link rel="prefetch" href="/assets/js/106.3b601667.js"><link rel="prefetch" href="/assets/js/107.0c7c0cd1.js"><link rel="prefetch" href="/assets/js/108.a71ad644.js"><link rel="prefetch" href="/assets/js/109.328c7816.js"><link rel="prefetch" href="/assets/js/11.071ca8b6.js"><link rel="prefetch" href="/assets/js/110.847f04aa.js"><link rel="prefetch" href="/assets/js/111.bd74ff3c.js"><link rel="prefetch" href="/assets/js/112.75a0802e.js"><link rel="prefetch" href="/assets/js/113.530a4388.js"><link rel="prefetch" href="/assets/js/114.d8bab99c.js"><link rel="prefetch" href="/assets/js/115.cd3648e8.js"><link rel="prefetch" href="/assets/js/116.59308d8b.js"><link rel="prefetch" href="/assets/js/117.9760ab9d.js"><link rel="prefetch" href="/assets/js/118.a5d0684d.js"><link rel="prefetch" href="/assets/js/119.5de1263f.js"><link rel="prefetch" href="/assets/js/12.bd06fc58.js"><link rel="prefetch" href="/assets/js/120.9a32daad.js"><link rel="prefetch" href="/assets/js/121.eb8530a8.js"><link rel="prefetch" href="/assets/js/122.66c20e79.js"><link rel="prefetch" href="/assets/js/123.fe589468.js"><link rel="prefetch" href="/assets/js/124.1f5aace9.js"><link rel="prefetch" href="/assets/js/125.54e3e363.js"><link rel="prefetch" href="/assets/js/126.846cbb77.js"><link rel="prefetch" href="/assets/js/127.c2552d15.js"><link rel="prefetch" href="/assets/js/128.edb21a71.js"><link rel="prefetch" href="/assets/js/129.5b5845df.js"><link rel="prefetch" href="/assets/js/13.2134ca82.js"><link rel="prefetch" href="/assets/js/130.de15eeed.js"><link rel="prefetch" href="/assets/js/131.1064c415.js"><link rel="prefetch" href="/assets/js/132.cf1f6b24.js"><link rel="prefetch" href="/assets/js/133.f57acdd7.js"><link rel="prefetch" href="/assets/js/134.267c6415.js"><link rel="prefetch" href="/assets/js/135.3fd449f6.js"><link rel="prefetch" href="/assets/js/136.107d51b9.js"><link rel="prefetch" href="/assets/js/137.34123bb7.js"><link rel="prefetch" href="/assets/js/138.a01a0cac.js"><link rel="prefetch" href="/assets/js/139.c72b5b23.js"><link rel="prefetch" href="/assets/js/14.00677070.js"><link rel="prefetch" href="/assets/js/140.1ecfd14d.js"><link rel="prefetch" href="/assets/js/141.99d31dac.js"><link rel="prefetch" href="/assets/js/142.11ca33a5.js"><link rel="prefetch" href="/assets/js/143.8a3894f9.js"><link rel="prefetch" href="/assets/js/144.baf53122.js"><link rel="prefetch" href="/assets/js/145.73cfeb84.js"><link rel="prefetch" href="/assets/js/146.ec43e752.js"><link rel="prefetch" href="/assets/js/147.92e8929f.js"><link rel="prefetch" href="/assets/js/148.e19a5da7.js"><link rel="prefetch" href="/assets/js/149.3ed43622.js"><link rel="prefetch" href="/assets/js/15.eff370a0.js"><link rel="prefetch" href="/assets/js/150.e50296bc.js"><link rel="prefetch" href="/assets/js/151.4e3f5b8a.js"><link rel="prefetch" href="/assets/js/152.6c8466b3.js"><link rel="prefetch" href="/assets/js/153.aa5b3b48.js"><link rel="prefetch" href="/assets/js/154.aa5cde70.js"><link rel="prefetch" href="/assets/js/155.7b925f6d.js"><link rel="prefetch" href="/assets/js/156.405cb539.js"><link rel="prefetch" href="/assets/js/157.ce5c9305.js"><link rel="prefetch" href="/assets/js/158.58292fa2.js"><link rel="prefetch" href="/assets/js/159.00a8050a.js"><link rel="prefetch" href="/assets/js/16.806ef8b0.js"><link rel="prefetch" href="/assets/js/160.e29b5f53.js"><link rel="prefetch" href="/assets/js/161.23c0583a.js"><link rel="prefetch" href="/assets/js/162.b68ee15d.js"><link rel="prefetch" href="/assets/js/163.1223cce0.js"><link rel="prefetch" href="/assets/js/164.e857423c.js"><link rel="prefetch" href="/assets/js/165.f4578eeb.js"><link rel="prefetch" href="/assets/js/166.6337eefa.js"><link rel="prefetch" href="/assets/js/167.3fb5183d.js"><link rel="prefetch" href="/assets/js/168.28823ba3.js"><link rel="prefetch" href="/assets/js/169.f1a2e385.js"><link rel="prefetch" href="/assets/js/17.b8cdc8d4.js"><link rel="prefetch" href="/assets/js/170.86b879f3.js"><link rel="prefetch" href="/assets/js/171.f58eb932.js"><link rel="prefetch" href="/assets/js/172.9de124ee.js"><link rel="prefetch" href="/assets/js/173.0ad28617.js"><link rel="prefetch" href="/assets/js/18.5df57fb0.js"><link rel="prefetch" href="/assets/js/19.cb220d99.js"><link rel="prefetch" href="/assets/js/21.23a79d35.js"><link rel="prefetch" href="/assets/js/22.888e99c5.js"><link rel="prefetch" href="/assets/js/23.1dd5b4b2.js"><link rel="prefetch" href="/assets/js/24.230abcd5.js"><link rel="prefetch" href="/assets/js/25.290ce2e9.js"><link rel="prefetch" href="/assets/js/26.3ddd9c23.js"><link rel="prefetch" href="/assets/js/27.478329db.js"><link rel="prefetch" href="/assets/js/28.ca233abc.js"><link rel="prefetch" href="/assets/js/29.56123415.js"><link rel="prefetch" href="/assets/js/30.7c72a57b.js"><link rel="prefetch" href="/assets/js/31.56368f68.js"><link rel="prefetch" href="/assets/js/32.a3845286.js"><link rel="prefetch" href="/assets/js/33.8dd44854.js"><link rel="prefetch" href="/assets/js/34.12683f7a.js"><link rel="prefetch" href="/assets/js/35.5ba8d167.js"><link rel="prefetch" href="/assets/js/36.1dffee0e.js"><link rel="prefetch" href="/assets/js/37.e0aa6f22.js"><link rel="prefetch" href="/assets/js/38.a35d2b99.js"><link rel="prefetch" href="/assets/js/39.40f8bf8e.js"><link rel="prefetch" href="/assets/js/4.d14c4ac1.js"><link rel="prefetch" href="/assets/js/40.88c1cb47.js"><link rel="prefetch" href="/assets/js/41.f4c7ca93.js"><link rel="prefetch" href="/assets/js/42.59b8c0d7.js"><link rel="prefetch" href="/assets/js/43.f1a4ddf0.js"><link rel="prefetch" href="/assets/js/44.be6236be.js"><link rel="prefetch" href="/assets/js/45.fc3e55ab.js"><link rel="prefetch" href="/assets/js/46.6aedf0c9.js"><link rel="prefetch" href="/assets/js/47.e3771d60.js"><link rel="prefetch" href="/assets/js/48.ddaa3221.js"><link rel="prefetch" href="/assets/js/49.32953035.js"><link rel="prefetch" href="/assets/js/5.6e2b6adf.js"><link rel="prefetch" href="/assets/js/50.0bd12de6.js"><link rel="prefetch" href="/assets/js/51.1ccc8c7c.js"><link rel="prefetch" href="/assets/js/52.5473f5f4.js"><link rel="prefetch" href="/assets/js/53.9315a267.js"><link rel="prefetch" href="/assets/js/54.1b333970.js"><link rel="prefetch" href="/assets/js/55.79057eb7.js"><link rel="prefetch" href="/assets/js/56.d632c9ad.js"><link rel="prefetch" href="/assets/js/57.46fe709a.js"><link rel="prefetch" href="/assets/js/58.c70ea029.js"><link rel="prefetch" href="/assets/js/59.29327fb1.js"><link rel="prefetch" href="/assets/js/6.14a5d79a.js"><link rel="prefetch" href="/assets/js/60.a1bed83f.js"><link rel="prefetch" href="/assets/js/61.cb45e131.js"><link rel="prefetch" href="/assets/js/62.63b80df8.js"><link rel="prefetch" href="/assets/js/63.c948d194.js"><link rel="prefetch" href="/assets/js/64.cfe8df36.js"><link rel="prefetch" href="/assets/js/65.966165c1.js"><link rel="prefetch" href="/assets/js/66.544a4480.js"><link rel="prefetch" href="/assets/js/67.3e501464.js"><link rel="prefetch" href="/assets/js/68.8270c9b7.js"><link rel="prefetch" href="/assets/js/69.fe6b9795.js"><link rel="prefetch" href="/assets/js/7.559e6d92.js"><link rel="prefetch" href="/assets/js/70.eaf9cb2e.js"><link rel="prefetch" href="/assets/js/71.6f3cc13c.js"><link rel="prefetch" href="/assets/js/72.77a31b9e.js"><link rel="prefetch" href="/assets/js/73.0408c7a1.js"><link rel="prefetch" href="/assets/js/74.85212829.js"><link rel="prefetch" href="/assets/js/75.a9f86d71.js"><link rel="prefetch" href="/assets/js/76.083c0194.js"><link rel="prefetch" href="/assets/js/77.a96bd454.js"><link rel="prefetch" href="/assets/js/78.c9cb6186.js"><link rel="prefetch" href="/assets/js/79.13b10575.js"><link rel="prefetch" href="/assets/js/8.fb065c98.js"><link rel="prefetch" href="/assets/js/80.a2ffed05.js"><link rel="prefetch" href="/assets/js/81.ae7f05dc.js"><link rel="prefetch" href="/assets/js/82.6eb83e30.js"><link rel="prefetch" href="/assets/js/83.cfe5ea38.js"><link rel="prefetch" href="/assets/js/84.8c77b6eb.js"><link rel="prefetch" href="/assets/js/85.2184ac09.js"><link rel="prefetch" href="/assets/js/86.8e706516.js"><link rel="prefetch" href="/assets/js/87.7bd981fb.js"><link rel="prefetch" href="/assets/js/88.102aaeec.js"><link rel="prefetch" href="/assets/js/89.73fd6286.js"><link rel="prefetch" href="/assets/js/9.2fe0660c.js"><link rel="prefetch" href="/assets/js/90.d758162c.js"><link rel="prefetch" href="/assets/js/91.22e6c775.js"><link rel="prefetch" href="/assets/js/92.75d48b09.js"><link rel="prefetch" href="/assets/js/93.f24e4669.js"><link rel="prefetch" href="/assets/js/94.a3d283df.js"><link rel="prefetch" href="/assets/js/95.b873e750.js"><link rel="prefetch" href="/assets/js/96.0a4ce943.js"><link rel="prefetch" href="/assets/js/97.4e082128.js"><link rel="prefetch" href="/assets/js/98.fb3dbfa5.js"><link rel="prefetch" href="/assets/js/99.a6341ae7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.6ea8f289.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>AshinBlog</h3> <p class="description" data-v-59e6cb88>黑夜中前行，仍照亮前路!</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>AshinZhang</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2026
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo2-128.png" alt="AshinBlog" class="logo"> <span class="site-name">AshinBlog</span></a> <div class="links"><!----> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      架构设计
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>领域驱动设计</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ddd/" class="nav-link"><i class="undefined"></i>
+  DDD 概览
+</a></li><li class="dropdown-subitem"><a href="/ddd/stratgy.html" class="nav-link"><i class="undefined"></i>
+  战略设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/tactics.html" class="nav-link"><i class="undefined"></i>
+  战术设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/event-source.html" class="nav-link"><i class="undefined"></i>
+  事件溯源
+</a></li><li class="dropdown-subitem"><a href="/ddd/DDD-microservice.html" class="nav-link"><i class="undefined"></i>
+  微服务拆分
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link"><i class="undefined"></i>
+  微服务实践
+</a></li><li class="dropdown-item"><!----> <a href="/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      编程语言
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java/" class="nav-link"><i class="undefined"></i>
+  Java 栈
+</a></li><li class="dropdown-item"><!----> <a href="/go/" class="nav-link"><i class="undefined"></i>
+  Go 语言
+</a></li><li class="dropdown-item"><!----> <a href="/yii2/" class="nav-link"><i class="undefined"></i>
+  PHP(Yii2)
+</a></li><li class="dropdown-item"><h4>PHP(Laravel12)</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/laravel12/" class="nav-link"><i class="undefined"></i>
+  Laravel12 概览
+</a></li><li class="dropdown-subitem"><a href="/laravel12/installation.html" class="nav-link"><i class="undefined"></i>
+  安装与配置
+</a></li><li class="dropdown-subitem"><a href="/laravel12/directory-structure.html" class="nav-link"><i class="undefined"></i>
+  目录结构
+</a></li><li class="dropdown-subitem"><a href="/laravel12/routing.html" class="nav-link"><i class="undefined"></i>
+  路由系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/eloquent.html" class="nav-link"><i class="undefined"></i>
+  Eloquent ORM
+</a></li><li class="dropdown-subitem"><a href="/laravel12/blade.html" class="nav-link"><i class="undefined"></i>
+  Blade 模板
+</a></li><li class="dropdown-subitem"><a href="/laravel12/authentication.html" class="nav-link"><i class="undefined"></i>
+  认证系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/api.html" class="nav-link"><i class="undefined"></i>
+  API 开发
+</a></li><li class="dropdown-subitem"><a href="/laravel12/queues.html" class="nav-link"><i class="undefined"></i>
+  队列系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/events.html" class="nav-link"><i class="undefined"></i>
+  事件系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/cache.html" class="nav-link"><i class="undefined"></i>
+  缓存系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/filesystem.html" class="nav-link"><i class="undefined"></i>
+  文件存储
+</a></li><li class="dropdown-subitem"><a href="/laravel12/mail.html" class="nav-link"><i class="undefined"></i>
+  邮件发送
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础设施
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link"><i class="undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/cloud-native/" class="nav-link"><i class="undefined"></i>
+  云原生
+</a></li><li class="dropdown-item"><!----> <a href="/ground/" class="nav-link"><i class="undefined"></i>
+  中间件
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      AI 实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>AI 探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/" class="nav-link router-link-active"><i class="undefined"></i>
+  AI 概览
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-agent-engineering-guide.html" class="nav-link"><i class="undefined"></i>
+  AI Agent 工程化落地
+</a></li><li class="dropdown-subitem"><a href="/ai/rag-system-design-guide.html" class="nav-link"><i class="undefined"></i>
+  RAG 系统设计实战
+</a></li><li class="dropdown-subitem"><a href="/ai/context-engineering-guide.html" class="nav-link"><i class="undefined"></i>
+  上下文工程实战
+</a></li><li class="dropdown-subitem"><a href="/ai/vibe-coding-concepts.html" class="nav-link"><i class="undefined"></i>
+  Vibe Coding 核心概念
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-cli-tools-guide.html" class="nav-link"><i class="undefined"></i>
+  AI CLI 工具实战
+</a></li><li class="dropdown-subitem"><a href="/ai/antigravity-cli-complete-guide.html" class="nav-link"><i class="undefined"></i>
+  Antigravity CLI 终极指南
+</a></li><li class="dropdown-subitem"><a href="/ai/ecc-tools-claude-code-guide.html" aria-current="page" class="nav-link router-link-exact-active router-link-active"><i class="undefined"></i>
+  ECC 终极实战指南
+</a></li><li class="dropdown-subitem"><a href="/ai/ultralytics-yolov8-guide.html" class="nav-link"><i class="undefined"></i>
+  YOLOv8 全景指南
+</a></li><li class="dropdown-subitem"><a href="/ai/yolo-model-selection.html" class="nav-link"><i class="undefined"></i>
+  YOLO 模型选型
+</a></li><li class="dropdown-subitem"><a href="/ai/object-tracking-guide.html" class="nav-link"><i class="undefined"></i>
+  目标跟踪算法实战
+</a></li><li class="dropdown-subitem"><a href="/ai/ocr-tool-selection.html" class="nav-link"><i class="undefined"></i>
+  OCR 工具选型
+</a></li><li class="dropdown-subitem"><a href="/ai/java-ocr-integration.html" class="nav-link"><i class="undefined"></i>
+  Java OCR 集成
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工程实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/#问题排查与经验" class="nav-link"><i class="undefined"></i>
+  问题排查
+</a></li><li class="dropdown-item"><!----> <a href="/more/#项目与配置实战" class="nav-link"><i class="undefined"></i>
+  配置实战
+</a></li><li class="dropdown-item"><!----> <a href="/more/#接口文档专区" class="nav-link"><i class="undefined"></i>
+  接口文档
+</a></li></ul></div></div> <a href="https://github.com/NiceAshin/my_blog" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    AshinZhang
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>156</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>90</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      架构设计
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>领域驱动设计</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ddd/" class="nav-link"><i class="undefined"></i>
+  DDD 概览
+</a></li><li class="dropdown-subitem"><a href="/ddd/stratgy.html" class="nav-link"><i class="undefined"></i>
+  战略设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/tactics.html" class="nav-link"><i class="undefined"></i>
+  战术设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/event-source.html" class="nav-link"><i class="undefined"></i>
+  事件溯源
+</a></li><li class="dropdown-subitem"><a href="/ddd/DDD-microservice.html" class="nav-link"><i class="undefined"></i>
+  微服务拆分
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link"><i class="undefined"></i>
+  微服务实践
+</a></li><li class="dropdown-item"><!----> <a href="/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      编程语言
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java/" class="nav-link"><i class="undefined"></i>
+  Java 栈
+</a></li><li class="dropdown-item"><!----> <a href="/go/" class="nav-link"><i class="undefined"></i>
+  Go 语言
+</a></li><li class="dropdown-item"><!----> <a href="/yii2/" class="nav-link"><i class="undefined"></i>
+  PHP(Yii2)
+</a></li><li class="dropdown-item"><h4>PHP(Laravel12)</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/laravel12/" class="nav-link"><i class="undefined"></i>
+  Laravel12 概览
+</a></li><li class="dropdown-subitem"><a href="/laravel12/installation.html" class="nav-link"><i class="undefined"></i>
+  安装与配置
+</a></li><li class="dropdown-subitem"><a href="/laravel12/directory-structure.html" class="nav-link"><i class="undefined"></i>
+  目录结构
+</a></li><li class="dropdown-subitem"><a href="/laravel12/routing.html" class="nav-link"><i class="undefined"></i>
+  路由系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/eloquent.html" class="nav-link"><i class="undefined"></i>
+  Eloquent ORM
+</a></li><li class="dropdown-subitem"><a href="/laravel12/blade.html" class="nav-link"><i class="undefined"></i>
+  Blade 模板
+</a></li><li class="dropdown-subitem"><a href="/laravel12/authentication.html" class="nav-link"><i class="undefined"></i>
+  认证系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/api.html" class="nav-link"><i class="undefined"></i>
+  API 开发
+</a></li><li class="dropdown-subitem"><a href="/laravel12/queues.html" class="nav-link"><i class="undefined"></i>
+  队列系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/events.html" class="nav-link"><i class="undefined"></i>
+  事件系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/cache.html" class="nav-link"><i class="undefined"></i>
+  缓存系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/filesystem.html" class="nav-link"><i class="undefined"></i>
+  文件存储
+</a></li><li class="dropdown-subitem"><a href="/laravel12/mail.html" class="nav-link"><i class="undefined"></i>
+  邮件发送
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础设施
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link"><i class="undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/cloud-native/" class="nav-link"><i class="undefined"></i>
+  云原生
+</a></li><li class="dropdown-item"><!----> <a href="/ground/" class="nav-link"><i class="undefined"></i>
+  中间件
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      AI 实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>AI 探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/" class="nav-link router-link-active"><i class="undefined"></i>
+  AI 概览
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-agent-engineering-guide.html" class="nav-link"><i class="undefined"></i>
+  AI Agent 工程化落地
+</a></li><li class="dropdown-subitem"><a href="/ai/rag-system-design-guide.html" class="nav-link"><i class="undefined"></i>
+  RAG 系统设计实战
+</a></li><li class="dropdown-subitem"><a href="/ai/context-engineering-guide.html" class="nav-link"><i class="undefined"></i>
+  上下文工程实战
+</a></li><li class="dropdown-subitem"><a href="/ai/vibe-coding-concepts.html" class="nav-link"><i class="undefined"></i>
+  Vibe Coding 核心概念
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-cli-tools-guide.html" class="nav-link"><i class="undefined"></i>
+  AI CLI 工具实战
+</a></li><li class="dropdown-subitem"><a href="/ai/antigravity-cli-complete-guide.html" class="nav-link"><i class="undefined"></i>
+  Antigravity CLI 终极指南
+</a></li><li class="dropdown-subitem"><a href="/ai/ecc-tools-claude-code-guide.html" aria-current="page" class="nav-link router-link-exact-active router-link-active"><i class="undefined"></i>
+  ECC 终极实战指南
+</a></li><li class="dropdown-subitem"><a href="/ai/ultralytics-yolov8-guide.html" class="nav-link"><i class="undefined"></i>
+  YOLOv8 全景指南
+</a></li><li class="dropdown-subitem"><a href="/ai/yolo-model-selection.html" class="nav-link"><i class="undefined"></i>
+  YOLO 模型选型
+</a></li><li class="dropdown-subitem"><a href="/ai/object-tracking-guide.html" class="nav-link"><i class="undefined"></i>
+  目标跟踪算法实战
+</a></li><li class="dropdown-subitem"><a href="/ai/ocr-tool-selection.html" class="nav-link"><i class="undefined"></i>
+  OCR 工具选型
+</a></li><li class="dropdown-subitem"><a href="/ai/java-ocr-integration.html" class="nav-link"><i class="undefined"></i>
+  Java OCR 集成
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工程实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/#问题排查与经验" class="nav-link"><i class="undefined"></i>
+  问题排查
+</a></li><li class="dropdown-item"><!----> <a href="/more/#项目与配置实战" class="nav-link"><i class="undefined"></i>
+  配置实战
+</a></li><li class="dropdown-item"><!----> <a href="/more/#接口文档专区" class="nav-link"><i class="undefined"></i>
+  接口文档
+</a></li></ul></div></div> <a href="https://github.com/NiceAshin/my_blog" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>ECC (Everything Claude Code) 终极实战指南</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>AshinZhang</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2026
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">ECC (Everything Claude Code) 终极实战指南</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>AshinZhang</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>6/11/2026</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>AI</span><span class="tag-item" data-v-8a445198>ClaudeCode</span><span class="tag-item" data-v-8a445198>ECC</span><span class="tag-item" data-v-8a445198>提效工具</span><span class="tag-item" data-v-8a445198>自动驾驶开发</span></i></div></div> <div class="theme-reco-content content__default"><h1 id="ecc-everything-claude-code-终极实战指南-从零基础上手到-claude-code-深度集成"><a href="#ecc-everything-claude-code-终极实战指南-从零基础上手到-claude-code-深度集成" class="header-anchor">#</a> ECC (Everything Claude Code) 终极实战指南：从零基础上手到 Claude Code 深度集成</h1> <p>在大模型辅助编程（AI-Assisted Coding）爆火的今天，许多开发者已经习惯了使用像 <strong>Claude Code</strong>、Cursor、Github Copilot 这样的工具来编写代码。然而，随着项目规模的扩大，很多“新手”甚至“资深工程师”在体验了最初的惊艳后，都会陷入一种被称为 <strong>“Vibe Coding（情绪流编程）”</strong> 的泥潭：</p> <ul><li>每次开启新会话，都要反复给 AI 解释项目架构和技术栈规范；</li> <li>AI 经常自作主张地修改非目标文件，甚至误删核心代码，缺乏安全防线；</li> <li>不同工具（如终端里的 Claude Code 与编辑器里的 Cursor）之间的规则不通用，AI 行为难以预测；</li> <li>缺乏规范化的工作流，AI 编写的代码质量参差不齐，单元测试覆盖率低下。</li></ul> <p>为了解决这些痛点，开源社区推出了 <strong>ECC (Everything Claude Code)</strong> 这一革命性的 <strong>“智能体运营与安全框架（Agent Harness System）”</strong>。</p> <p>本指南专为新手及希望实现“开发效率翻倍”的研发人员设计。我们将从零开始，深入浅出地带你掌握 ECC（官网：<a href="https://ecc.tools" target="_blank" rel="noopener noreferrer">ecc.tools<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>）的核心原理、详细命令，以及如何将其无缝集成到 <strong>Claude Code</strong> 中，构建一个高安全、强规范、全自动的“零重力”开发驾驶舱。</p> <hr> <h2 id="_1-什么是-ecc-为什么它是-claude-code-的黄金搭档"><a href="#_1-什么是-ecc-为什么它是-claude-code-的黄金搭档" class="header-anchor">#</a> 1. 什么是 ECC？为什么它是 Claude Code 的黄金搭档？</h2> <h3 id="_1-1-ecc-的诞生背景"><a href="#_1-1-ecc-的诞生背景" class="header-anchor">#</a> 1.1 ECC 的诞生背景</h3> <p>ECC (Everything Claude Code) 是一个开源的<strong>智能体底座增强系统</strong>。它并不隶属于 Anthropic 官方，而是由前沿开源社区（目前在 GitHub 仓库 <code>affaan-m/ECC</code> 下维护）为了解决 AI 编程失控而构建的工程化框架。</p> <p>如果把 <strong>Claude Code</strong> 比作一台马力强劲的跑车引擎，那么 <strong>ECC</strong> 就是这辆跑车的<strong>专业底盘、电子稳定系统（ESP）和高精度仪表盘</strong>。它通过在本地文件系统与大模型 API 交互之间插入一个“可编程的控制层”，将零散的 AI 编程对话规范化为工业级的“软件工程工作流”。</p> <h3 id="_1-2-ecc-的四大核心优势"><a href="#_1-2-ecc-的四大核心优势" class="header-anchor">#</a> 1.2 ECC 的四大核心优势</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>+-------------------------------------------------------------+
+|                      您的物理开发环境                       |
++-------------------------------------------------------------+
+                               |
+                               v (指令与代码交互)
++-------------------------------------------------------------+
+|             ECC (Everything Claude Code) 拦截层             |
+|  - 规则注入 (Rules)              - 动态规划 (/plan)          |
+|  - 安全网盾 (AgentShield)         - 技能扩展 (/tdd)           |
++-------------------------------------------------------------+
+                               |
+                               v (安全、合规的输入)
++-------------------------------------------------------------+
+|               Claude Code 核心 CLI 智能体引擎                |
++-------------------------------------------------------------+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><ol><li><strong>多端规则对齐（Cross-Harness Portability）</strong>：
+在没有 ECC 之前，你在 Claude Code（终端）里写的一套 <code>.claudecode/rules</code>，无法直接同步给 Cursor 或 Codex。而 ECC 采用 <code>ecc-universal</code> 标准，让你只需编写一次项目大纲与代码规范，就能在所有 AI 编程终端中完美互通。</li> <li><strong>安全网盾（AgentShield）</strong>：
+这是 ECC 最硬核的安全组件。当 AI 试图执行危险命令（如 <code>rm -rf</code>）、读取未授权的敏感文件（如 <code>.env</code> 私钥），或者向公网发送数据时，<code>AgentShield</code> 会实施物理拦截，并要求人类驾驶员输入确认。</li> <li><strong>开箱即用的原子技能库（Out-of-the-box Skills）</strong>：
+内置了诸如自动 TDD（测试驱动开发）流、八维度 Bug 深度审计、数据库 Schema 自动提取器、以及多智能体并行调度器。</li> <li><strong>自愈与环境感知（Self-Healing）</strong>：
+ECC 提供了 <code>ecc doctor</code> 和 <code>ecc repair</code> 机制。当 AI 运行配置损坏、环境变量冲突或项目依赖遗失时，系统能够一键检测并自愈，绝不让开发流程卡死。</li></ol> <hr> <h2 id="_2-极速上手-从零开始安装与初始化-ecc"><a href="#_2-极速上手-从零开始安装与初始化-ecc" class="header-anchor">#</a> 2. 极速上手：从零开始安装与初始化 ECC</h2> <p>作为一名新手，你不需要懂得深奥的编译原理，只需跟着以下步骤在终端里敲击命令即可。</p> <h3 id="_2-1-系统前置要求"><a href="#_2-1-系统前置要求" class="header-anchor">#</a> 2.1 系统前置要求</h3> <ul><li><strong>Node.js</strong>：版本 $\ge 18.0.0$（建议使用 NVM 安装最新的 LTS 版本）。</li> <li><strong>Git</strong>：用于代码版本控制。</li> <li><strong>Claude Code</strong>：确保您已经全局安装了官方的 <code>@anthropic-ai/claude-code</code> 客户端。</li></ul> <h3 id="_2-2-全局安装-ecc-universal"><a href="#_2-2-全局安装-ecc-universal" class="header-anchor">#</a> 2.2 全局安装 <code>ecc-universal</code></h3> <p>打开您的终端（Windows 用户推荐使用 PowerShell 或 Git Bash，macOS/Linux 用户使用 Terminal），运行以下命令：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 全局安装 ECC 核心通用引擎</span>
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> ecc-universal
+
+<span class="token comment"># （可选）安装 ECC 安全盾组件</span>
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> ecc-agentshield
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><blockquote><p>[!TIP]
+如果您在 macOS 或 Linux 上遇到权限问题，可以在命令前加上 <code>sudo</code>，或者通过配置 npm 的全局前缀来避免使用 root 权限。</p></blockquote> <h3 id="_2-3-初始化与-profile-配置文件-选择"><a href="#_2-3-初始化与-profile-配置文件-选择" class="header-anchor">#</a> 2.3 初始化与 Profile（配置文件）选择</h3> <p>安装完成后，我们在当前项目根目录下初始化 ECC 运行环境。运行以下命令：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 启动交互式安装与初始化助手</span>
+npx ecc-install
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>此时，控制台会跳出交互式菜单，要求您选择对应的 <strong>Profile（配置规格）</strong>：</p> <table><thead><tr><th style="text-align:left;">Profile 类型</th> <th style="text-align:left;">包含组件与功能</th> <th style="text-align:left;">适用人群与场景</th></tr></thead> <tbody><tr><td style="text-align:left;"><strong><code>Core</code></strong></td> <td style="text-align:left;">仅包含最基础的通用规则与基础智能体框架。</td> <td style="text-align:left;">硬件配置较低、仅需要 AI 简单辅助的新手。</td></tr> <tr><td style="text-align:left;"><strong><code>Developer</code></strong></td> <td style="text-align:left;">包含 Core + TDD 开发引导、架构规范模板、Code Review 审计器。</td> <td style="text-align:left;">每日进行大量业务代码编写的主力开发者。</td></tr> <tr><td style="text-align:left;"><strong><code>Security</code></strong></td> <td style="text-align:left;">包含 Core + AgentShield 防御盾、代码机密信息泄露扫描器。</td> <td style="text-align:left;">金融、政企等对数据安全要求极高敏感的开发环境。</td></tr> <tr><td style="text-align:left;"><strong><code>Full</code></strong></td> <td style="text-align:left;">包含上述全部功能，解锁 ECC 整个原子技能与命令扩展库。</td> <td style="text-align:left;"><strong>（推荐）</strong> 想要体验完全体“自动驾驶”的极客。</td></tr></tbody></table> <p>选择 <code>Full</code> 规格后，回车确认。系统会自动在您的项目根目录生成一系列规则模板，并注册全局环境变量。</p> <h3 id="_2-4-运行健康检查-verification"><a href="#_2-4-运行健康检查-verification" class="header-anchor">#</a> 2.4 运行健康检查 (Verification)</h3> <p>在进入实际编码前，我们需要确认 ECC 是否在您的系统中健康运行。执行以下命令：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 检查 ECC 环境健康状况</span>
+ecc doctor
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>如果系统配置正常，您会看到如下的绿色输出：</p> <div class="language-text line-numbers-mode"><pre class="language-text"><code>[ECC Doctor] Running system diagnostics...
+✔ Checking Node.js version (v20.11.0) - OK
+✔ Checking Claude Code CLI installation - Found
+✔ Checking AgentShield configurations - Active
+✔ Checking local symlinks and environment profile - Stable
+Status: Healthy. Your AI Agent is ready to hover.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><hr> <h2 id="_3-深度融合-将-ecc-集成到-claude-code"><a href="#_3-深度融合-将-ecc-集成到-claude-code" class="header-anchor">#</a> 3. 深度融合：将 ECC 集成到 Claude Code</h2> <p>安装了 <code>ecc-universal</code> 之后，接下来我们要把它的规则和命令“喂”给 <strong>Claude Code</strong>，让 Claude 在启动时自动加载这些高阶超能力。</p> <h3 id="_3-1-claude-code-的规则加载机制"><a href="#_3-1-claude-code-的规则加载机制" class="header-anchor">#</a> 3.1 Claude Code 的规则加载机制</h3> <p>Claude Code 在启动时，会递归读取以下两个位置的规则文件：</p> <ol><li><strong>全局规则</strong>：<code>~/.claude/rules/</code>（对该电脑上的所有项目生效）。</li> <li><strong>项目局部规则</strong>：项目根目录下的 <code>CLAUDE.md</code> 或 <code>.claudecode/rules/</code>（仅对当前项目生效）。</li></ol> <p>ECC 通过动态生成这些文件，来实现对 Claude Code 行为的强力规约。</p> <h3 id="_3-2-一键生成集成配置"><a href="#_3-2-一键生成集成配置" class="header-anchor">#</a> 3.2 一键生成集成配置</h3> <p>在您的项目根目录下，使用 <code>ecc</code> 命令一键为您当前的开发工装（Harness）生成适配文件：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 初始化生成针对 Claude Code 的规则绑定</span>
+ecc init <span class="token parameter variable">--harness</span> claude
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>执行后，项目根目录下会自动生成一个高度精简且专业的 <strong><code>CLAUDE.md</code></strong> 文件。我们来查看它的核心内容：</p> <div class="language-markdown line-numbers-mode"><pre class="language-markdown"><code><span class="token title important"><span class="token punctuation">#</span> Project Rules &amp; Custom Instructions</span>
+
+This project is governed by the ECC (Everything Claude Code) framework. 
+Always adhere to the developer profile constraints specified below.
+
+<span class="token title important"><span class="token punctuation">##</span> Agent Instincts &amp; Execution Steps</span>
+<span class="token list punctuation">1.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Research First</span><span class="token punctuation">**</span></span>: Never edit files before performing a <span class="token code-snippet code keyword">`grep_search`</span> or <span class="token code-snippet code keyword">`glob`</span> to verify dependencies.
+<span class="token list punctuation">2.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Double Check</span><span class="token punctuation">**</span></span>: Execute <span class="token code-snippet code keyword">`ecc-review`</span> locally before pushing code.
+<span class="token list punctuation">3.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Safety First</span><span class="token punctuation">**</span></span>: Any shell commands involving service interruption or cleanup must be approved by the human pilot.
+
+<span class="token title important"><span class="token punctuation">##</span> Custom Slash Commands Available</span>
+<span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`/plan`</span>: Request a structured implementation proposal before heavy changes.
+<span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`/tdd`</span>: Trigger the Test-Driven Development loops.
+<span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`/security-review`</span>: Run local static analysis to check for exposed API Keys.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>这个 <code>CLAUDE.md</code> 文件就像是一份“宪法”，Claude Code 在与您交互时，会把它常驻在系统提示词（System Prompt）的顶部，确保它的所有行为都不会脱轨。</p> <hr> <h2 id="_4-ecc-核心命令行字典详解"><a href="#_4-ecc-核心命令行字典详解" class="header-anchor">#</a> 4. ECC 核心命令行字典详解</h2> <p>为了方便您在遇到问题时能随时查阅，以下是 <code>ecc-universal</code> 提供的完整命令行工具箱（CLI Reference）：</p> <h3 id="_4-1-项目初始化与配置-ecc-init"><a href="#_4-1-项目初始化与配置-ecc-init" class="header-anchor">#</a> 4.1 项目初始化与配置：<code>ecc init</code></h3> <ul><li><strong>命令格式</strong>：<code>ecc init [--harness &lt;harness_name&gt;] [--force]</code></li> <li><strong>功能描述</strong>：在当前目录下初始化配置文件。使用 <code>--harness</code> 指定您正在使用的工具（支持 <code>claude</code>、<code>cursor</code>、<code>codex</code>、<code>opencode</code>）。<code>--force</code> 代表覆盖已有的旧配置。</li> <li><strong>实战示例</strong>：<div class="language-bash line-numbers-mode"><pre class="language-bash"><code>ecc init <span class="token parameter variable">--harness</span> claude <span class="token parameter variable">--force</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></li></ul> <h3 id="_4-2-环境诊断-ecc-doctor"><a href="#_4-2-环境诊断-ecc-doctor" class="header-anchor">#</a> 4.2 环境诊断：<code>ecc doctor</code></h3> <ul><li><strong>命令格式</strong>：<code>ecc doctor</code></li> <li><strong>功能描述</strong>：对本机的 Node.js 环境、全局变量、依赖项关系进行一键体检，输出详细的诊断报告，常用于排查“AI 突然无法调用命令”的奇怪故障。</li></ul> <h3 id="_4-3-一键自愈-ecc-repair"><a href="#_4-3-一键自愈-ecc-repair" class="header-anchor">#</a> 4.3 一键自愈：<code>ecc repair</code></h3> <ul><li><strong>命令格式</strong>：<code>ecc repair</code></li> <li><strong>功能描述</strong>：如果 <code>ecc doctor</code> 诊断出某些本地符号链接断开或配置文件丢失，运行该命令可以一键对其进行自我修复与重构，无需重新安装包。</li></ul> <h3 id="_4-4-状态监控-ecc-status"><a href="#_4-4-状态监控-ecc-status" class="header-anchor">#</a> 4.4 状态监控：<code>ecc status</code></h3> <ul><li><strong>命令格式</strong>：<code>ecc status</code></li> <li><strong>功能描述</strong>：打印当前工作空间处于激活状态的组件信息，包含当前加载的 Profile 规格、被禁用的 Hook 动作，以及 AgentShield 的防御等级。</li></ul> <h3 id="_4-5-罗列组件-ecc-list-installed"><a href="#_4-5-罗列组件-ecc-list-installed" class="header-anchor">#</a> 4.5 罗列组件：<code>ecc list-installed</code></h3> <ul><li><strong>命令格式</strong>：<code>ecc list-installed</code></li> <li><strong>功能描述</strong>：列出当前全局或项目局部安装的所有 ECC 插件、原子技能及扩展模块。</li></ul> <hr> <h2 id="_5-实战教学-利用-ecc-实现开发生产力暴涨"><a href="#_5-实战教学-利用-ecc-实现开发生产力暴涨" class="header-anchor">#</a> 5. 实战教学：利用 ECC 实现开发生产力暴涨</h2> <p>了解了理论和命令，下面我们通过三个最典型、最具代表性的实际业务场景，看看如何用它来“开挂”编程。</p> <hr> <h3 id="场景-5-1-写代码前-先用-plan-进行全局重构设计"><a href="#场景-5-1-写代码前-先用-plan-进行全局重构设计" class="header-anchor">#</a> 场景 5.1：写代码前，先用 <code>/plan</code> 进行全局重构设计</h3> <p>假设您接到了一个复杂任务：<strong>“将系统内所有的文件上传方式，由本地存储重构为阿里云 OSS 对象存储，且必须兼容原有的接口签名。”</strong></p> <p>在以前，AI 可能会直接开始改写核心文件，导致大量编译错误。现在，您只需启动 Claude Code，并输入：</p> <div class="language-text line-numbers-mode"><pre class="language-text"><code>&gt; /plan 请帮我规划将本地文件上传迁移到阿里云 OSS 的具体实施步骤
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="🛠️-ecc-的处理工作流"><a href="#🛠️-ecc-的处理工作流" class="header-anchor">#</a> 🛠️ ECC 的处理工作流：</h4> <ol><li>拦截该请求，触发 <code>ecc-plan</code> 智能体。</li> <li>自动递归读取您项目中所有涉及文件上传的类和接口。</li> <li>输出一份格式规范的重构方案，包括：
+<ul><li>依赖项的变更（引入阿里 OSS SDK）；</li> <li>新增配置类设计与变量定义；</li> <li>对外接口的兼容防线设计；</li> <li><strong>分步回滚方案</strong>。</li></ul></li> <li>在您输入 <code>Y</code> 确认批准后，它才会引导 AI 开始改写代码。</li></ol> <hr> <h3 id="场景-5-2-使用-tdd-编写高质量、零-bug-的接口"><a href="#场景-5-2-使用-tdd-编写高质量、零-bug-的接口" class="header-anchor">#</a> 场景 5.2：使用 <code>/tdd</code> 编写高质量、零 Bug 的接口</h3> <p>测试驱动开发（TDD）是极佳的代码保障，但程序员往往懒得写测试。ECC 的 <code>/tdd</code> 技能可以把这个过程自动化。</p> <p>我们想实现一个“手机号格式验证器”：</p> <div class="language-text line-numbers-mode"><pre class="language-text"><code>&gt; /tdd 帮我实现一个手机号格式验证类，支持中国大陆 11 位手机号的精准校验
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="🛠️-自动化测试驱动链路"><a href="#🛠️-自动化测试驱动链路" class="header-anchor">#</a> 🛠️ 自动化测试驱动链路：</h4> <ol><li><strong>自动生成测试用例</strong>：ECC 优先在您的 <code>test/</code> 目录下生成一组校验手机号的测试文件，包含正常手机号、超长手机号、含特殊字符等边界情况的断言。</li> <li><strong>运行测试（失败）</strong>：执行测试命令，控制台报红（因为我们还没有写实现代码）。</li> <li><strong>编写最小实现</strong>：AI 自动创建业务验证类，写出匹配手机号的正则表达式。</li> <li><strong>再次运行测试（通过）</strong>：测试通过，报绿！</li> <li><strong>重构代码</strong>：AI 自动优化正则匹配的性能，保证测试依然通过。</li></ol> <p>整个循环无需你手动跑任何测试脚本，ECC 自动在后台进行“红-绿-重构”的循环。</p> <hr> <h3 id="场景-5-3-防范密钥泄露的安全防御网-agentshield"><a href="#场景-5-3-防范密钥泄露的安全防御网-agentshield" class="header-anchor">#</a> 场景 5.3：防范密钥泄露的安全防御网（AgentShield）</h3> <p>新手开发者最容易犯的一个致命错误是：<strong>不小心把包含阿里云 API Secret 或数据库明文密码的配置文件（<code>.env</code> 或 <code>application.yml</code>）直接 Git Commit 并 PUSH 到了 GitHub 公开仓库中。</strong> 很多黑客会在几秒钟内抓取这些密钥，导致重大安全事故。</p> <p>当你在终端里运行 Claude Code 并要求它处理一些临时配置时：</p> <div class="language-text line-numbers-mode"><pre class="language-text"><code>&gt; 请帮我把这个阿里 OSS 的 AccessKey: &quot;LTAI5tX...&quot; 写入测试代码里，方便我直接运行
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="🛡️-agentshield-物理拦截演示"><a href="#🛡️-agentshield-物理拦截演示" class="header-anchor">#</a> 🛡️ <code>AgentShield</code> 物理拦截演示：</h4> <div class="language-text line-numbers-mode"><pre class="language-text"><code>[AgentShield] SECURE SHIELD ACTIVE.
+[WARNING] Detected high-risk data mutation!
+AI Agent is attempting to hardcode a potential credentials string &quot;LTAI5tX...&quot; into a version-controlled source file (d:\projects\tests\oss_test.py).
+
+Action blocked due to security profile: &quot;security-review&quot;
+[Suggestion] Please place the credentials in local environment variables or your gitignored .env file.
+
+Do you want to override this block? (y/N): 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>此时，大模型的写操作被强制拦截。这就为您筑起了一道防范机密泄露的“安全大坝”。</p> <hr> <h2 id="_6-高级进阶-自定义专属的-ecc-技能与规则"><a href="#_6-高级进阶-自定义专属的-ecc-技能与规则" class="header-anchor">#</a> 6. 高级进阶：自定义专属的 ECC 技能与规则</h2> <p>当您逐渐从新手成长为团队的技术骨干时，您可能需要为团队定制专属的代码规范。例如：<strong>“在我们团队的项目中，所有的接口返回值必须统一封装在 <code>Result&lt;T&gt;</code> 泛型类中，且禁止使用 fastjson 库，必须使用 Jackson。”</strong></p> <p>ECC 允许您通过定义自定义规则，彻底规避此类团队规范偏差。</p> <h3 id="_6-1-在-claudecode-rules-中编写自定义规则"><a href="#_6-1-在-claudecode-rules-中编写自定义规则" class="header-anchor">#</a> 6.1 在 <code>.claudecode/rules/</code> 中编写自定义规则</h3> <p>在项目根目录下，新建 <code>.claudecode/rules/team-specs.md</code>：</p> <div class="language-markdown line-numbers-mode"><pre class="language-markdown"><code><span class="token title important"><span class="token punctuation">#</span> Team Coding Specifications</span>
+
+You are a senior Java architect at our team. You must strictly follow these rules:
+
+<span class="token title important"><span class="token punctuation">##</span> 1. Controller Signature Rule</span>
+<span class="token list punctuation">-</span> All controller methods must return <span class="token code-snippet code keyword">`Result&lt;T&gt;`</span> generic wrapping structure.
+<span class="token list punctuation">-</span> Never return raw entity objects directly to the client.
+
+<span class="token title important"><span class="token punctuation">##</span> 2. JSON Parser Constraints</span>
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Forbidden</span><span class="token punctuation">**</span></span>: <span class="token code-snippet code keyword">`com.alibaba.fastjson.JSON`</span> is banned due to historical security vulnerabilities.
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Allowed</span><span class="token punctuation">**</span></span>: Use <span class="token code-snippet code keyword">`com.fasterxml.jackson.databind.ObjectMapper`</span> for all serialization and deserialization.
+
+<span class="token title important"><span class="token punctuation">##</span> 3. SQL Query Guardrails</span>
+<span class="token list punctuation">-</span> Banned: Never write <span class="token code-snippet code keyword">`SELECT *`</span> in MyBatis XML files. Always specify explicit columns.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>编写完成后，运行：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 让 ECC 强制重新装载并对齐这些自定义项目规则</span>
+ecc status
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>此后，每当 Claude Code 试图自动为您编写数据库查询或序列化代码时，它都会被自动引导使用 Jackson 并显式书写 SQL 列名，完美契合您的团队规范。</p> <hr> <h2 id="_7-结语与效率飞跃法门"><a href="#_7-结语与效率飞跃法门" class="header-anchor">#</a> 7. 结语与效率飞跃法门</h2> <p><strong>大模型编程的本质不是“AI 替你干活”，而是“AI 放大你的工程能力”。</strong></p> <p>通过集成 <strong>ECC (Everything Claude Code)</strong>，我们能够将随意的、不可控的对话，升华为可管理、可自愈、强安全的工程流水线。要让您的开发效率真正暴涨，请牢记以下三点：</p> <ol><li><strong>不要放任 AI 的第一步动作</strong>：始终坚持“先设计后编码”，让 AI 自动执行 <code>/plan</code> 是防范逻辑偏差的最好习惯。</li> <li><strong>严防安全死角</strong>：一定要全局安装 <code>ecc-agentshield</code>，在 AI 接管终端物理执行权限时，人类必须牢牢守住“安全确认”的最后一道防线。</li> <li><strong>保持选题与规则库的更新</strong>：将项目中的核心痛点、公共类结构以及三方 SDK 的使用习惯随时写进规则库中，让您的 AI 智能体“越用越聪明”。</li></ol> <p>现在，打开您的终端，输入 <code>npm install -g ecc-universal</code>，开启您的“零重力”全自动开发之旅吧！</p></div></section> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/NiceAshin/my_blog/edit/main/ai/ecc-tools-claude-code-guide.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">6/11/2026, 2:10:44 AM</span></div></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_1-什么是-ecc-为什么它是-claude-code-的黄金搭档" class="sidebar-link reco-side-_1-什么是-ecc-为什么它是-claude-code-的黄金搭档" data-v-b57cc07c>1. 什么是 ECC？为什么它是 Claude Code 的黄金搭档？</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_1-1-ecc-的诞生背景" class="sidebar-link reco-side-_1-1-ecc-的诞生背景" data-v-b57cc07c>1.1 ECC 的诞生背景</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_1-2-ecc-的四大核心优势" class="sidebar-link reco-side-_1-2-ecc-的四大核心优势" data-v-b57cc07c>1.2 ECC 的四大核心优势</a></li><li class="level-2" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_2-极速上手-从零开始安装与初始化-ecc" class="sidebar-link reco-side-_2-极速上手-从零开始安装与初始化-ecc" data-v-b57cc07c>2. 极速上手：从零开始安装与初始化 ECC</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_2-1-系统前置要求" class="sidebar-link reco-side-_2-1-系统前置要求" data-v-b57cc07c>2.1 系统前置要求</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_2-2-全局安装-ecc-universal" class="sidebar-link reco-side-_2-2-全局安装-ecc-universal" data-v-b57cc07c>2.2 全局安装 ecc-universal</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_2-3-初始化与-profile-配置文件-选择" class="sidebar-link reco-side-_2-3-初始化与-profile-配置文件-选择" data-v-b57cc07c>2.3 初始化与 Profile（配置文件）选择</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_2-4-运行健康检查-verification" class="sidebar-link reco-side-_2-4-运行健康检查-verification" data-v-b57cc07c>2.4 运行健康检查 (Verification)</a></li><li class="level-2" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_3-深度融合-将-ecc-集成到-claude-code" class="sidebar-link reco-side-_3-深度融合-将-ecc-集成到-claude-code" data-v-b57cc07c>3. 深度融合：将 ECC 集成到 Claude Code</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_3-1-claude-code-的规则加载机制" class="sidebar-link reco-side-_3-1-claude-code-的规则加载机制" data-v-b57cc07c>3.1 Claude Code 的规则加载机制</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_3-2-一键生成集成配置" class="sidebar-link reco-side-_3-2-一键生成集成配置" data-v-b57cc07c>3.2 一键生成集成配置</a></li><li class="level-2" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_4-ecc-核心命令行字典详解" class="sidebar-link reco-side-_4-ecc-核心命令行字典详解" data-v-b57cc07c>4. ECC 核心命令行字典详解</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_4-1-项目初始化与配置-ecc-init" class="sidebar-link reco-side-_4-1-项目初始化与配置-ecc-init" data-v-b57cc07c>4.1 项目初始化与配置：ecc init</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_4-2-环境诊断-ecc-doctor" class="sidebar-link reco-side-_4-2-环境诊断-ecc-doctor" data-v-b57cc07c>4.2 环境诊断：ecc doctor</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_4-3-一键自愈-ecc-repair" class="sidebar-link reco-side-_4-3-一键自愈-ecc-repair" data-v-b57cc07c>4.3 一键自愈：ecc repair</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_4-4-状态监控-ecc-status" class="sidebar-link reco-side-_4-4-状态监控-ecc-status" data-v-b57cc07c>4.4 状态监控：ecc status</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_4-5-罗列组件-ecc-list-installed" class="sidebar-link reco-side-_4-5-罗列组件-ecc-list-installed" data-v-b57cc07c>4.5 罗列组件：ecc list-installed</a></li><li class="level-2" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_5-实战教学-利用-ecc-实现开发生产力暴涨" class="sidebar-link reco-side-_5-实战教学-利用-ecc-实现开发生产力暴涨" data-v-b57cc07c>5. 实战教学：利用 ECC 实现开发生产力暴涨</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#场景-5-1-写代码前-先用-plan-进行全局重构设计" class="sidebar-link reco-side-场景-5-1-写代码前-先用-plan-进行全局重构设计" data-v-b57cc07c>场景 5.1：写代码前，先用 /plan 进行全局重构设计</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#场景-5-2-使用-tdd-编写高质量、零-bug-的接口" class="sidebar-link reco-side-场景-5-2-使用-tdd-编写高质量、零-bug-的接口" data-v-b57cc07c>场景 5.2：使用 /tdd 编写高质量、零 Bug 的接口</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#场景-5-3-防范密钥泄露的安全防御网-agentshield" class="sidebar-link reco-side-场景-5-3-防范密钥泄露的安全防御网-agentshield" data-v-b57cc07c>场景 5.3：防范密钥泄露的安全防御网（AgentShield）</a></li><li class="level-2" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_6-高级进阶-自定义专属的-ecc-技能与规则" class="sidebar-link reco-side-_6-高级进阶-自定义专属的-ecc-技能与规则" data-v-b57cc07c>6. 高级进阶：自定义专属的 ECC 技能与规则</a></li><li class="level-3" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_6-1-在-claudecode-rules-中编写自定义规则" class="sidebar-link reco-side-_6-1-在-claudecode-rules-中编写自定义规则" data-v-b57cc07c>6.1 在 .claudecode/rules/ 中编写自定义规则</a></li><li class="level-2" data-v-b57cc07c><a href="/ai/ecc-tools-claude-code-guide.html#_7-结语与效率飞跃法门" class="sidebar-link reco-side-_7-结语与效率飞跃法门" data-v-b57cc07c>7. 结语与效率飞跃法门</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.dcc392bb.js" defer></script><script src="/assets/js/3.477d8e52.js" defer></script><script src="/assets/js/1.d87c4fb6.js" defer></script><script src="/assets/js/20.e5efcc7b.js" defer></script>
+  </body>
+</html>
