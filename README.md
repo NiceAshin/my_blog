@@ -26,3 +26,25 @@ features:
 - title: 全栈探索
   details: 深度剖析 Java, Go, PHP(Yii2) 与 AI 智能工具的应用实战。
 ---
+
+# AshinBlog
+
+一个基于 VuePress 的技术博客，记录 PHP、Java、Go 与云原生方向的实践。
+
+## 本地运行
+
+```bash
+npm install        # 安装依赖
+npm run dev        # 启动开发服务器预览
+npm run build      # 构建静态站点到 .vuepress/dist
+```
+
+## 目录说明
+
+| 目录 | 内容 |
+| --- | --- |
+| `ai` | AI 工具与智能体实践 |
+| `go` / `java` / `yii2` / `laravel12` | 各语言专题 |
+| `cloud-native` / `docker` / `microservice` | 云原生与微服务 |
+| `ddd` / `design` | 架构设计与领域建模 |
+| `linux` / `ground` / `scripts` | 系统基础环境与运维脚本 |
