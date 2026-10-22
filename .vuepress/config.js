@@ -49,6 +49,25 @@ module.exports = {
         "modePicker": false,
         noFoundPageByTencent: false
     },
+    "plugins": [
+        ["vuepress-plugin-dynamic-title", {
+            "showIcon": "",
+            "showText": "别走，还有干货…",
+            "hideIcon": "",
+            "hideText": "欢迎回来"
+        }],
+        ["vuepress-plugin-go-top", {
+            "zIndex": 100
+        }],
+        ["vuepress-plugin-code-copy", {
+            "align": "bottom",
+            "color": "#27b1ff",
+            "staticIcon": true,
+            "successText": "复制成功",
+            "errorText": "复制失败",
+            "showInMobile": true
+        }]
+    ],
     "markdown": {
         "lineNumbers": true
     }
