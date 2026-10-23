@@ -41,10 +41,20 @@ npm run build      # 构建静态站点到 .vuepress/dist
 
 ## 目录说明
 
-| 目录 | 内容 |
-| --- | --- |
-| `ai` | AI 工具与智能体实践 |
-| `go` / `java` / `yii2` / `laravel12` | 各语言专题 |
-| `cloud-native` / `docker` / `microservice` | 云原生与微服务 |
-| `ddd` / `design` | 架构设计与领域建模 |
-| `linux` / `ground` / `scripts` | 系统基础环境与运维脚本 |
+| 目录 | 内容 | 文章数 |
+| --- | --- | --- |
+| `ai` | AI 工具与智能体实践 | 15 篇 |
+| `cloud-native` | 云原生与容器编排 | 12 篇 |
+| `ddd` | 领域驱动设计 | 4 篇 |
+| `design` | 设计模式与架构实践 | 22 篇 |
+| `docker` | Docker 命令与容器实践 | 5 篇 |
+| `go` | Go 语言 | 4 篇 |
+| `ground` | 中间件与数据存储 | 8 篇 |
+| `java` | Java 技术栈 | 29 篇 |
+| `laravel12` | Laravel 12 实战 | 12 篇 |
+| `linux` | Linux 系统基础 | 6 篇 |
+| `microservice` | 微服务架构 | 10 篇 |
+| `more` | 问题排查与配置实战 | 11 篇 |
+| `yii2` | PHP Yii2 框架 | 9 篇 |
+
+另有 `scripts` 目录，当前无文章。

@@ -72,7 +72,10 @@ module.exports = [
                     { text: 'YOLO 模型选型', link: '/ai/yolo-model-selection' },
                     { text: '目标跟踪算法实战', link: '/ai/object-tracking-guide' },
                     { text: 'OCR 工具选型', link: '/ai/ocr-tool-selection' },
-                    { text: 'Java OCR 集成', link: '/ai/java-ocr-integration' }
+                    { text: 'Java OCR 集成', link: '/ai/java-ocr-integration' },
+                    { text: 'Antigravity 与原子技能', link: '/ai/antigravity-and-advanced-skills' },
+                    { text: 'Codex 与 Cursor 解析', link: '/ai/codex-cursor-overview' },
+                    { text: 'OpenClaw 部署指南', link: '/ai/openclaw-macos-deploy' }
                 ]
             }
         ]
