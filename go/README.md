@@ -1,4 +1,5 @@
 ---
+title: Go 语言实践
 date: 2024-04-07
 sidebar: false
 tags:

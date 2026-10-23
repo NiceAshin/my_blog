@@ -1,4 +1,5 @@
 ---
+title: AQS队列同步器
 date: 2020-03-02
 prev: ./aqs
 next: ./lock

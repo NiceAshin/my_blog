@@ -1,4 +1,5 @@
 ---
+title: HashMap
 date: 2018-03-11
 next: ./nio
 sidebar: auto

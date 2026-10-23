@@ -1,4 +1,5 @@
 ---
+title: 观察者模式
 date: 2020-10-16
 prev: ./iterator
 next: ./mediator

@@ -1,4 +1,5 @@
 ---
+title: 解释器模式
 date: 2020-08-29
 prev: ./memo
 next: ./state

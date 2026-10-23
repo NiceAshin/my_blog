@@ -1,4 +1,5 @@
 ---
+title: 微服务架构
 date: 2024-07-17
 next: ./design
 sidebar: none

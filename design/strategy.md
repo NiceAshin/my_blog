@@ -1,4 +1,5 @@
 ---
+title: 策略模式
 date: 2020-12-03
 prev: ./state
 next: ./chain

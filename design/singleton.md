@@ -1,4 +1,5 @@
 ---
+title: 单例模式
 date: 2020-11-09
 sidebar: auto
 next: ./factory

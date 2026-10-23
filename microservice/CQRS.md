@@ -1,4 +1,5 @@
 ---
+title: 命令查询职责分离
 date: 2024-06-30
 prev: ./deploy
 sidebar: auto

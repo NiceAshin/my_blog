@@ -1,4 +1,5 @@
 ---
+title: 备忘录模式
 date: 2020-09-22
 sidebar: auto
 prev: ./mediator

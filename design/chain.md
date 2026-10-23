@@ -1,4 +1,5 @@
 ---
+title: 责任链模式
 date: 2020-06-06
 prev: ./strategy
 ---

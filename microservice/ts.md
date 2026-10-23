@@ -1,4 +1,5 @@
 ---
+title: 分布式事务
 date: 2024-12-15
 next: ./quality
 prev: ./contact

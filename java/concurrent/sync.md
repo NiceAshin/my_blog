@@ -1,4 +1,5 @@
 ---
+title: synchronized与volatile的实现原理
 date: 2020-01-26
 next: ./aqs
 prev: ./jmm

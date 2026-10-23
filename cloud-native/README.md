@@ -1,4 +1,5 @@
 ---
+title: 云原生实践
 date: 2022-02-19
 sidebar: false
 ---
@@ -23,7 +24,7 @@ sidebar: false
 ## 服务网格
 
 - [概念(√)](service-mesh/service-mesh-1.md)
-- [Istio概念(√)](service-mesh/service-mesh-2.md)
+- [Istio概念(√)](service-mesh/istio.md)
 
 ## Serverless
 

@@ -1,4 +1,5 @@
 ---
+title: 状态模式
 date: 2020-11-21
 sidebar: auto
 prev: ./interpreter

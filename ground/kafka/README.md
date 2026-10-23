@@ -1,4 +1,5 @@
 ---
+title: Kafka 实践
 date: 2022-02-01
 sidebar: auto
 ---

@@ -1,4 +1,5 @@
 ---
+title: GC
 date: 2021-07-01
 prev: ./memory
 next: ./monitor

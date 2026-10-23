@@ -1,4 +1,5 @@
 ---
+title: Linux 系统基础
 date: 2018-08-25
 sidebar: false
 ---

@@ -1,4 +1,5 @@
 ---
+title: 记一次部署Istio遇到的问题
 date: 2026-04-11
 sidebar: auto
 ---

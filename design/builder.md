@@ -1,4 +1,5 @@
 ---
+title: 建造者模式
 date: 2020-05-25
 prev: ./clone
 next: ./adapter

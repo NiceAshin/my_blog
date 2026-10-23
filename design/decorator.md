@@ -1,4 +1,5 @@
 ---
+title: 装饰者模式
 date: 2020-07-24
 sidebar: auto
 next: ./combination

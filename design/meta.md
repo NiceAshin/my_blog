@@ -1,4 +1,5 @@
 ---
+title: 享元模式
 date: 2020-10-04
 sidebar: auto
 prev: ./face

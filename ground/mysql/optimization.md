@@ -1,4 +1,5 @@
 ---
+title: 数据库优化
 date: 2018-05-06
 next: ./k8s-mysql-cluster
 sidebar: auto

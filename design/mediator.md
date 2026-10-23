@@ -1,4 +1,5 @@
 ---
+title: 中介者模式
 date: 2020-05-01
 sidebar: auto
 prev: ./observer

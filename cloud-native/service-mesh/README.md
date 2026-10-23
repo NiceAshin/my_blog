@@ -13,4 +13,4 @@ sidebar: false
 | 文章 | 主题 | 更新时间 |
 | --- | --- | --- |
 | [服务网格](./service-mesh-1) | 服务网格架构与 Sidecar | 2022-08-13 |
-| [Istio](./service-mesh-2) | Istio 架构与 Sidecar 注入 | 2022-08-31 |
+| [Istio](./istio) | Istio 架构与 Sidecar 注入 | 2022-08-31 |

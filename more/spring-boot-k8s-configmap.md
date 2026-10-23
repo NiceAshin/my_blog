@@ -1,4 +1,5 @@
 ---
+title: Spring boot应用发布到k8s中并挂载外部配置文件
 date: 2026-04-22
 sidebar: none
 ---

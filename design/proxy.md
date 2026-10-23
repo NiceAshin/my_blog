@@ -1,4 +1,5 @@
 ---
+title: 代理模式
 date: 2020-10-28
 sidebar: auto
 prev: ./meta

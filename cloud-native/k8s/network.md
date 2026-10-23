@@ -1,4 +1,5 @@
 ---
+title: Pod通信与服务发现
 date: 2022-06-04
 prev: ./k8s-cluster
 sidebar: auto

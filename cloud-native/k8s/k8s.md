@@ -1,4 +1,5 @@
 ---
+title: k8s快速入门
 date: 2022-05-18
 next: ./k8s-cluster
 sidebar: auto

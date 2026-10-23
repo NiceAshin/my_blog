@@ -28,6 +28,14 @@ categories:
 
 Prefer lowercase kebab-case for article filenames such as `object-tracking-guide.md`. Keep section index pages named `README.md`. When adding or renaming pages, update `.vuepress/nav/zh.js` so navigation links stay valid.
 
+### Markdown naming and metadata rules
+
+- Use semantic, lowercase kebab-case filenames; avoid numeric suffixes when the content has a stable proper name (for example, name the Istio page `istio.md`).
+- Every article and section landing page must have a `title` in YAML front matter. Derive it from the H1, remove numbering, emoji, and full-width spaces, and keep it within 30 Chinese characters.
+- Quote `title` values that contain YAML special characters such as `:`, `#`, `[`, `]`, `{`, or `}`.
+- Keep titles unique within the same section. When adding a missing `title`, do not change existing `date`, `prev`, `next`, or `categories` fields.
+- For section landing pages, keep `sidebar: false`. When renaming a page, update every relative link, `prev`/`next` reference, section `README.md`, and navigation entry in the same change.
+
 ## Testing Guidelines
 There is no separate automated test suite in this repo. The main validation step is `npm run build`; contributors should treat a successful build as required before opening a PR. For navigation, layout, or asset changes, also verify the page locally with `npm run dev`.
 

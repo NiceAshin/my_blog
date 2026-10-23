@@ -1,4 +1,5 @@
 ---
+title: Spring Boot 与 Vue3 全栈项目实战
 date: 2026-03-27
 ---
 

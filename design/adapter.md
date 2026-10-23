@@ -1,4 +1,5 @@
 ---
+title: 适配器模式
 date: 2020-04-19
 sidebar: auto
 prev: ./builder

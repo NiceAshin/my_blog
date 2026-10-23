@@ -1,4 +1,5 @@
 ---
+title: Java内存模型
 date: 2020-02-07
 prev: ./thread
 next: ./sync

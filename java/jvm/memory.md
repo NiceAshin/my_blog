@@ -1,4 +1,5 @@
 ---
+title: JVM的运行时内存区域
 date: 2021-03-11
 prev: ./class-load 
 next: ./gc

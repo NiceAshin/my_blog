@@ -1,4 +1,5 @@
 ---
+title: 门面模式
 date: 2020-08-05
 sidebar: auto
 prev: ./combination

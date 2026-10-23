@@ -1,4 +1,5 @@
 ---
+title: 命令模式
 date: 2020-06-30
 sidebar: auto
 prev: ./template

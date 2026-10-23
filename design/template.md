@@ -1,4 +1,5 @@
 ---
+title: 模版方法模式
 date: 2020-12-14
 prev: ./proxy
 next: ./cmd

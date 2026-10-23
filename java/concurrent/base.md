@@ -1,4 +1,5 @@
 ---
+title: 并发基础
 date: 2020-01-15
 next: ./thread
 sidebar: auto

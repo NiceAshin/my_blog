@@ -1,6 +1,7 @@
 ---
+title: 服务网格
 date: 2022-08-13
-next: ./service-mesh-2
+next: ./istio
 sidebar: auto
 ---
 

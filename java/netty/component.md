@@ -1,4 +1,5 @@
 ---
+title: 核心组件
 date: 2023-04-20
 sidebar: auto
 next: ./init

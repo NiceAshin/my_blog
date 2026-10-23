@@ -1,4 +1,5 @@
 ---
+title: 访问者模式
 date: 2020-04-07
 sidebar: auto
 prev: ./cmd

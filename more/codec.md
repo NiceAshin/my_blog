@@ -1,4 +1,5 @@
 ---
+title: 自定义指令编解码
 date: 2026-03-24
 sidebar: auto
 ---

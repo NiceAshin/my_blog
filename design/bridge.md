@@ -1,4 +1,5 @@
 ---
+title: 桥接模式
 date: 2020-05-13
 sidebar: auto
 prev: ./adapter

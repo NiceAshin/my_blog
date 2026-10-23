@@ -1,4 +1,5 @@
 ---
+title: k8s部署Elasticsearch集群
 date: 2023-02-07
 sidebar: auto
 ---

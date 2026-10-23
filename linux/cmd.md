@@ -1,4 +1,5 @@
 ---
+title: Linux常用命令速查
 date: 2018-10-20
 next: ./frpc
 sidebar: auto

@@ -1,4 +1,5 @@
 ---
+title: K8s部署Redis集群
 date: 2023-03-03
 sidebar: auto
 ---

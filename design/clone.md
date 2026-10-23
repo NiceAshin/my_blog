@@ -1,4 +1,5 @@
 ---
+title: 原型模式
 date: 2020-06-18
 next: ./builder
 prev: ./factory

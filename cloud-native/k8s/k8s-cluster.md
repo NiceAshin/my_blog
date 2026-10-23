@@ -1,4 +1,5 @@
 ---
+title: 安装k8s集群
 date: 2022-04-30
 prev: ./k8s
 next: ./network

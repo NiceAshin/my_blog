@@ -1,4 +1,5 @@
 ---
+title: Nginx的静态资源404问题解决
 date: 2026-04-18
 sidebar: none
 ---

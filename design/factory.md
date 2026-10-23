@@ -1,4 +1,5 @@
 ---
+title: 工厂模式
 date: 2020-08-17
 sidebar: auto
 next: ./clone

@@ -1,4 +1,5 @@
 ---
+title: k8s部署mysql的主从复制集群
 date: 2023-01-15
 prev: ./optimization
 sidebar: auto

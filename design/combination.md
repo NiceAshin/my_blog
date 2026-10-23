@@ -1,4 +1,5 @@
 ---
+title: 组合模式
 date: 2020-07-12
 sidebar: auto
 prev: ./decorator

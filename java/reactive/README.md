@@ -1,10 +1,10 @@
 ---
-title: 响应式编程
+title: 响应式编程专题
 date: 2026-10-23
 sidebar: false
 ---
 
-# 响应式编程
+# 响应式编程专题
 
 > 本目录共 5 篇，从响应式动机与 Reactor 模式出发，落到 RxJava、响应式流与 Project Reactor。
 
