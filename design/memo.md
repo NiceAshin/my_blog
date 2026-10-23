@@ -1,7 +1,7 @@
 ---
 date: 2020-09-22
 sidebar: auto
-prev: ./agent
+prev: ./mediator
 next: ./interpreter
 ---
 

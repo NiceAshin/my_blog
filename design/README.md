@@ -42,7 +42,7 @@ next: ./singleton
 - [访问者模式(√)](./access.md)
 - [迭代器模式(√)](./iterator.md)
 - [观察者模式(√)](./observer.md)
-- [中介者模式(√)](./agent.md)
+- [中介者模式(√)](./mediator.md)
 - [备忘录模式(√)](./memo.md)
 - [解释器模式(√)](./interpreter.md)
 - [状态模式(√)](./state.md)

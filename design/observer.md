@@ -1,7 +1,7 @@
 ---
 date: 2020-10-16
 prev: ./iterator
-next: ./agent
+next: ./mediator
 ---
 
 # 观察者模式
