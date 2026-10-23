@@ -2,6 +2,7 @@ module.exports = {
     "title": "AshinBlog",
     "description": "黑夜中前行，仍照亮前路!",
     "dest": ".vuepress/dist",
+    "patterns": ["**/*.md", "**/*.vue", "!AGENTS.md", "!GEMINI.md"],
     // "base": "/my_blog/",
     "base": "/",
     "head": [

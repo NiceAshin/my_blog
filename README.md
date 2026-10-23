@@ -17,7 +17,7 @@ bgImageStyle: {
 }
 isShowTitleInHome: false
 actionText: 阅读文章 →
-actionLink: /views/other/guide
+actionLink: /ai/
 features:
 - title: 架构深度
   details: 从 DDD 到微服务，探索复杂系统的拆解与演进之道。

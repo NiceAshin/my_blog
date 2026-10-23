@@ -111,7 +111,7 @@ mark word中存储的是指向重量级锁的指针, 后续线程都要进入阻
 
 ---
 
-见[JMM的顺序一致性模型](jmm.mdmm-seq-con)
+见[JMM的顺序一致性模型](./jmm#顺序一致性)
 
 ## volatile
 

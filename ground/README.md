@@ -26,3 +26,4 @@ sidebar: false
 - [k8s部署ES集群](es/k8s-es-cluster.md)
 
 ## Kafka
+- [Spring Boot 集成 Kafka：可靠消息生产与消费实践](kafka/spring-boot-kafka-practice.md)

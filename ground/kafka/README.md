@@ -7,4 +7,6 @@ sidebar: auto
 
 > 预计阅读时间：5 分钟
 
-待补充.
+Kafka 相关实践与问题排查记录。
+
+- [Spring Boot 集成 Kafka：可靠消息生产与消费实践](spring-boot-kafka-practice.md)
