@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Spring Boot 集成 Kafka：可靠消息生产与消费实践 | AshinBlog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="黑夜中前行，仍照亮前路!">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.def4c983.css" as="style"><link rel="preload" href="/assets/js/app.56f449de.js" as="script"><link rel="preload" href="/assets/js/3.7de6164c.js" as="script"><link rel="preload" href="/assets/js/1.2b645eb5.js" as="script"><link rel="preload" href="/assets/js/82.b1ecb278.js" as="script"><link rel="prefetch" href="/assets/js/10.6ac513d6.js"><link rel="prefetch" href="/assets/js/100.bb9e706d.js"><link rel="prefetch" href="/assets/js/101.58676159.js"><link rel="prefetch" href="/assets/js/102.d2a28542.js"><link rel="prefetch" href="/assets/js/103.cccf8870.js"><link rel="prefetch" href="/assets/js/104.daaba421.js"><link rel="prefetch" href="/assets/js/105.66161ca3.js"><link rel="prefetch" href="/assets/js/106.e44f4547.js"><link rel="prefetch" href="/assets/js/107.b18a429f.js"><link rel="prefetch" href="/assets/js/108.af037280.js"><link rel="prefetch" href="/assets/js/109.0bc2338c.js"><link rel="prefetch" href="/assets/js/11.7a69f944.js"><link rel="prefetch" href="/assets/js/110.404d2da6.js"><link rel="prefetch" href="/assets/js/111.d57ce432.js"><link rel="prefetch" href="/assets/js/112.908b4bc7.js"><link rel="prefetch" href="/assets/js/113.4ba1857b.js"><link rel="prefetch" href="/assets/js/114.8b050d62.js"><link rel="prefetch" href="/assets/js/115.f7ddc816.js"><link rel="prefetch" href="/assets/js/116.aa0d2139.js"><link rel="prefetch" href="/assets/js/117.3b04e99c.js"><link rel="prefetch" href="/assets/js/118.1495008c.js"><link rel="prefetch" href="/assets/js/119.7760a15b.js"><link rel="prefetch" href="/assets/js/12.e47930ec.js"><link rel="prefetch" href="/assets/js/120.361eb4b9.js"><link rel="prefetch" href="/assets/js/121.f15d5ada.js"><link rel="prefetch" href="/assets/js/122.0f7dd568.js"><link rel="prefetch" href="/assets/js/123.748994e3.js"><link rel="prefetch" href="/assets/js/124.3ce5b03a.js"><link rel="prefetch" href="/assets/js/125.78517e2e.js"><link rel="prefetch" href="/assets/js/126.58ccd8d5.js"><link rel="prefetch" href="/assets/js/127.207facae.js"><link rel="prefetch" href="/assets/js/128.97450921.js"><link rel="prefetch" href="/assets/js/129.da80552c.js"><link rel="prefetch" href="/assets/js/13.bec89c5e.js"><link rel="prefetch" href="/assets/js/130.673e8114.js"><link rel="prefetch" href="/assets/js/131.32953943.js"><link rel="prefetch" href="/assets/js/132.19e1b4e8.js"><link rel="prefetch" href="/assets/js/133.5d87fd5f.js"><link rel="prefetch" href="/assets/js/134.7e8b1440.js"><link rel="prefetch" href="/assets/js/135.ecb268d6.js"><link rel="prefetch" href="/assets/js/136.549c45ec.js"><link rel="prefetch" href="/assets/js/137.4d4cee0a.js"><link rel="prefetch" href="/assets/js/138.d1b5e050.js"><link rel="prefetch" href="/assets/js/139.cace8bc2.js"><link rel="prefetch" href="/assets/js/14.a58420ba.js"><link rel="prefetch" href="/assets/js/140.897cea98.js"><link rel="prefetch" href="/assets/js/141.2d1ed5f6.js"><link rel="prefetch" href="/assets/js/142.f54e1cae.js"><link rel="prefetch" href="/assets/js/143.a872275b.js"><link rel="prefetch" href="/assets/js/144.235f6da3.js"><link rel="prefetch" href="/assets/js/145.36111d8b.js"><link rel="prefetch" href="/assets/js/146.545be2db.js"><link rel="prefetch" href="/assets/js/147.866260ca.js"><link rel="prefetch" href="/assets/js/148.55ed0dce.js"><link rel="prefetch" href="/assets/js/149.6d8e1bfa.js"><link rel="prefetch" href="/assets/js/15.eebd5f26.js"><link rel="prefetch" href="/assets/js/150.8d4f9212.js"><link rel="prefetch" href="/assets/js/151.eb9e8556.js"><link rel="prefetch" href="/assets/js/152.deaad7ac.js"><link rel="prefetch" href="/assets/js/153.44734961.js"><link rel="prefetch" href="/assets/js/154.409cbac5.js"><link rel="prefetch" href="/assets/js/155.92069d0b.js"><link rel="prefetch" href="/assets/js/156.9a1c5b5d.js"><link rel="prefetch" href="/assets/js/157.f5b86d20.js"><link rel="prefetch" href="/assets/js/158.55b32c36.js"><link rel="prefetch" href="/assets/js/159.bdd562f0.js"><link rel="prefetch" href="/assets/js/16.3fe1997c.js"><link rel="prefetch" href="/assets/js/160.edf4455c.js"><link rel="prefetch" href="/assets/js/161.45736c48.js"><link rel="prefetch" href="/assets/js/162.73adb067.js"><link rel="prefetch" href="/assets/js/163.f233f24e.js"><link rel="prefetch" href="/assets/js/164.d573afe2.js"><link rel="prefetch" href="/assets/js/165.fde4fe2b.js"><link rel="prefetch" href="/assets/js/166.1659672c.js"><link rel="prefetch" href="/assets/js/167.bfa66870.js"><link rel="prefetch" href="/assets/js/168.55737b58.js"><link rel="prefetch" href="/assets/js/169.0e5e18d7.js"><link rel="prefetch" href="/assets/js/17.7f1f95a1.js"><link rel="prefetch" href="/assets/js/170.6cba1256.js"><link rel="prefetch" href="/assets/js/171.55de8f1e.js"><link rel="prefetch" href="/assets/js/172.bde899e4.js"><link rel="prefetch" href="/assets/js/18.8cc7b202.js"><link rel="prefetch" href="/assets/js/19.6872efee.js"><link rel="prefetch" href="/assets/js/20.a3f22ba8.js"><link rel="prefetch" href="/assets/js/21.cc7240f0.js"><link rel="prefetch" href="/assets/js/22.0b3334fd.js"><link rel="prefetch" href="/assets/js/23.0d011747.js"><link rel="prefetch" href="/assets/js/24.2f57f617.js"><link rel="prefetch" href="/assets/js/25.11cc4c8e.js"><link rel="prefetch" href="/assets/js/26.db101ffe.js"><link rel="prefetch" href="/assets/js/27.3944daed.js"><link rel="prefetch" href="/assets/js/28.bed34c9f.js"><link rel="prefetch" href="/assets/js/29.66e9ff14.js"><link rel="prefetch" href="/assets/js/30.b2ef9ecb.js"><link rel="prefetch" href="/assets/js/31.448b7a4e.js"><link rel="prefetch" href="/assets/js/32.d405432d.js"><link rel="prefetch" href="/assets/js/33.352a3fed.js"><link rel="prefetch" href="/assets/js/34.878c3216.js"><link rel="prefetch" href="/assets/js/35.0d405e85.js"><link rel="prefetch" href="/assets/js/36.41ef9639.js"><link rel="prefetch" href="/assets/js/37.b465018b.js"><link rel="prefetch" href="/assets/js/38.e64dcb33.js"><link rel="prefetch" href="/assets/js/39.355b70cf.js"><link rel="prefetch" href="/assets/js/4.3d38e871.js"><link rel="prefetch" href="/assets/js/40.d7fa15cd.js"><link rel="prefetch" href="/assets/js/41.8cca99c9.js"><link rel="prefetch" href="/assets/js/42.60761ad8.js"><link rel="prefetch" href="/assets/js/43.1cbf8a24.js"><link rel="prefetch" href="/assets/js/44.d3d0806f.js"><link rel="prefetch" href="/assets/js/45.32fe784c.js"><link rel="prefetch" href="/assets/js/46.eb4ea40e.js"><link rel="prefetch" href="/assets/js/47.e66b6ea3.js"><link rel="prefetch" href="/assets/js/48.bb00dbfd.js"><link rel="prefetch" href="/assets/js/49.e247284f.js"><link rel="prefetch" href="/assets/js/5.58cde8bd.js"><link rel="prefetch" href="/assets/js/50.d2868886.js"><link rel="prefetch" href="/assets/js/51.316c61e3.js"><link rel="prefetch" href="/assets/js/52.8b6814bd.js"><link rel="prefetch" href="/assets/js/53.538e59ac.js"><link rel="prefetch" href="/assets/js/54.22cf4232.js"><link rel="prefetch" href="/assets/js/55.ed03a6f3.js"><link rel="prefetch" href="/assets/js/56.6b1ae358.js"><link rel="prefetch" href="/assets/js/57.a9b41695.js"><link rel="prefetch" href="/assets/js/58.0c438ac9.js"><link rel="prefetch" href="/assets/js/59.d4f5f1b5.js"><link rel="prefetch" href="/assets/js/6.46e0bbc9.js"><link rel="prefetch" href="/assets/js/60.47ee8d2b.js"><link rel="prefetch" href="/assets/js/61.193a31e7.js"><link rel="prefetch" href="/assets/js/62.369bad4d.js"><link rel="prefetch" href="/assets/js/63.734db25f.js"><link rel="prefetch" href="/assets/js/64.46c7f902.js"><link rel="prefetch" href="/assets/js/65.21a3aa31.js"><link rel="prefetch" href="/assets/js/66.5733dc7e.js"><link rel="prefetch" href="/assets/js/67.64bf9015.js"><link rel="prefetch" href="/assets/js/68.c5e5d111.js"><link rel="prefetch" href="/assets/js/69.e8f71504.js"><link rel="prefetch" href="/assets/js/7.e42384e5.js"><link rel="prefetch" href="/assets/js/70.0f768b74.js"><link rel="prefetch" href="/assets/js/71.5136001c.js"><link rel="prefetch" href="/assets/js/72.72c57231.js"><link rel="prefetch" href="/assets/js/73.affaae8a.js"><link rel="prefetch" href="/assets/js/74.fe80f6d5.js"><link rel="prefetch" href="/assets/js/75.0b42071f.js"><link rel="prefetch" href="/assets/js/76.d8a44d1c.js"><link rel="prefetch" href="/assets/js/77.deb019fd.js"><link rel="prefetch" href="/assets/js/78.b81ca1a6.js"><link rel="prefetch" href="/assets/js/79.309b98a3.js"><link rel="prefetch" href="/assets/js/8.da28d18c.js"><link rel="prefetch" href="/assets/js/80.98117358.js"><link rel="prefetch" href="/assets/js/81.782eff88.js"><link rel="prefetch" href="/assets/js/83.20433d2c.js"><link rel="prefetch" href="/assets/js/84.00d20cec.js"><link rel="prefetch" href="/assets/js/85.1882ebcc.js"><link rel="prefetch" href="/assets/js/86.3f9c09b7.js"><link rel="prefetch" href="/assets/js/87.d3213513.js"><link rel="prefetch" href="/assets/js/88.83f77d69.js"><link rel="prefetch" href="/assets/js/89.fe996c4a.js"><link rel="prefetch" href="/assets/js/9.9c30b321.js"><link rel="prefetch" href="/assets/js/90.9a0edae2.js"><link rel="prefetch" href="/assets/js/91.844c2690.js"><link rel="prefetch" href="/assets/js/92.cc18ec6b.js"><link rel="prefetch" href="/assets/js/93.96651a2b.js"><link rel="prefetch" href="/assets/js/94.ce1e3d72.js"><link rel="prefetch" href="/assets/js/95.34e90497.js"><link rel="prefetch" href="/assets/js/96.de7ed25e.js"><link rel="prefetch" href="/assets/js/97.8b955c87.js"><link rel="prefetch" href="/assets/js/98.3301de46.js"><link rel="prefetch" href="/assets/js/99.0cbc404a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.def4c983.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>AshinBlog</h3> <p class="description" data-v-59e6cb88>黑夜中前行，仍照亮前路!</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>AshinZhang</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2026
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo2-128.png" alt="AshinBlog" class="logo"> <span class="site-name">AshinBlog</span></a> <div class="links"><!----> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      架构设计
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>领域驱动设计</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ddd/" class="nav-link"><i class="undefined"></i>
+  DDD 概览
+</a></li><li class="dropdown-subitem"><a href="/ddd/stratgy.html" class="nav-link"><i class="undefined"></i>
+  战略设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/tactics.html" class="nav-link"><i class="undefined"></i>
+  战术设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/event-source.html" class="nav-link"><i class="undefined"></i>
+  事件溯源
+</a></li><li class="dropdown-subitem"><a href="/ddd/DDD-microservice.html" class="nav-link"><i class="undefined"></i>
+  微服务拆分
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link"><i class="undefined"></i>
+  微服务实践
+</a></li><li class="dropdown-item"><!----> <a href="/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      编程语言
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java/" class="nav-link"><i class="undefined"></i>
+  Java 栈
+</a></li><li class="dropdown-item"><!----> <a href="/go/" class="nav-link"><i class="undefined"></i>
+  Go 语言
+</a></li><li class="dropdown-item"><!----> <a href="/yii2/" class="nav-link"><i class="undefined"></i>
+  PHP(Yii2)
+</a></li><li class="dropdown-item"><h4>PHP(Laravel12)</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/laravel12/" class="nav-link"><i class="undefined"></i>
+  Laravel12 概览
+</a></li><li class="dropdown-subitem"><a href="/laravel12/installation.html" class="nav-link"><i class="undefined"></i>
+  安装与配置
+</a></li><li class="dropdown-subitem"><a href="/laravel12/directory-structure.html" class="nav-link"><i class="undefined"></i>
+  目录结构
+</a></li><li class="dropdown-subitem"><a href="/laravel12/routing.html" class="nav-link"><i class="undefined"></i>
+  路由系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/eloquent.html" class="nav-link"><i class="undefined"></i>
+  Eloquent ORM
+</a></li><li class="dropdown-subitem"><a href="/laravel12/blade.html" class="nav-link"><i class="undefined"></i>
+  Blade 模板
+</a></li><li class="dropdown-subitem"><a href="/laravel12/authentication.html" class="nav-link"><i class="undefined"></i>
+  认证系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/api.html" class="nav-link"><i class="undefined"></i>
+  API 开发
+</a></li><li class="dropdown-subitem"><a href="/laravel12/queues.html" class="nav-link"><i class="undefined"></i>
+  队列系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/events.html" class="nav-link"><i class="undefined"></i>
+  事件系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/cache.html" class="nav-link"><i class="undefined"></i>
+  缓存系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/filesystem.html" class="nav-link"><i class="undefined"></i>
+  文件存储
+</a></li><li class="dropdown-subitem"><a href="/laravel12/mail.html" class="nav-link"><i class="undefined"></i>
+  邮件发送
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础设施
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link"><i class="undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/cloud-native/" class="nav-link"><i class="undefined"></i>
+  云原生
+</a></li><li class="dropdown-item"><!----> <a href="/ground/" class="nav-link router-link-active"><i class="undefined"></i>
+  中间件
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      AI 实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>AI 探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/" class="nav-link"><i class="undefined"></i>
+  AI 概览
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-agent-engineering-guide.html" class="nav-link"><i class="undefined"></i>
+  AI Agent 工程化落地
+</a></li><li class="dropdown-subitem"><a href="/ai/rag-system-design-guide.html" class="nav-link"><i class="undefined"></i>
+  RAG 系统设计实战
+</a></li><li class="dropdown-subitem"><a href="/ai/context-engineering-guide.html" class="nav-link"><i class="undefined"></i>
+  上下文工程实战
+</a></li><li class="dropdown-subitem"><a href="/ai/vibe-coding-concepts.html" class="nav-link"><i class="undefined"></i>
+  Vibe Coding 核心概念
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-cli-tools-guide.html" class="nav-link"><i class="undefined"></i>
+  AI CLI 工具实战
+</a></li><li class="dropdown-subitem"><a href="/ai/antigravity-cli-complete-guide.html" class="nav-link"><i class="undefined"></i>
+  Antigravity CLI 终极指南
+</a></li><li class="dropdown-subitem"><a href="/ai/ecc-tools-claude-code-guide.html" class="nav-link"><i class="undefined"></i>
+  ECC 终极实战指南
+</a></li><li class="dropdown-subitem"><a href="/ai/ultralytics-yolov8-guide.html" class="nav-link"><i class="undefined"></i>
+  YOLOv8 全景指南
+</a></li><li class="dropdown-subitem"><a href="/ai/yolo-model-selection.html" class="nav-link"><i class="undefined"></i>
+  YOLO 模型选型
+</a></li><li class="dropdown-subitem"><a href="/ai/object-tracking-guide.html" class="nav-link"><i class="undefined"></i>
+  目标跟踪算法实战
+</a></li><li class="dropdown-subitem"><a href="/ai/ocr-tool-selection.html" class="nav-link"><i class="undefined"></i>
+  OCR 工具选型
+</a></li><li class="dropdown-subitem"><a href="/ai/java-ocr-integration.html" class="nav-link"><i class="undefined"></i>
+  Java OCR 集成
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工程实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/#问题排查与经验" class="nav-link"><i class="undefined"></i>
+  问题排查
+</a></li><li class="dropdown-item"><!----> <a href="/more/#项目与配置实战" class="nav-link"><i class="undefined"></i>
+  配置实战
+</a></li><li class="dropdown-item"><!----> <a href="/more/#接口文档专区" class="nav-link"><i class="undefined"></i>
+  接口文档
+</a></li></ul></div></div> <a href="https://github.com/NiceAshin/my_blog" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    AshinZhang
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>155</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>90</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      架构设计
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>领域驱动设计</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ddd/" class="nav-link"><i class="undefined"></i>
+  DDD 概览
+</a></li><li class="dropdown-subitem"><a href="/ddd/stratgy.html" class="nav-link"><i class="undefined"></i>
+  战略设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/tactics.html" class="nav-link"><i class="undefined"></i>
+  战术设计
+</a></li><li class="dropdown-subitem"><a href="/ddd/event-source.html" class="nav-link"><i class="undefined"></i>
+  事件溯源
+</a></li><li class="dropdown-subitem"><a href="/ddd/DDD-microservice.html" class="nav-link"><i class="undefined"></i>
+  微服务拆分
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link"><i class="undefined"></i>
+  微服务实践
+</a></li><li class="dropdown-item"><!----> <a href="/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      编程语言
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java/" class="nav-link"><i class="undefined"></i>
+  Java 栈
+</a></li><li class="dropdown-item"><!----> <a href="/go/" class="nav-link"><i class="undefined"></i>
+  Go 语言
+</a></li><li class="dropdown-item"><!----> <a href="/yii2/" class="nav-link"><i class="undefined"></i>
+  PHP(Yii2)
+</a></li><li class="dropdown-item"><h4>PHP(Laravel12)</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/laravel12/" class="nav-link"><i class="undefined"></i>
+  Laravel12 概览
+</a></li><li class="dropdown-subitem"><a href="/laravel12/installation.html" class="nav-link"><i class="undefined"></i>
+  安装与配置
+</a></li><li class="dropdown-subitem"><a href="/laravel12/directory-structure.html" class="nav-link"><i class="undefined"></i>
+  目录结构
+</a></li><li class="dropdown-subitem"><a href="/laravel12/routing.html" class="nav-link"><i class="undefined"></i>
+  路由系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/eloquent.html" class="nav-link"><i class="undefined"></i>
+  Eloquent ORM
+</a></li><li class="dropdown-subitem"><a href="/laravel12/blade.html" class="nav-link"><i class="undefined"></i>
+  Blade 模板
+</a></li><li class="dropdown-subitem"><a href="/laravel12/authentication.html" class="nav-link"><i class="undefined"></i>
+  认证系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/api.html" class="nav-link"><i class="undefined"></i>
+  API 开发
+</a></li><li class="dropdown-subitem"><a href="/laravel12/queues.html" class="nav-link"><i class="undefined"></i>
+  队列系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/events.html" class="nav-link"><i class="undefined"></i>
+  事件系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/cache.html" class="nav-link"><i class="undefined"></i>
+  缓存系统
+</a></li><li class="dropdown-subitem"><a href="/laravel12/filesystem.html" class="nav-link"><i class="undefined"></i>
+  文件存储
+</a></li><li class="dropdown-subitem"><a href="/laravel12/mail.html" class="nav-link"><i class="undefined"></i>
+  邮件发送
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础设施
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link"><i class="undefined"></i>
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/cloud-native/" class="nav-link"><i class="undefined"></i>
+  云原生
+</a></li><li class="dropdown-item"><!----> <a href="/ground/" class="nav-link router-link-active"><i class="undefined"></i>
+  中间件
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      AI 实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>AI 探索</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/ai/" class="nav-link"><i class="undefined"></i>
+  AI 概览
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-agent-engineering-guide.html" class="nav-link"><i class="undefined"></i>
+  AI Agent 工程化落地
+</a></li><li class="dropdown-subitem"><a href="/ai/rag-system-design-guide.html" class="nav-link"><i class="undefined"></i>
+  RAG 系统设计实战
+</a></li><li class="dropdown-subitem"><a href="/ai/context-engineering-guide.html" class="nav-link"><i class="undefined"></i>
+  上下文工程实战
+</a></li><li class="dropdown-subitem"><a href="/ai/vibe-coding-concepts.html" class="nav-link"><i class="undefined"></i>
+  Vibe Coding 核心概念
+</a></li><li class="dropdown-subitem"><a href="/ai/ai-cli-tools-guide.html" class="nav-link"><i class="undefined"></i>
+  AI CLI 工具实战
+</a></li><li class="dropdown-subitem"><a href="/ai/antigravity-cli-complete-guide.html" class="nav-link"><i class="undefined"></i>
+  Antigravity CLI 终极指南
+</a></li><li class="dropdown-subitem"><a href="/ai/ecc-tools-claude-code-guide.html" class="nav-link"><i class="undefined"></i>
+  ECC 终极实战指南
+</a></li><li class="dropdown-subitem"><a href="/ai/ultralytics-yolov8-guide.html" class="nav-link"><i class="undefined"></i>
+  YOLOv8 全景指南
+</a></li><li class="dropdown-subitem"><a href="/ai/yolo-model-selection.html" class="nav-link"><i class="undefined"></i>
+  YOLO 模型选型
+</a></li><li class="dropdown-subitem"><a href="/ai/object-tracking-guide.html" class="nav-link"><i class="undefined"></i>
+  目标跟踪算法实战
+</a></li><li class="dropdown-subitem"><a href="/ai/ocr-tool-selection.html" class="nav-link"><i class="undefined"></i>
+  OCR 工具选型
+</a></li><li class="dropdown-subitem"><a href="/ai/java-ocr-integration.html" class="nav-link"><i class="undefined"></i>
+  Java OCR 集成
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工程实践
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/#问题排查与经验" class="nav-link"><i class="undefined"></i>
+  问题排查
+</a></li><li class="dropdown-item"><!----> <a href="/more/#项目与配置实战" class="nav-link"><i class="undefined"></i>
+  配置实战
+</a></li><li class="dropdown-item"><!----> <a href="/more/#接口文档专区" class="nav-link"><i class="undefined"></i>
+  接口文档
+</a></li></ul></div></div> <a href="https://github.com/NiceAshin/my_blog" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Spring Boot 集成 Kafka：可靠消息生产与消费实践</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>AshinZhang</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2026
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">Spring Boot 集成 Kafka：可靠消息生产与消费实践</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>AshinZhang</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>10/23/2026</span></i> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="spring-boot-集成-kafka-可靠消息生产与消费实践"><a href="#spring-boot-集成-kafka-可靠消息生产与消费实践" class="header-anchor">#</a> Spring Boot 集成 Kafka：可靠消息生产与消费实践</h1> <blockquote><p>预计阅读时间：12 分钟</p></blockquote> <p>Kafka 常被用作系统间的异步解耦与流量削峰组件。真正落地时，难点通常不在“能发能收”，而在消息不丢、不重复、顺序可控，以及消费失败后如何收场。本文用一个订单事件示例，记录从本地环境、Spring Boot 配置到生产与消费可靠性的完整实践。</p> <h2 id="场景与目标"><a href="#场景与目标" class="header-anchor">#</a> 场景与目标</h2> <p>假设订单服务在订单创建成功后发送 <code>order-created</code> 事件，积分服务与通知服务分别订阅。实践目标如下：</p> <ul><li>生产者发送失败可感知，关键消息使用同步确认；</li> <li>同一订单的事件按订单号分区，保证局部顺序；</li> <li>消费者业务处理幂等，重复投递不会重复加积分；</li> <li>消费异常有有限重试，最终失败进入死信主题，避免阻塞分区。</li></ul> <p>示例环境为 Spring Boot 3.2、Spring Kafka 3.1、Kafka 3.7（KRaft 模式），JDK 17。</p> <h2 id="本地启动-kafka"><a href="#本地启动-kafka" class="header-anchor">#</a> 本地启动 Kafka</h2> <p>开发环境使用单节点 KRaft 即可，无需 ZooKeeper：</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">kafka</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> apache/kafka<span class="token punctuation">:</span>3.7.0
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> demo<span class="token punctuation">-</span>kafka
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;9092:9092&quot;</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">KAFKA_NODE_ID</span><span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token key atrule">KAFKA_PROCESS_ROLES</span><span class="token punctuation">:</span> broker<span class="token punctuation">,</span>controller
+      <span class="token key atrule">KAFKA_LISTENERS</span><span class="token punctuation">:</span> PLAINTEXT<span class="token punctuation">:</span>//<span class="token punctuation">:</span><span class="token number">9092</span><span class="token punctuation">,</span>CONTROLLER<span class="token punctuation">:</span>//<span class="token punctuation">:</span><span class="token number">9093</span>
+      <span class="token key atrule">KAFKA_ADVERTISED_LISTENERS</span><span class="token punctuation">:</span> PLAINTEXT<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">9092</span>
+      <span class="token key atrule">KAFKA_CONTROLLER_LISTENER_NAMES</span><span class="token punctuation">:</span> CONTROLLER
+      <span class="token key atrule">KAFKA_LISTENER_SECURITY_PROTOCOL_MAP</span><span class="token punctuation">:</span> CONTROLLER<span class="token punctuation">:</span>PLAINTEXT<span class="token punctuation">,</span>PLAINTEXT<span class="token punctuation">:</span>PLAINTEXT
+      <span class="token key atrule">KAFKA_CONTROLLER_QUORUM_VOTERS</span><span class="token punctuation">:</span> 1@localhost<span class="token punctuation">:</span><span class="token number">9093</span>
+      <span class="token key atrule">KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR</span><span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token key atrule">KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR</span><span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token key atrule">KAFKA_TRANSACTION_STATE_LOG_MIN_ISR</span><span class="token punctuation">:</span> <span class="token number">1</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>启动后创建主题。分区数决定并行度，副本数在生产环境至少为 3：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">docker</span> compose up <span class="token parameter variable">-d</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> demo-kafka /opt/kafka/bin/kafka-topics.sh <span class="token punctuation">\</span>
+  --bootstrap-server localhost:9092 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--create</span> <span class="token parameter variable">--topic</span> order-created <span class="token parameter variable">--partitions</span> <span class="token number">3</span> --replication-factor <span class="token number">1</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="依赖与基础配置"><a href="#依赖与基础配置" class="header-anchor">#</a> 依赖与基础配置</h2> <div class="language-xml line-numbers-mode"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.kafka<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-kafka<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p><code>application.yml</code> 中把关键参数显式写出，避免依赖默认值：</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">kafka</span><span class="token punctuation">:</span>
+    <span class="token key atrule">bootstrap-servers</span><span class="token punctuation">:</span> localhost<span class="token punctuation">:</span><span class="token number">9092</span>
+    <span class="token key atrule">producer</span><span class="token punctuation">:</span>
+      <span class="token key atrule">key-serializer</span><span class="token punctuation">:</span> org.apache.kafka.common.serialization.StringSerializer
+      <span class="token key atrule">value-serializer</span><span class="token punctuation">:</span> org.springframework.kafka.support.serializer.JsonSerializer
+      <span class="token key atrule">acks</span><span class="token punctuation">:</span> all
+      <span class="token key atrule">retries</span><span class="token punctuation">:</span> <span class="token number">3</span>
+      <span class="token key atrule">properties</span><span class="token punctuation">:</span>
+        <span class="token key atrule">enable.idempotence</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token key atrule">max.in.flight.requests.per.connection</span><span class="token punctuation">:</span> <span class="token number">5</span>
+    <span class="token key atrule">consumer</span><span class="token punctuation">:</span>
+      <span class="token key atrule">group-id</span><span class="token punctuation">:</span> points<span class="token punctuation">-</span>service
+      <span class="token key atrule">key-deserializer</span><span class="token punctuation">:</span> org.apache.kafka.common.serialization.StringDeserializer
+      <span class="token key atrule">value-deserializer</span><span class="token punctuation">:</span> org.springframework.kafka.support.serializer.JsonDeserializer
+      <span class="token key atrule">properties</span><span class="token punctuation">:</span>
+        <span class="token key atrule">spring.json.trusted.packages</span><span class="token punctuation">:</span> com.example.order.event
+        <span class="token key atrule">isolation.level</span><span class="token punctuation">:</span> read_committed
+    <span class="token key atrule">listener</span><span class="token punctuation">:</span>
+      <span class="token key atrule">ack-mode</span><span class="token punctuation">:</span> record
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p><code>acks=all</code> 表示所有同步副本写入后才确认；开启幂等后，生产者重试不会在 broker 端产生重复消息。<code>max.in.flight.requests.per.connection</code> 保持在 5 以内，幂等性仍然有效。</p> <h2 id="生产者-确认、分区键与异常处理"><a href="#生产者-确认、分区键与异常处理" class="header-anchor">#</a> 生产者：确认、分区键与异常处理</h2> <p>消息键使用订单号，Kafka 会按 <code>hash(key) % partitions</code> 选择分区，同一订单的后续事件因此保持顺序。若使用 <code>null</code> 键，消息会轮询分区，顺序无法保证。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderEventPublisher</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Logger</span> log <span class="token operator">=</span> <span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token class-name">OrderEventPublisher</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">KafkaTemplate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">OrderCreatedEvent</span><span class="token punctuation">&gt;</span></span> kafkaTemplate<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">OrderEventPublisher</span><span class="token punctuation">(</span><span class="token class-name">KafkaTemplate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">OrderCreatedEvent</span><span class="token punctuation">&gt;</span></span> kafkaTemplate<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>kafkaTemplate <span class="token operator">=</span> kafkaTemplate<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">publish</span><span class="token punctuation">(</span><span class="token class-name">OrderCreatedEvent</span> event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">CompletableFuture</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SendResult</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">OrderCreatedEvent</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> future <span class="token operator">=</span>
+                kafkaTemplate<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">&quot;order-created&quot;</span><span class="token punctuation">,</span> event<span class="token punctuation">.</span><span class="token function">orderId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        future<span class="token punctuation">.</span><span class="token function">whenComplete</span><span class="token punctuation">(</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span> ex<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>ex <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;订单事件发送失败, orderId={}&quot;</span><span class="token punctuation">,</span> event<span class="token punctuation">.</span><span class="token function">orderId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">var</span> metadata <span class="token operator">=</span> result<span class="token punctuation">.</span><span class="token function">getRecordMetadata</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;订单事件发送成功, orderId={}, partition={}, offset={}&quot;</span><span class="token punctuation">,</span>
+                    event<span class="token punctuation">.</span><span class="token function">orderId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> metadata<span class="token punctuation">.</span><span class="token function">partition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> metadata<span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p><code>KafkaTemplate.send</code> 返回 <code>CompletableFuture</code>。示例采用异步回调记录结果；对支付、扣减库存等关键事件，可以在事务提交前调用 <code>future.get(3, TimeUnit.SECONDS)</code> 做同步确认，发送失败则抛出异常触发本地事务回滚。更严谨的做法是本地消息表或事务消息模式：业务数据与“待发送消息”在同一数据库事务中落库，再由后台任务投递，避免数据库提交成功而 Kafka 发送失败的窗口。</p> <h2 id="消费者-幂等与失败收敛"><a href="#消费者-幂等与失败收敛" class="header-anchor">#</a> 消费者：幂等与失败收敛</h2> <p>消费者最容易踩的坑，是把“至少一次”当成“恰好一次”。网络抖动、再均衡、处理超时都可能导致同一条消息被再次投递，因此业务侧必须幂等。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderCreatedConsumer</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">PointsService</span> pointsService<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">OrderCreatedConsumer</span><span class="token punctuation">(</span><span class="token class-name">PointsService</span> pointsService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>pointsService <span class="token operator">=</span> pointsService<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@KafkaListener</span><span class="token punctuation">(</span>topics <span class="token operator">=</span> <span class="token string">&quot;order-created&quot;</span><span class="token punctuation">,</span> groupId <span class="token operator">=</span> <span class="token string">&quot;points-service&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onMessage</span><span class="token punctuation">(</span><span class="token class-name">ConsumerRecord</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">OrderCreatedEvent</span><span class="token punctuation">&gt;</span></span> record<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">OrderCreatedEvent</span> event <span class="token operator">=</span> record<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 以 eventId 或 orderId 建唯一索引，重复消费时直接返回</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>pointsService<span class="token punctuation">.</span><span class="token function">tryMarkProcessed</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token function">eventId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        pointsService<span class="token punctuation">.</span><span class="token function">addPoints</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token function">userId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> event<span class="token punctuation">.</span><span class="token function">amount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p><code>tryMarkProcessed</code> 建议依赖数据库唯一约束或 Redis <code>SETNX</code>，并设置与业务重试周期匹配的过期时间。不要先查后插，否则并发消费仍会重复。</p> <p>消费异常时，Spring Kafka 的 <code>DefaultErrorHandler</code> 可配置固定退避与死信主题：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">DefaultErrorHandler</span> <span class="token function">errorHandler</span><span class="token punctuation">(</span><span class="token class-name">KafkaTemplate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> template<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> recoverer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DeadLetterPublishingRecoverer</span><span class="token punctuation">(</span>template<span class="token punctuation">,</span>
+            <span class="token punctuation">(</span>record<span class="token punctuation">,</span> ex<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token keyword">new</span> <span class="token class-name">TopicPartition</span><span class="token punctuation">(</span><span class="token string">&quot;order-created-dlt&quot;</span><span class="token punctuation">,</span> record<span class="token punctuation">.</span><span class="token function">partition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> backOff <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FixedBackOff</span><span class="token punctuation">(</span><span class="token number">1000L</span><span class="token punctuation">,</span> <span class="token number">3L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DefaultErrorHandler</span><span class="token punctuation">(</span>recoverer<span class="token punctuation">,</span> backOff<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>失败消息进入 <code>order-created-dlt</code> 后，需要有告警与人工补偿入口。否则死信主题只是“换个地方堆积”，问题仍然没有被处理。</p> <h2 id="顺序与并发的取舍"><a href="#顺序与并发的取舍" class="header-anchor">#</a> 顺序与并发的取舍</h2> <p>Kafka 只保证单分区内有序。按订单号分区可以保证同一订单的事件顺序，但不同订单会分散到多个分区并行处理。若业务要求全局有序，只能使用单分区，代价是吞吐受限，通常不值得。</p> <p>消费者并发数不要超过主题分区数，否则多余线程会空闲：</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">kafka</span><span class="token punctuation">:</span>
+    <span class="token key atrule">listener</span><span class="token punctuation">:</span>
+      <span class="token key atrule">concurrency</span><span class="token punctuation">:</span> <span class="token number">3</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>扩分区可以提升并行度，但会改变键到分区的映射，导致同一订单在扩分区前后可能落到不同分区。生产环境应在容量规划阶段预留分区，避免频繁扩容。</p> <h2 id="验证与排查"><a href="#验证与排查" class="header-anchor">#</a> 验证与排查</h2> <p>发送几条测试消息后，可用命令行确认分区与堆积情况：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> demo-kafka /opt/kafka/bin/kafka-console-consumer.sh <span class="token punctuation">\</span>
+  --bootstrap-server localhost:9092 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--topic</span> order-created --from-beginning <span class="token punctuation">\</span>
+  <span class="token parameter variable">--property</span> <span class="token assign-left variable">print.key</span><span class="token operator">=</span>true <span class="token parameter variable">--property</span> <span class="token assign-left variable">print.partition</span><span class="token operator">=</span>true
+
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> demo-kafka /opt/kafka/bin/kafka-consumer-groups.sh <span class="token punctuation">\</span>
+  --bootstrap-server localhost:9092 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--describe</span> <span class="token parameter variable">--group</span> points-service
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>重点观察 <code>CURRENT-OFFSET</code> 与 <code>LOG-END-OFFSET</code> 的差值。持续增长说明消费能力不足或消费线程被阻塞；差值不变但业务无数据，则要检查反序列化异常与死信主题。</p> <h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>Kafka 的可靠性不是靠某一个配置项完成的，而是生产者确认、分区键、消费者幂等、重试与死信共同组成。先把“重复可接受、失败可发现、积压可观测”三件事做扎实，再考虑事务消息与多集群容灾，落地会稳得多。</p></div></section> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/NiceAshin/my_blog/edit/main/ground/kafka/spring-boot-kafka-practice.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">10/23/2026, 10:09:10 AM</span></div></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/ground/kafka/spring-boot-kafka-practice.html#场景与目标" class="sidebar-link reco-side-场景与目标" data-v-b57cc07c>场景与目标</a></li><li class="level-2" data-v-b57cc07c><a href="/ground/kafka/spring-boot-kafka-practice.html#本地启动-kafka" class="sidebar-link reco-side-本地启动-kafka" data-v-b57cc07c>本地启动 Kafka</a></li><li class="level-2" data-v-b57cc07c><a href="/ground/kafka/spring-boot-kafka-practice.html#依赖与基础配置" class="sidebar-link reco-side-依赖与基础配置" data-v-b57cc07c>依赖与基础配置</a></li><li class="level-2" data-v-b57cc07c><a href="/ground/kafka/spring-boot-kafka-practice.html#生产者-确认、分区键与异常处理" class="sidebar-link reco-side-生产者-确认、分区键与异常处理" data-v-b57cc07c>生产者：确认、分区键与异常处理</a></li><li class="level-2" data-v-b57cc07c><a href="/ground/kafka/spring-boot-kafka-practice.html#消费者-幂等与失败收敛" class="sidebar-link reco-side-消费者-幂等与失败收敛" data-v-b57cc07c>消费者：幂等与失败收敛</a></li><li class="level-2" data-v-b57cc07c><a href="/ground/kafka/spring-boot-kafka-practice.html#顺序与并发的取舍" class="sidebar-link reco-side-顺序与并发的取舍" data-v-b57cc07c>顺序与并发的取舍</a></li><li class="level-2" data-v-b57cc07c><a href="/ground/kafka/spring-boot-kafka-practice.html#验证与排查" class="sidebar-link reco-side-验证与排查" data-v-b57cc07c>验证与排查</a></li><li class="level-2" data-v-b57cc07c><a href="/ground/kafka/spring-boot-kafka-practice.html#小结" class="sidebar-link reco-side-小结" data-v-b57cc07c>小结</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div></div><div id="goTop" class="hide-cat" data-v-bf92849a></div></div></div>
+    <script src="/assets/js/app.56f449de.js" defer></script><script src="/assets/js/3.7de6164c.js" defer></script><script src="/assets/js/1.2b645eb5.js" defer></script><script src="/assets/js/82.b1ecb278.js" defer></script>
+  </body>
+</html>
