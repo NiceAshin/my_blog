@@ -20,7 +20,6 @@
     "vuepress": "1.8.2",
     "vuepress-plugin-code-copy": "^1.0.6",
     "vuepress-plugin-dynamic-title": "^1.0.0",
-    "vuepress-plugin-go-top": "^1.0.4",
     "vuepress-theme-reco": "^1.6.10"
   },
   "description": "黑夜中前行，仍照亮前路!"
